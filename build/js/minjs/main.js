@@ -1,0 +1,1 @@
+"use strict";var fack=3,fuck="yeee",lelali=2;
