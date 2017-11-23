@@ -1,5 +1,6 @@
 # go-theses-18-daniel-hernandez
 
+```
                                      _
                                 _.-~~.)
           _.--~~~~~---....__  .' . .,'
@@ -17,10 +18,12 @@
                . __ ..                   ~-               ~~_. (  `
  )`. _ _               `-       ..  - .    . - ~ ~ .    \    ~-` ` `  `. _
        _     _                                      - .  `  .   \  \ `.
+```
 
-
-Setup:
+#Setup:
 
 Clone
+
 npm install
+
 gulp / guilp build
