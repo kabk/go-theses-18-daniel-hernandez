@@ -1,7 +1,10 @@
 "use strict";
 
-setSectWidth();
-customize();
+$(document).ready(function () {
+	setSectWidth();
+	// customize();
+	dispImg();
+});
 
 function setSectWidth() {
 	function wordsPerLine() {
@@ -29,11 +32,10 @@ function setSectWidth() {
 		var targetWords = 10;
 		var wpl = wordsPerLine();
 		var sectW = 100 * targetWords / wpl;
-		console.log(sectW);
 		if (sectW < 100) {
-			$("section").css("width", sectW + "vw");
+			$("#textWrap").css("width", sectW + "vw");
 		} else {
-			$("section").css("width", "100vw");
+			$("#textWrap").css("width", "100vw");
 		}
 	}
 
@@ -63,4 +65,28 @@ function customize() {
 		b = this.value;
 		$("body").css("background-color", "rgb(" + r + "," + g + "," + b + ")");
 	};
+}
+
+function dispImg() {
+	var yMiddle = $(window).height() / 2;
+	var imageY = [];
+
+	$("#images img").each(function (i) {
+		$(this).addClass("image" + i);
+		// imageY.push($(this).scrollTop();
+		// console.log(imageY[i]);
+	});
+
+	$(document).scroll(function () {
+		var scrollTop = $(document).scrollTop();
+		$(".link").each(function (i) {
+			var y = $(this).offset().top - scrollTop;
+			if (y <= yMiddle && y >= yMiddle - 10) {
+				$('#images').animate({
+					scrollTop: $(".image" + i).offset().top - scrollTop + 18
+				}, 800);
+				console.log($(".image" + i).offset().top - scrollTop);
+			}
+		});
+	});
 }
