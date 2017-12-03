@@ -1,58 +1,19 @@
 * {
-  box-sizing: border-box; }
+  transition: .2s; }
 
 body {
-  margin: 0;
-  font-family: sans-serif;
-  font-size: 12	pt;
-  color: black;
-  background-color: #efefef; }
+  float: left;
+  margin: 0; }
 
-section {
-  padding: 18px;
-  padding-bottom: 40px; }
+*, div {
+  box-sizing: border-box; }
 
 h3 {
-  margin: 0;
-  margin-bottom: 18px; }
+  margin: 0; }
 
-p {
-  text-indent: 18px;
-  margin: 0;
-  /*font-size: 25pt;*/ }
+header span {
+  float: right; }
 
-p:nth-child(2) {
-  text-indent: 0; }
-
-#controls {
-  position: fixed;
-  width: 200px;
-  height: 200px;
-  right: 0;
-  top: 0;
-  border: 1px dashed black; }
-
-#images {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 50vw;
-  height: 100vh;
-  padding: 18px;
-  border-left: 1px solid black;
-  overflow: scroll;
-  pointer-events: none; }
-  #images img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 18px; }
-
-.link {
-  filter: blur(1px);
-  color: blue; }
-
-#measureTxt {
-  /*width: 100vw;*/
-  border-left: 1px solid black;
-  white-space: nowrap;
-  overflow: hidden; }
+.checkCross {
+  font-size: 18pt;
+  margin-top: -5px; }
