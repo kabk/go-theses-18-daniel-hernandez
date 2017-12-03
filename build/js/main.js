@@ -1,6 +1,9 @@
 "use strict";
 
 var fonts = ["sans-serif", "serif", "monospace"];
+var weights = ["normal", "bold", "bolder", "lighter"];
+var tTransforms = ["none", "capitalize", "uppercase", "lowercase"];
+var tDecorations = ["none", "underline", "none", "none", "none"];
 
 function rand(min, max) {
 	return Math.floor(Math.random() * (max - min + 1) + min);
@@ -27,13 +30,16 @@ var design = function design() {
 		console.log("2,1");
 	}
 
-	activateProperty("body", "background-color", "rgba(" + rand(0, 255) + "," + rand(0, 255) + "," + rand(0, 255) + "," + rand(0, 255) + ")");
-	activateProperty("body", "color", "rgba(" + rand(0, 255) + "," + rand(0, 255) + "," + rand(0, 255) + "," + rand(0, 255) + ")");
+	// activateProperty("body", "background-color", `rgba(${rand(0,255)},${rand(0,255)},${rand(0,255)},${rand(0,255)})`);
+	activateProperty("body, a", "color", "rgba(" + rand(0, 255) + "," + rand(0, 255) + "," + rand(0, 255) + "," + rand(0, 255) + ")");
 	activateProperty("body", "font-family", fonts[rand(0, fonts.length)]);
 	activateProperty("h3", "font-family", fonts[rand(0, fonts.length)]);
-	activateProperty("p", "font-size", rand(8, 16) + "pt");
-	activateProperty("h3", "font-size", rand(8, 24) + "pt");
-	activateProperty("section, header", "padding", rand(0, 24) + "px");
+	activateProperty("p", "font-size", rand(8, 18) + "pt");
+	activateProperty("h3", "font-size", rand(8, 40) + "pt");
+	activateProperty("h3", "font-weight", weights[rand(0, weights.length)]);
+	activateProperty("h3", "text-transform", tTransforms[rand(0, tTransforms.length)]);
+	activateProperty("h3", "text-decoration", tDecorations[rand(0, tDecorations.length)]);
+	activateProperty("section, header, #images", "padding", rand(0, 24) + "px");
 };
 
 var time = 0;
