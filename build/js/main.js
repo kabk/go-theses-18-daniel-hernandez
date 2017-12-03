@@ -26,8 +26,6 @@ var design = function design() {
 		$("#images").css("float", "left");
 	}
 
-	activateProperty("#mainWrap", "height", "$0-255derHeight}vh");
-
 	activateProperty("body", "background-color", "rgba(" + rand(0, 255) + "," + rand(0, 255) + "," + rand(0, 255) + "," + rand(0, 255) + ")");
 
 	activateProperty("body", "color", "rgba(" + rand(0, 255) + "," + rand(0, 255) + "," + rand(0, 255) + "," + rand(0, 255) + ")");
