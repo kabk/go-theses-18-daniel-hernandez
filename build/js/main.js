@@ -1,6 +1,6 @@
 "use strict";
 
-var fonts = ["sans-serif", "serif", "monospace"];
+var fonts = ["sans-serif", "serif", "monospace", "Akkurat", "Akkurat-Mono", "Eczar-Regular", "FortescuePro-Regular"];
 var weights = ["normal", "bold", "bolder", "lighter"];
 var tTransforms = ["none", "capitalize", "uppercase", "lowercase"];
 var tDecorations = ["none", "underline", "none", "none", "none"];
