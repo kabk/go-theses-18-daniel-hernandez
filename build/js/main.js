@@ -51,7 +51,7 @@ var randomColor = function randomColor() {
 };
 
 var activateProperty = function activateProperty(target, property, setting) {
-	if (rand(0, 10) === 1) {
+	if (rand(0, 1) === 1) {
 		$(target).css(property, setting);
 	}
 };
@@ -62,13 +62,14 @@ var design = function design() {
 
 	tempCount++;
 	$("#textWrap").css("width", colWidth + "%");
-	$("#images").css("width", 100 - colWidth + "%");
+	$("section img").css("max-width", 100 - colWidth + "%");
+
 	if (rand(0, 1) === 1) {
 		$("#textWrap").css("float", "left");
-		$("#images").css("float", "right");
+		$("section img").css("left", "auto").css("right", "0");
 	} else {
 		$("#textWrap").css("float", "right");
-		$("#images").css("float", "left");
+		$("section img").css("right", "auto").css("left", "0");
 	}
 
 	randomColor();
@@ -80,7 +81,7 @@ var design = function design() {
 	activateProperty("h3", "font-weight", weights[rand(0, weights.length)]);
 	activateProperty("h3, header", "text-transform", tTransforms[rand(0, tTransforms.length)]);
 	activateProperty("h3", "text-decoration", tDecorations[rand(0, tDecorations.length)]);
-	activateProperty("section, header, #images", "padding", rand(0, 24) + "px");
+	activateProperty("section, header, section img", "padding", rand(0, 24) + "px");
 	// activateProperty("header", "box-shadow", `${rand(0,0)}px ${rand(0,6)}px ${rand(2,10)}px`);
 	activateProperty("section, header", "box-shadow", "0px " + rand(0, 6) + "px " + rand(0, 10) + "px rgba(" + c2[0] + "," + c2[1] + "," + c2[2] + "," + Math.random() + ")"); //fix
 	activateProperty("section, header", "border-radius", rand(-10, 15) + "px");
