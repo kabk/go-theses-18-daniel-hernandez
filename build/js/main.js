@@ -51,7 +51,7 @@ var randomColor = function randomColor() {
 };
 
 var activateProperty = function activateProperty(target, property, setting) {
-	if (rand(0, 1) === 1) {
+	if (rand(0, 10) === 1) {
 		$(target).css(property, setting);
 	}
 };
@@ -83,15 +83,22 @@ var design = function design() {
 	activateProperty("section, header, #images", "padding", rand(0, 24) + "px");
 	// activateProperty("header", "box-shadow", `${rand(0,0)}px ${rand(0,6)}px ${rand(2,10)}px`);
 	activateProperty("section, header", "box-shadow", "0px " + rand(0, 6) + "px " + rand(0, 10) + "px rgba(" + c2[0] + "," + c2[1] + "," + c2[2] + "," + Math.random() + ")"); //fix
-	activateProperty("section, header", "border-radius", rand(0, 15) + "px");
+	activateProperty("section, header", "border-radius", rand(-10, 15) + "px");
 	// activateProperty("p", "text-align", paragraphAligns[rand(0,paragraphAligns.length)]);
 	activateProperty("h3", "text-align", tAligns[rand(0, tAligns.length)]);
 	// console.log(c1);
+
 	activateProperty("section", "column-count", "" + rand(-3, 2));
-	activateProperty("canvas", "filter", "blur(" + rand(9, 100) + "px)");
+
+	// activateProperty("header", "transform", `rotate(${temp[rand(0,temp.length)]}deg)`)
+	// activateProperty("canvas", "filter", `blur(${rand(9,100)}px) contrast(${rand(0,400)}%)`);
+	// activateProperty("*", "filter", `grayscale(${rand(0,100)}%) `);
+	// $("body").css("filter", "grayscale(100%)");
+	// activateProperty("*", "filter", `hue-rotate(${rand(0,180)}deg)`);
+
 
 	$("#designCounter").text(tempCount);
-	draw();
+	// draw();
 };
 
 // let time = 0;
@@ -136,8 +143,7 @@ function Vertex() {
 
 	this.display = function () {
 		// ctx.fillStyle = `rgb(${rand(0,255)},${rand(0,255)},${rand(0,255)})`;
-		ctx.fillStyle = "rgb(" + rand(0, 255) + "," + rand(0, 255) + "," + rand(0, 255) + ")";
-		// ctx.fillStyle = `white`;
+		ctx.fillStyle = "white";
 
 		ctx.lineTo(this.x, this.y);
 		// ctx.fillRect(this.x,this.y,7,7);
@@ -156,8 +162,8 @@ for (var i = 0; i < rand(0, 18); i++) {
 }
 
 var draw = function draw() {
-	ctx.fillStyle = "rgb(" + rand(0, 255) + "," + rand(0, 255) + "," + rand(0, 255) + ")";
-	// ctx.fillStyle = "blue";
+	// ctx.fillStyle = `rgb(${rand(0,255)},${rand(0,255)},${rand(0,255)})`;
+	ctx.fillStyle = "blue";
 	ctx.fillRect(0, 0, ww, wh);
 
 	ctx.beginPath();
@@ -170,11 +176,11 @@ var draw = function draw() {
 };
 
 $(window).scroll(function () {
-	draw();
+	// draw();
 });
 
 // setInterval(function(){
-// // 	draw();
+// 	// draw();
 // // 	// console.log("asd");
-// 	design();
-// },900);
+// 	// design();
+// },90);
