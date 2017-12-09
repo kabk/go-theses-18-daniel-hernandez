@@ -68,6 +68,8 @@ var design = function design() {
 		$("#images").css("float", "left");
 	}
 
+	randomColor();
+
 	activateProperty("body", "font-family", fonts[rand(0, fonts.length)]);
 	activateProperty("h3", "font-family", fonts[rand(0, fonts.length)]);
 	activateProperty("p", "font-size", rand(10, 18) + "pt");
@@ -76,15 +78,13 @@ var design = function design() {
 	activateProperty("h3, header", "text-transform", tTransforms[rand(0, tTransforms.length)]);
 	activateProperty("h3", "text-decoration", tDecorations[rand(0, tDecorations.length)]);
 	activateProperty("section, header, #images", "padding", rand(0, 24) + "px");
-	activateProperty("header", "box-shadow", rand(0, 0) + "px " + rand(0, 6) + "px " + rand(2, 10) + "px");
-	activateProperty("section", "box-shadow", rand(0, 0) + "px " + rand(0, 6) + "px " + rand(2, 10) + "px");
+	// activateProperty("header", "box-shadow", `${rand(0,0)}px ${rand(0,6)}px ${rand(2,10)}px`);
+	activateProperty("section, header", "box-shadow", "0px " + rand(0, 6) + "px " + rand(2, 10) + "px rgba(" + c2[0] + "," + c2[1] + "," + c2[2] + "," + Math.random() + ")"); //fix
 	activateProperty("section, header", "border-radius", rand(0, 15) + "px");
 	// activateProperty("p", "text-align", paragraphAligns[rand(0,paragraphAligns.length)]);
 	activateProperty("h3", "text-align", tAligns[rand(0, tAligns.length)]);
-
-	// activateProperty("section", "column-count", `${rand(0,2)}`);
-
-	randomColor();
+	console.log(c1);
+	activateProperty("section", "column-count", "" + rand(-3, 3));
 };
 
 var time = 0;
