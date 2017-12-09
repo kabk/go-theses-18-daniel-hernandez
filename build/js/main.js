@@ -10,6 +10,8 @@ var paragraphAligns = ["left", "left", "left", "justify"];
 var c1 = []; //bg
 var c2 = []; //fg
 
+var tempCount = 0;
+
 // let DNA = [
 // 	0,
 // 	0,
@@ -43,7 +45,7 @@ var randomColor = function randomColor() {
 	if (colorDiff(c1, c2) >= 140) {
 		applyColor();
 	} else {
-		console.log(colorDiff(c1, c2), "another color");
+		// console.log(colorDiff(c1,c2),"another color",);
 		randomColor();
 	}
 };
@@ -58,6 +60,7 @@ var design = function design() {
 
 	var colWidth = rand(30, 70);
 
+	tempCount++;
 	$("#textWrap").css("width", colWidth + "%");
 	$("#images").css("width", 100 - colWidth + "%");
 	if (rand(0, 1) === 1) {
@@ -79,12 +82,16 @@ var design = function design() {
 	activateProperty("h3", "text-decoration", tDecorations[rand(0, tDecorations.length)]);
 	activateProperty("section, header, #images", "padding", rand(0, 24) + "px");
 	// activateProperty("header", "box-shadow", `${rand(0,0)}px ${rand(0,6)}px ${rand(2,10)}px`);
-	activateProperty("section, header", "box-shadow", "0px " + rand(0, 6) + "px " + rand(2, 10) + "px rgba(" + c2[0] + "," + c2[1] + "," + c2[2] + "," + Math.random() + ")"); //fix
+	activateProperty("section, header", "box-shadow", "0px " + rand(0, 6) + "px " + rand(0, 10) + "px rgba(" + c2[0] + "," + c2[1] + "," + c2[2] + "," + Math.random() + ")"); //fix
 	activateProperty("section, header", "border-radius", rand(0, 15) + "px");
 	// activateProperty("p", "text-align", paragraphAligns[rand(0,paragraphAligns.length)]);
 	activateProperty("h3", "text-align", tAligns[rand(0, tAligns.length)]);
-	console.log(c1);
-	activateProperty("section", "column-count", "" + rand(-3, 3));
+	// console.log(c1);
+	activateProperty("section", "column-count", "" + rand(-3, 2));
+	activateProperty("canvas", "filter", "blur(" + rand(9, 100) + "px)");
+
+	$("#designCounter").text(tempCount);
+	draw();
 };
 
 // let time = 0;
@@ -107,3 +114,67 @@ setTimeout(function () {
 $("#redesign").click(function () {
 	design();
 });
+
+///////////////////////canvas test
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+
+var ww = window.innerWidth;
+var wh = window.innerHeight;
+
+ctx.canvas.width = ww;
+ctx.canvas.height = wh;
+
+function Vertex() {
+	this.x = rand(0, ww);
+	this.y = rand(0, wh);
+
+	this.run = function () {
+		this.display();
+		this.update();
+	};
+
+	this.display = function () {
+		// ctx.fillStyle = `rgb(${rand(0,255)},${rand(0,255)},${rand(0,255)})`;
+		ctx.fillStyle = "rgb(" + rand(0, 255) + "," + rand(0, 255) + "," + rand(0, 255) + ")";
+		// ctx.fillStyle = `white`;
+
+		ctx.lineTo(this.x, this.y);
+		// ctx.fillRect(this.x,this.y,7,7);
+	};
+
+	this.update = function () {
+		this.x += rand(-30, 30);
+		this.y += rand(-30, 30);
+	};
+}
+
+var vertexes = [];
+
+for (var i = 0; i < rand(0, 18); i++) {
+	vertexes.push(new Vertex());
+}
+
+var draw = function draw() {
+	ctx.fillStyle = "rgb(" + rand(0, 255) + "," + rand(0, 255) + "," + rand(0, 255) + ")";
+	// ctx.fillStyle = "blue";
+	ctx.fillRect(0, 0, ww, wh);
+
+	ctx.beginPath();
+	ctx.moveTo(ww / 2, wh / 2);
+
+	for (var i = 0; i < vertexes.length; i++) {
+		vertexes[i].run();
+	}
+	ctx.fill();
+};
+
+$(window).scroll(function () {
+	draw();
+});
+
+// setInterval(function(){
+// // 	draw();
+// // 	// console.log("asd");
+// 	design();
+// },900);

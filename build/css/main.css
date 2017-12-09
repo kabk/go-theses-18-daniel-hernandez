@@ -15,7 +15,7 @@
   src: url(../../fonts/FortescuePro-Regular.otf); }
 
 * {
-  transition: 2s; }
+  transition: 1s; }
 
 body {
   float: left;
@@ -29,6 +29,10 @@ h3 {
 
 header #genInfo {
   float: right; }
+
+canvas {
+  z-index: -1;
+  position: fixed; }
 
 p {
   text-justify: kashida; }
