@@ -87,14 +87,22 @@ var design = function design() {
 	activateProperty("section", "column-count", "" + rand(-3, 3));
 };
 
-var time = 0;
-setInterval(function () {
-	time++;
+// let time = 0;
+// setInterval(function(){
+// 	time++;
 
-	if (time < 3) {
-		design();
-	}
-}, 400);
+// 	if (time < 10) {
+// 		design();
+// 	}
+// },100);
+
+setTimeout(function () {
+	design();
+	// $("*").css("transition", ".3s");
+}, 500);
+setTimeout(function () {
+	$("*").css("transition", ".3s");
+}, 1000);
 
 $("#redesign").click(function () {
 	design();
