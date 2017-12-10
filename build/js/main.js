@@ -24,6 +24,10 @@ function rand(min, max) {
 	return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+function randFl(min, max) {
+	return (Math.random() * (max - min) + min).toFixed(4);
+}
+
 var colorDiff = function colorDiff(v1, v2) {
 	var i = void 0,
 	    d = 0;
@@ -76,8 +80,8 @@ var design = function design() {
 
 	activateProperty("body", "font-family", fonts[rand(0, fonts.length)], 1);
 	activateProperty("h3", "font-family", fonts[rand(0, fonts.length)], 1);
-	activateProperty("p", "font-size", rand(10, 18) + "pt", 1);
-	activateProperty("h3", "font-size", rand(12, 40) + "pt", 1);
+	activateProperty("p", "font-size", randFl(0.9, 1.8) + "rem", 1);
+	activateProperty("h3", "font-size", randFl(1.2, 4.8) + "rem", 1);
 	activateProperty("h3", "font-weight", weights[rand(0, weights.length)], 1);
 	activateProperty("h3, header", "text-transform", tTransforms[rand(0, tTransforms.length)], 1);
 	activateProperty("h3", "text-decoration", tDecorations[rand(0, tDecorations.length)], 1);
