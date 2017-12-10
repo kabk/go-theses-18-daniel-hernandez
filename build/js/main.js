@@ -122,7 +122,7 @@ setTimeout(function () {
 }, 1000);
 
 $("#redesign").click(function () {
-	// design();
+	design();
 });
 
 ///////////////////////canvas test

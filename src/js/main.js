@@ -122,7 +122,7 @@ setTimeout(function(){
 
 
 $("#redesign").click(function(){
-	// design();
+	design();
 });
 
 
