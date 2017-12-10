@@ -1,4 +1,4 @@
-const fonts = ["fantasy", "sans-serif","serif","monospace", "Akkurat", "Akkurat-Mono", "Eczar-Regular", "FortescuePro-Regular"];
+const fonts = ["fantasy", "sans-serif","serif","monospace", "Akkurat", "Akkurat-Mono", "Eczar-Regular", "FortescuePro-Regular", "HelveticaNeue-BoldExt"];
 const weights = ["normal", "bold", "bolder", "lighter"];
 const tTransforms = ["none","capitalize","uppercase","lowercase"];
 const tDecorations = ["none","underline","none","none","none"];
