@@ -53,11 +53,16 @@ canvas {
   position: absolute;
   padding-top: 0 !important; }
 
+#bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  z-index: -5; }
+
 .imgLink, .refLink {
   text-decoration: underline;
   cursor: pointer; }
 
 .shiny {
-  background-color: black;
-  color: white !important;
-  font-family: fantasy; }
+  background-color: black; }

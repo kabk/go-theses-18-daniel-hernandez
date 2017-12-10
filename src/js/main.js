@@ -1,4 +1,4 @@
-const fonts = ["fantasy", "sans-serif","serif","monospace", "Akkurat", "Akkurat-Mono", "Eczar-Regular", "FortescuePro-Regular", "HelveticaNeue-BoldExt"];
+const fonts = ["sans-serif","serif","monospace", "Akkurat", "Akkurat-Mono", "Eczar-Regular", "FortescuePro-Regular", "HelveticaNeue-BoldExt"];
 const weights = ["normal", "bold", "bolder", "lighter"];
 const tTransforms = ["none","capitalize","uppercase","lowercase"];
 const tDecorations = ["none","underline","none","none","none"];
@@ -33,7 +33,7 @@ const colorDiff = (v1,v2) => {
 }
 
 const applyColor = () => {
-	$("body").css("background-color", `rgb(${c1[0]},${c1[1]},${c1[2]})`);
+	$("#bg").css("background-color", `rgb(${c1[0]},${c1[1]},${c1[2]})`);
 	$("body, a").css("color", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
 }
 
@@ -94,10 +94,13 @@ const design = () => {
 
 	// activateProperty("header", "transform", `rotate(${temp[rand(0,temp.length)]}deg)`)
 	activateProperty("canvas", "filter", `blur(${rand(0,100)}px)`, 1);
-	// activateProperty("*", "filter", `grayscale(${rand(0,100)}%) `, 1);
-	// $("body").css("filter", "grayscale(100%)", 1);
-	// activateProperty("*", "filter", `hue-rotate(${rand(0,180)}deg)`, 1);
+	activateProperty("#bg", "filter", `grayscale(${rand(-50,100)}%) `, 3);
+	activateProperty("#textWrap, header", "filter", `grayscale(${rand(-50,100)}%) `, 3);
+	// $(".linkedImg").css("filter", "grayscale(0%) !important");
 
+
+	// $("#textWrap").css("filter", "grayscale(100%)");
+	// activateProperty("*", "filter", `hue-rotate(${rand(0,180)}deg)`, 1);
 
 	$("#designCounter").text(tempCount);
 	// draw();
