@@ -49,8 +49,8 @@ const randomColor = () => {
 	}
 }
 
-const activateProperty = (target, property, setting) => {
-	if (rand(0,1) === 1) {
+const activateProperty = (target, property, setting, probability) => {
+	if (rand(0,probability) === 1) {
 		$(target).css(property, setting);
 	}
 }
@@ -73,30 +73,30 @@ const design = () => {
 
 	randomColor();
 
-	activateProperty("body", "font-family", fonts[rand(0,fonts.length)]);
-	activateProperty("h3", "font-family", fonts[rand(0,fonts.length)]);
-	activateProperty("p", "font-size", rand(10,18)+"pt");
-	activateProperty("h3", "font-size", rand(12,40)+"pt");
-	activateProperty("h3", "font-weight", weights[rand(0,weights.length)]);
-	activateProperty("h3, header", "text-transform", tTransforms[rand(0,tTransforms.length)]);
-	activateProperty("h3", "text-decoration", tDecorations[rand(0,tDecorations.length)]);
-	activateProperty("section, header, .linkedImg, .linkedRef", "padding", rand(0,24)+"px");
-	// activateProperty("header", "box-shadow", `${rand(0,0)}px ${rand(0,6)}px ${rand(2,10)}px`);
-	activateProperty("section, header", "box-shadow", `0px ${rand(0,6)}px ${rand(0,10)}px rgba(${c2[0]},${c2[1]},${c2[2]},${Math.random()})`); //fix
-	activateProperty("section, header", "border-radius", `${rand(-10,15)}px`);
-	// activateProperty("p", "text-align", paragraphAligns[rand(0,paragraphAligns.length)]);
-	activateProperty("h3", "text-align", tAligns[rand(0,tAligns.length)]);
-	// console.log(c1);
+	activateProperty("body", "font-family", fonts[rand(0,fonts.length)], 1);
+	activateProperty("h3", "font-family", fonts[rand(0,fonts.length)], 1);
+	activateProperty("p", "font-size", rand(10,18)+"pt", 1);
+	activateProperty("h3", "font-size", rand(12,40)+"pt", 1);
+	activateProperty("h3", "font-weight", weights[rand(0,weights.length)], 1);
+	activateProperty("h3, header", "text-transform", tTransforms[rand(0,tTransforms.length)], 1);
+	activateProperty("h3", "text-decoration", tDecorations[rand(0,tDecorations.length)], 1);
+	activateProperty("section, header, .linkedImg, .linkedRef", "padding", rand(0,24)+"px", 1);
+	// activateProperty("header", "box-shadow", `${rand(0,0)}px ${rand(0,6)}px ${rand(2,10)}px`, 1);
+	activateProperty("section, header", "box-shadow", `0px ${rand(0,6)}px ${rand(0,10)}px rgba(${c2[0]},${c2[1]},${c2[2]},${Math.random()})`, 3); //fix
+	activateProperty("section, header", "border-radius", `${rand(-10,15)}px`, 1);
+	// activateProperty("p", "text-align", paragraphAligns[rand(0,paragraphAligns.length)], 1);
+	activateProperty("h3", "text-align", tAligns[rand(0,tAligns.length)], 1);
+	// console.log(c1, 1);
 
-	activateProperty("section", "column-count", `${rand(-3,2)}`);
+	activateProperty("section", "column-count", `${rand(-3,2)}`, 10);
 
-	// activateProperty(".linkedImg", "max-height", `${rand(50,60)}vh`);
+	// activateProperty(".linkedImg", "max-height", `${rand(50,60)}vh`, 1);
 
 	// activateProperty("header", "transform", `rotate(${temp[rand(0,temp.length)]}deg)`)
-	// activateProperty("canvas", "filter", `blur(${rand(9,100)}px) contrast(${rand(0,400)}%)`);
-	// activateProperty("*", "filter", `grayscale(${rand(0,100)}%) `);
-	// $("body").css("filter", "grayscale(100%)");
-	// activateProperty("*", "filter", `hue-rotate(${rand(0,180)}deg)`);
+	activateProperty("canvas", "filter", `blur(${rand(0,100)}px)`, 1);
+	// activateProperty("*", "filter", `grayscale(${rand(0,100)}%) `, 1);
+	// $("body").css("filter", "grayscale(100%)", 1);
+	// activateProperty("*", "filter", `hue-rotate(${rand(0,180)}deg)`, 1);
 
 
 	$("#designCounter").text(tempCount);
@@ -186,7 +186,7 @@ const draw = () => {
 
 
 $( window ).scroll(function() {
-	// draw();
+	draw();
 });
 
 //this might be very inefficient
