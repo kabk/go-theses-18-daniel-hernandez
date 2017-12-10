@@ -88,7 +88,7 @@ var design = function design() {
 	activateProperty("section, header, .linkedImg, .linkedRef", "padding", rand(0, 24) + "px", 1);
 	// activateProperty("header", "box-shadow", `${rand(0,0)}px ${rand(0,6)}px ${rand(2,10)}px`, 1);
 	activateProperty("section, header", "box-shadow", "0px " + rand(0, 6) + "px " + rand(0, 10) + "px rgba(" + c2[0] + "," + c2[1] + "," + c2[2] + "," + Math.random() + ")", 3); //fix
-	activateProperty("section, header", "border-radius", rand(-10, 15) + "px", 1);
+	activateProperty("section, header", "border-radius", rand(-10, 15) + "px", 3);
 	// activateProperty("p", "text-align", paragraphAligns[rand(0,paragraphAligns.length)], 1);
 	activateProperty("h3", "text-align", tAligns[rand(0, tAligns.length)], 1);
 	// console.log(c1, 1);
@@ -103,6 +103,59 @@ var design = function design() {
 	activateProperty("#textWrap, header", "filter", "grayscale(" + rand(-50, 100) + "%) ", 3);
 	// $(".linkedImg").css("filter", "grayscale(0%) !important");
 
+
+	//BORDER
+	if (rand(0, 7) === 1) {
+		var color;
+		var randNum = rand(0, 4);
+		var randThickness = rand(0, 4);
+		if (randNum === 0) {
+			color = "black";
+		} else if (randNum === 1) {
+			color = "white";
+		} else {
+			color = "rgb(" + c2[0] + "," + c2[1] + "," + c2[2] + ")";
+		}
+		console.log(color);
+		$("header").css("border-bottom", randThickness + "px solid " + color);
+		$("#textWrap").css("border-right", randThickness + "px solid " + color);
+		$("#textWrap").css("border-left", randThickness + "px solid " + color);
+		$("section").css("border-bottom", randThickness + "px solid " + color);
+	}
+
+	//section bgs
+	// let $sections = $("section");
+
+	var alternateColor = function alternateColor() {
+		if (rand(0, 1) === 1) {
+			$("header").css("background-color", "rgb(" + c1[0] + "," + c1[1] + "," + c1[2] + ")");
+			$("header").css("color", "rgb(" + c2[0] + "," + c2[1] + "," + c2[2] + ")");
+		} else {
+			$("header").css("background-color", "rgb(" + c2[0] + "," + c2[1] + "," + c2[2] + ")");
+			$("header").css("color", "rgb(" + c1[0] + "," + c1[1] + "," + c1[2] + ")");
+		}
+
+		$("section").each(function (i) {
+			if (i % 2 === 0) {
+				$(this).css("background-color", "rgb(" + c1[0] + "," + c1[1] + "," + c1[2] + ")");
+				$(this).css("color", "rgb(" + c2[0] + "," + c2[1] + "," + c2[2] + ")");
+			} else {
+				$(this).css("background-color", "rgb(" + c2[0] + "," + c2[1] + "," + c2[2] + ")");
+				$(this).css("color", "rgb(" + c1[0] + "," + c1[1] + "," + c1[2] + ")");
+			}
+		});
+	};
+
+	var colorProb = rand(0, 6);
+	if (colorProb === 0) {
+		alternateColor();
+	} else if (colorProb === 1) {
+		$("section").css("background-color", "transparent");
+		$("section").css("color", "rgb(" + c2[0] + "," + c2[1] + "," + c2[2] + ")");
+	} else {
+		$("section, header").css("background-color", "transparent");
+		$("section, header").css("color", "rgb(" + c2[0] + "," + c2[1] + "," + c2[2] + ")");
+	}
 
 	// $("#textWrap").css("filter", "grayscale(100%)");
 	// activateProperty("*", "filter", `hue-rotate(${rand(0,180)}deg)`, 1);
