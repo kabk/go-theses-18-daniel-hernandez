@@ -168,8 +168,9 @@ const design = () => {
 	}
 
 
-	// $("#textWrap").css("filter", "grayscale(100%)");
-	// activateProperty("*", "filter", `hue-rotate(${rand(0,180)}deg)`, 1);
+	// let headerH = $("header").outerHeight();
+	// console.log(headerH);
+	// $("#mainWrap").css("margin-top", `${headerH}px`);
 
 	$("#designCounter").text(tempCount);
 	// draw();
@@ -257,11 +258,6 @@ const draw = () => {
 
 }
 
-
-$( window ).scroll(function() {
-	// draw();
-});
-
 //this might be very inefficient
 const hoverRefOrImg = (hovered, highlight) => {
 	$(hovered).each(function(i){
@@ -281,4 +277,3 @@ hoverRefOrImg(".refLink", ".linkedRef");
 hoverRefOrImg(".linkedRef", ".refLink");
 hoverRefOrImg(".imgLink", ".linkedImg");
 hoverRefOrImg(".linkedImg img", ".imgLink");
-

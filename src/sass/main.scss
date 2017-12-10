@@ -45,6 +45,10 @@ h3{
 }
 
 header{
+	// position: fixed;
+	// width: 100%;
+	// z-index: 10;
+
 	#genInfo {
 		float: right;
 	}
@@ -54,6 +58,10 @@ canvas{
 	// border: 3px dashed white;
 	z-index: -1;
 	position: fixed;
+}
+
+#mainWrap{
+	// border-top: 4px dashed red;
 }
 
 .linkedImg{

@@ -167,8 +167,9 @@ var design = function design() {
 		$(".linkedImg").css("position", "absolute");
 	}
 
-	// $("#textWrap").css("filter", "grayscale(100%)");
-	// activateProperty("*", "filter", `hue-rotate(${rand(0,180)}deg)`, 1);
+	// let headerH = $("header").outerHeight();
+	// console.log(headerH);
+	// $("#mainWrap").css("margin-top", `${headerH}px`);
 
 	$("#designCounter").text(tempCount);
 	// draw();
@@ -248,10 +249,6 @@ var draw = function draw() {
 	}
 	ctx.fill();
 };
-
-$(window).scroll(function () {
-	// draw();
-});
 
 //this might be very inefficient
 var hoverRefOrImg = function hoverRefOrImg(hovered, highlight) {
