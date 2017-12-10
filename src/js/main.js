@@ -93,11 +93,17 @@ const design = () => {
 	// console.log(c1, 1);
 
 	activateProperty("section", "column-count", `${rand(-3,2)}`, 10);
+		activateProperty("section", "padding-bottom", `${rand(0,300)}px`, 1);
+
 
 	// activateProperty(".linkedImg", "max-height", `${rand(50,60)}vh`, 1);
 
 	// activateProperty("header", "transform", `rotate(${temp[rand(0,temp.length)]}deg)`)
-	activateProperty("canvas", "filter", `blur(${rand(0,100)}px)`, 1);
+	// activateProperty("canvas", "filter", `blur(${rand(0,100)}px)`, 1);
+	activateProperty("body", "background-color", `rgb(${rand(0,255)},${rand(0,255)},${rand(0,255)})`, 1);
+
+	activateProperty("#bg", "filter", `blur(${rand(0,130)}px)`, 4);
+
 	activateProperty("#bg", "filter", `grayscale(${rand(-50,100)}%) `, 3);
 	activateProperty("#textWrap, header", "filter", `grayscale(${rand(-50,100)}%) `, 3);
 	// $(".linkedImg").css("filter", "grayscale(0%) !important");
@@ -105,16 +111,16 @@ const design = () => {
 
 	//BORDER
 	if (rand(0,7)===1) {
-		var color;
+		var color = `rgb(${c2[0]},${c2[1]},${c2[2]})`;
 		var randNum = rand(0,4);
 		var randThickness = rand(0,4);
-		if (randNum===0) {
-			color = "black";
-		} else if (randNum===1) {
-			color = "white";
-		} else {
-			color = `rgb(${c2[0]},${c2[1]},${c2[2]})`;
-		}
+		// if (randNum===0) {
+		// 	color = "black";
+		// } else if (randNum===1) {
+		// 	color = "white";
+		// } else {
+		// 	color = `rgb(${c2[0]},${c2[1]},${c2[2]})`;
+		// }
 		console.log(color);
 		$("header").css("border-bottom", `${randThickness}px solid ${color}`);
 		$("#textWrap").css("border-right", `${randThickness}px solid ${color}`);
@@ -123,15 +129,13 @@ const design = () => {
 	}
 
 	//section bgs
-	// let $sections = $("section");
-
 	const alternateColor = () => {
 		if (rand(0,1)===1) {
 			$("header").css("background-color", `rgb(${c1[0]},${c1[1]},${c1[2]})`);
-			$("header").css("color", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
+			$("header, a").css("color", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
 		} else {
 			$("header").css("background-color", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
-			$("header").css("color", `rgb(${c1[0]},${c1[1]},${c1[2]})`);
+			$("header, a").css("color", `rgb(${c1[0]},${c1[1]},${c1[2]})`);
 		}
 
 		$("section").each(function(i){
@@ -150,10 +154,17 @@ const design = () => {
 		alternateColor();
 	} else if (colorProb === 1) {
 		$("section").css("background-color", `transparent`);
-		$("section").css("color", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
+		$("section").css("color, a", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
 	} else {
 		$("section, header").css("background-color", `transparent`);
-		$("section, header").css("color", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
+		$("section, header, a").css("color", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
+	}
+
+	//// Img position
+	if (rand(0,4)==1) {
+		$(".linkedImg").css("position","relative");
+	} else {
+		$(".linkedImg").css("position","absolute");
 	}
 
 
@@ -165,13 +176,14 @@ const design = () => {
 }
 
 // let time = 0;
-// setInterval(function(){
+setInterval(function(){
+	design();
 // 	time++;
 
 // 	if (time < 10) {
 // 		design();
 // 	}
-// },100);
+},2200);
 
 setTimeout(function(){
 	design();
@@ -230,8 +242,8 @@ for (var i = 0; i < rand(0,18); i++) {
 }
 
 const draw = () => {
-	// ctx.fillStyle = `rgb(${rand(0,255)},${rand(0,255)},${rand(0,255)})`;
-	ctx.fillStyle = "blue";
+	ctx.fillStyle = `rgb(${rand(0,255)},${rand(0,255)},${rand(0,255)})`;
+	// ctx.fillStyle = "blue";
 	ctx.fillRect(0,0,ww,wh);
 
     ctx.beginPath();
