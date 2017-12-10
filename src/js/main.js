@@ -1,4 +1,4 @@
-const fonts = ["sans-serif","serif","monospace", "Akkurat", "Akkurat-Mono", "Eczar-Regular", "FortescuePro-Regular"];
+const fonts = ["fantasy", "sans-serif","serif","monospace", "Akkurat", "Akkurat-Mono", "Eczar-Regular", "FortescuePro-Regular"];
 const weights = ["normal", "bold", "bolder", "lighter"];
 const tTransforms = ["none","capitalize","uppercase","lowercase"];
 const tDecorations = ["none","underline","none","none","none"];
@@ -57,18 +57,18 @@ const activateProperty = (target, property, setting) => {
 
 const design = () => {
 
-	let colWidth = rand(30,70);
+	let colWidth = rand(40,70);
 
 	tempCount++;
 	$("#textWrap").css("width", colWidth+"%");
-	$("section img").css("max-width", 100-colWidth+"%");
+	$(".linkedImg, .linkedRef").css("width", 100-colWidth+"%");
 
 	if (rand(0,1)===1) {
 		$("#textWrap").css("float","left");
-		$("section img").css("left","auto").css("right", "0");
+		$(".linkedImg, .linkedRef").css("left","auto").css("right", "0");
 	} else {
 		$("#textWrap").css("float","right");
-		$("section img").css("right","auto").css("left","0");
+		$(".linkedImg, .linkedRef").css("right","auto").css("left","0");
 	}
 
 	randomColor();
@@ -80,7 +80,7 @@ const design = () => {
 	activateProperty("h3", "font-weight", weights[rand(0,weights.length)]);
 	activateProperty("h3, header", "text-transform", tTransforms[rand(0,tTransforms.length)]);
 	activateProperty("h3", "text-decoration", tDecorations[rand(0,tDecorations.length)]);
-	activateProperty("section, header, section img", "padding", rand(0,24)+"px");
+	activateProperty("section, header, .linkedImg, .linkedRef", "padding", rand(0,24)+"px");
 	// activateProperty("header", "box-shadow", `${rand(0,0)}px ${rand(0,6)}px ${rand(2,10)}px`);
 	activateProperty("section, header", "box-shadow", `0px ${rand(0,6)}px ${rand(0,10)}px rgba(${c2[0]},${c2[1]},${c2[2]},${Math.random()})`); //fix
 	activateProperty("section, header", "border-radius", `${rand(-10,15)}px`);
@@ -89,6 +89,8 @@ const design = () => {
 	// console.log(c1);
 
 	activateProperty("section", "column-count", `${rand(-3,2)}`);
+
+	// activateProperty(".linkedImg", "max-height", `${rand(50,60)}vh`);
 
 	// activateProperty("header", "transform", `rotate(${temp[rand(0,temp.length)]}deg)`)
 	// activateProperty("canvas", "filter", `blur(${rand(9,100)}px) contrast(${rand(0,400)}%)`);
@@ -187,9 +189,23 @@ $( window ).scroll(function() {
 	// draw();
 });
 
+//this might be very inefficient
+const hoverRefOrImg = (hovered, highlight) => {
+	$(hovered).each(function(i){
+		$(this).hover(function(){
+			$(highlight).each(function(ind){
+				if (i === ind) {
+					$(this).addClass("shiny");
+				}
+			});
+		}, function(){
+			$("*").removeClass("shiny");
+		});
+	});
+};
 
-// setInterval(function(){
-// 	// draw();
-// // 	// console.log("asd");
-// 	// design();
-// },90);
+hoverRefOrImg(".refLink", ".linkedRef");
+hoverRefOrImg(".linkedRef", ".refLink");
+hoverRefOrImg(".imgLink", ".linkedImg");
+hoverRefOrImg(".linkedImg img", ".imgLink");
+
