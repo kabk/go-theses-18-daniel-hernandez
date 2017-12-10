@@ -122,7 +122,7 @@ setTimeout(function () {
 }, 1000);
 
 $("#redesign").click(function () {
-	design();
+	// design();
 });
 
 ///////////////////////canvas test
@@ -179,7 +179,7 @@ var draw = function draw() {
 };
 
 $(window).scroll(function () {
-	draw();
+	// draw();
 });
 
 //this might be very inefficient

@@ -122,7 +122,7 @@ setTimeout(function(){
 
 
 $("#redesign").click(function(){
-	design();
+	// design();
 });
 
 
@@ -186,7 +186,7 @@ const draw = () => {
 
 
 $( window ).scroll(function() {
-	draw();
+	// draw();
 });
 
 //this might be very inefficient
