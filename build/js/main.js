@@ -65,6 +65,7 @@ var design = function design() {
 	var colWidth = rand(40, 70);
 
 	tempCount++;
+
 	$("#textWrap").css("width", colWidth + "%");
 	$(".linkedImg, .linkedRef").css("width", 100 - colWidth + "%");
 
@@ -76,21 +77,36 @@ var design = function design() {
 		$(".linkedImg, .linkedRef").css("right", "auto").css("left", "0");
 	}
 
+	//big landing
+	var headerH = $("header").outerHeight();
+	if (rand(0, 3) === 0) {
+		$("#landing").addClass("bigLanding").css("top", headerH + "px");
+		$("#textWrap").addClass("bigLanding");
+		// activateProperty("h2", "font-size", randFl(1.2,9)+"rem", 1);
+
+		// $("#mainWrap").css("padding-top", "100vh !important");
+	} else {
+		$("#landing").removeClass("bigLanding");
+		$("#textWrap").removeClass("bigLanding");
+	}
+
 	randomColor();
 
 	activateProperty("body", "font-family", fonts[rand(0, fonts.length)], 1);
-	activateProperty("h3", "font-family", fonts[rand(0, fonts.length)], 1);
+	activateProperty("h2, h3", "font-family", fonts[rand(0, fonts.length)], 1);
 	activateProperty("p", "font-size", randFl(0.9, 1.8) + "rem", 1);
+	activateProperty("h2", "font-size", randFl(1.8, 5.8) + "rem", 1);
 	activateProperty("h3", "font-size", randFl(1.2, 4.8) + "rem", 1);
-	activateProperty("h3", "font-weight", weights[rand(0, weights.length)], 1);
-	activateProperty("h3, header", "text-transform", tTransforms[rand(0, tTransforms.length)], 1);
-	activateProperty("h3", "text-decoration", tDecorations[rand(0, tDecorations.length)], 1);
+
+	activateProperty("h2, h3", "font-weight", weights[rand(0, weights.length)], 1);
+	activateProperty("h2, h3, header", "text-transform", tTransforms[rand(0, tTransforms.length)], 1);
+	activateProperty("h2, h3", "text-decoration", tDecorations[rand(0, tDecorations.length)], 1);
 	activateProperty("section, header, .linkedImg, .linkedRef", "padding", rand(0, 24) + "px", 1);
 	// activateProperty("header", "box-shadow", `${rand(0,0)}px ${rand(0,6)}px ${rand(2,10)}px`, 1);
 	activateProperty("section, header", "box-shadow", "0px " + rand(0, 6) + "px " + rand(0, 10) + "px rgba(" + c2[0] + "," + c2[1] + "," + c2[2] + "," + Math.random() + ")", 3); //fix
 	activateProperty("section, header", "border-radius", rand(-10, 15) + "px", 3);
 	// activateProperty("p", "text-align", paragraphAligns[rand(0,paragraphAligns.length)], 1);
-	activateProperty("h3", "text-align", tAligns[rand(0, tAligns.length)], 1);
+	activateProperty("h2, h3", "text-align", tAligns[rand(0, tAligns.length)], 1);
 	// console.log(c1, 1);
 
 	activateProperty("section", "column-count", "" + rand(-3, 2), 10);
@@ -102,7 +118,7 @@ var design = function design() {
 	// activateProperty("canvas", "filter", `blur(${rand(0,100)}px)`, 1);
 	activateProperty("body", "background-color", "rgb(" + rand(0, 255) + "," + rand(0, 255) + "," + rand(0, 255) + ")", 1);
 
-	activateProperty("#bg", "filter", "blur(" + rand(0, 130) + "px)", 4);
+	activateProperty("#bg", "filter", "blur(" + rand(0, 130) + "px)", 10);
 
 	activateProperty("#bg", "filter", "grayscale(" + rand(-50, 100) + "%) ", 3);
 	activateProperty("#textWrap, header", "filter", "grayscale(" + rand(-50, 100) + "%) ", 3);
@@ -110,7 +126,7 @@ var design = function design() {
 
 
 	//BORDER
-	if (rand(0, 7) === 1) {
+	if (rand(0, 9) === 1) {
 		var color = "rgb(" + c2[0] + "," + c2[1] + "," + c2[2] + ")";
 		var randNum = rand(0, 4);
 		var randThickness = rand(0, 4);
@@ -161,23 +177,23 @@ var design = function design() {
 	}
 
 	//// Img position
-	if (rand(0, 4) == 1) {
-		$(".linkedImg").css("position", "relative");
-	} else {
-		$(".linkedImg").css("position", "absolute");
-	}
+	// if (rand(0,4)==1) {
+	// 	$(".linkedImg").css("position","relative");
+	// } else {
+	// 	$(".linkedImg").css("position","absolute");
+	// }
+
 
 	// let headerH = $("header").outerHeight();
 	// console.log(headerH);
 	// $("#mainWrap").css("margin-top", `${headerH}px`);
 
-	$("#designCounter").text(tempCount);
 	// draw();
 };
 
 // let time = 0;
 setInterval(function () {
-	design();
+	// design();
 	// 	time++;
 
 	// 	if (time < 10) {
