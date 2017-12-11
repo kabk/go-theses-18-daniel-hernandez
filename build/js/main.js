@@ -90,6 +90,16 @@ var design = function design() {
 		$("#textWrap").removeClass("bigLanding");
 	}
 
+	// if (rand(0,3)===0) {
+	// 	$("header").addClass("bottom").css("top",`${headerH}px`);
+	// 	// activateProperty("h2", "font-size", randFl(1.2,9)+"rem", 1);
+
+	// 	// $("#mainWrap").css("padding-top", "100vh !important");
+	// } else {
+	// 	$("header").removeClass("bottom");
+
+	// }
+
 	randomColor();
 
 	activateProperty("body", "font-family", fonts[rand(0, fonts.length)], 1);
@@ -111,6 +121,10 @@ var design = function design() {
 
 	activateProperty("section", "column-count", "" + rand(-3, 2), 10);
 	activateProperty("section", "padding-bottom", rand(0, 300) + "px", 1);
+	// activateProperty("section", "transform", `skew(${rand(0,20)}deg, ${rand(0,20)}deg)`, 1);
+
+	// activateProperty("section", "transform", `skewY(${rand(0,10)}deg)`, 1);
+
 
 	// activateProperty(".linkedImg", "max-height", `${rand(50,60)}vh`, 1);
 
@@ -124,6 +138,9 @@ var design = function design() {
 	activateProperty("#textWrap, header", "filter", "grayscale(" + rand(-50, 100) + "%) ", 3);
 	// $(".linkedImg").css("filter", "grayscale(0%) !important");
 
+
+	var bw = ["black", "white"];
+	activateProperty("#bg", "background-color", bw[rand(0, 1)], 4);
 
 	//BORDER
 	if (rand(0, 9) === 1) {
