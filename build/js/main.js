@@ -12,13 +12,7 @@ var c2 = []; //fg
 
 var tempCount = 0;
 
-// let DNA = [
-// 	0,
-// 	0,
-// 	0,
-// 	0,
-// 	0,
-// ];
+var DNA = [0, 0, 0, 0, 0];
 
 function rand(min, max) {
 	return Math.floor(Math.random() * (max - min + 1) + min);
@@ -228,6 +222,14 @@ setTimeout(function () {
 
 $("#redesign").click(function () {
 	design();
+});
+
+$(document).ready(function () {
+	$(document).bind('keydown', function (e) {
+		if (e.keyCode == 82) {
+			design();
+		}
+	});
 });
 
 ///////////////////////canvas test
