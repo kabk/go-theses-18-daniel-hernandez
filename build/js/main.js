@@ -6,6 +6,7 @@ var tTransforms = ["none", "capitalize", "uppercase", "lowercase"];
 var tDecorations = ["none", "underline", "none", "none", "none"];
 var tAligns = ["left", "right", "center", "justify"];
 var paragraphAligns = ["left", "left", "left", "justify"];
+var bw = ["black", "white"];
 
 var c1 = []; //bg
 var c2 = []; //fg
@@ -84,16 +85,6 @@ var design = function design() {
 		$("#textWrap").removeClass("bigLanding");
 	}
 
-	// if (rand(0,3)===0) {
-	// 	$("header").addClass("bottom").css("top",`${headerH}px`);
-	// 	// activateProperty("h2", "font-size", randFl(1.2,9)+"rem", 1);
-
-	// 	// $("#mainWrap").css("padding-top", "100vh !important");
-	// } else {
-	// 	$("header").removeClass("bottom");
-
-	// }
-
 	randomColor();
 
 	activateProperty("body", "font-family", fonts[rand(0, fonts.length)], 1);
@@ -106,34 +97,20 @@ var design = function design() {
 	activateProperty("h2, h3, header", "text-transform", tTransforms[rand(0, tTransforms.length)], 1);
 	activateProperty("h2, h3", "text-decoration", tDecorations[rand(0, tDecorations.length)], 1);
 	activateProperty("section, header, .linkedImg, .linkedRef", "padding", rand(0, 24) + "px", 1);
-	// activateProperty("header", "box-shadow", `${rand(0,0)}px ${rand(0,6)}px ${rand(2,10)}px`, 1);
+
 	activateProperty("section, header", "box-shadow", "0px " + rand(0, 6) + "px " + rand(0, 10) + "px rgba(" + c2[0] + "," + c2[1] + "," + c2[2] + "," + Math.random() + ")", 3); //fix
 	activateProperty("section, header", "border-radius", rand(-10, 15) + "px", 3);
-	// activateProperty("p", "text-align", paragraphAligns[rand(0,paragraphAligns.length)], 1);
 	activateProperty("h2, h3", "text-align", tAligns[rand(0, tAligns.length)], 1);
-	// console.log(c1, 1);
 
 	activateProperty("section", "column-count", "" + rand(-3, 2), 10);
 	activateProperty("section", "padding-bottom", rand(0, 300) + "px", 1);
-	// activateProperty("section", "transform", `skew(${rand(0,20)}deg, ${rand(0,20)}deg)`, 1);
-
-	// activateProperty("section", "transform", `skewY(${rand(0,10)}deg)`, 1);
-
-
-	// activateProperty(".linkedImg", "max-height", `${rand(50,60)}vh`, 1);
-
-	// activateProperty("header", "transform", `rotate(${temp[rand(0,temp.length)]}deg)`)
-	// activateProperty("canvas", "filter", `blur(${rand(0,100)}px)`, 1);
 	activateProperty("body", "background-color", "rgb(" + rand(0, 255) + "," + rand(0, 255) + "," + rand(0, 255) + ")", 1);
 
 	activateProperty("#bg", "filter", "blur(" + rand(0, 130) + "px)", 10);
 
 	activateProperty("#bg", "filter", "grayscale(" + rand(-50, 100) + "%) ", 3);
 	activateProperty("#textWrap, header", "filter", "grayscale(" + rand(-50, 100) + "%) ", 3);
-	// $(".linkedImg").css("filter", "grayscale(0%) !important");
 
-
-	var bw = ["black", "white"];
 	activateProperty("#bg", "background-color", bw[rand(0, 1)], 4);
 
 	//BORDER
@@ -141,14 +118,7 @@ var design = function design() {
 		var color = "rgb(" + c2[0] + "," + c2[1] + "," + c2[2] + ")";
 		var randNum = rand(0, 4);
 		var randThickness = rand(0, 4);
-		// if (randNum===0) {
-		// 	color = "black";
-		// } else if (randNum===1) {
-		// 	color = "white";
-		// } else {
-		// 	color = `rgb(${c2[0]},${c2[1]},${c2[2]})`;
-		// }
-		console.log(color);
+
 		$("header").css("border-bottom", randThickness + "px solid " + color);
 		$("#textWrap").css("border-right", randThickness + "px solid " + color);
 		$("#textWrap").css("border-left", randThickness + "px solid " + color);
@@ -186,36 +156,12 @@ var design = function design() {
 		$("section, header").css("background-color", "transparent");
 		$("section, header, a").css("color", "rgb(" + c2[0] + "," + c2[1] + "," + c2[2] + ")");
 	}
-
-	//// Img position
-	// if (rand(0,4)==1) {
-	// 	$(".linkedImg").css("position","relative");
-	// } else {
-	// 	$(".linkedImg").css("position","absolute");
-	// }
-
-
-	// let headerH = $("header").outerHeight();
-	// console.log(headerH);
-	// $("#mainWrap").css("margin-top", `${headerH}px`);
-
-	// draw();
 };
-
-// let time = 0;
-setInterval(function () {
-	// design();
-	// 	time++;
-
-	// 	if (time < 10) {
-	// 		design();
-	// 	}
-}, 2200);
 
 setTimeout(function () {
 	design();
-	// $("*").css("transition", ".3s");
 }, 500);
+
 setTimeout(function () {
 	$("*").css("transition", ".3s");
 }, 1000);
@@ -231,59 +177,6 @@ $(document).ready(function () {
 		}
 	});
 });
-
-///////////////////////canvas test
-var c = document.getElementById("myCanvas");
-var ctx = c.getContext("2d");
-
-var ww = window.innerWidth;
-var wh = window.innerHeight;
-
-ctx.canvas.width = ww;
-ctx.canvas.height = wh;
-
-function Vertex() {
-	this.x = rand(0, ww);
-	this.y = rand(0, wh);
-
-	this.run = function () {
-		this.display();
-		this.update();
-	};
-
-	this.display = function () {
-		// ctx.fillStyle = `rgb(${rand(0,255)},${rand(0,255)},${rand(0,255)})`;
-		ctx.fillStyle = "white";
-
-		ctx.lineTo(this.x, this.y);
-		// ctx.fillRect(this.x,this.y,7,7);
-	};
-
-	this.update = function () {
-		this.x += rand(-30, 30);
-		this.y += rand(-30, 30);
-	};
-}
-
-var vertexes = [];
-
-for (var i = 0; i < rand(0, 18); i++) {
-	vertexes.push(new Vertex());
-}
-
-var draw = function draw() {
-	ctx.fillStyle = "rgb(" + rand(0, 255) + "," + rand(0, 255) + "," + rand(0, 255) + ")";
-	// ctx.fillStyle = "blue";
-	ctx.fillRect(0, 0, ww, wh);
-
-	ctx.beginPath();
-	ctx.moveTo(ww / 2, wh / 2);
-
-	for (var i = 0; i < vertexes.length; i++) {
-		vertexes[i].run();
-	}
-	ctx.fill();
-};
 
 //this might be very inefficient
 var hoverRefOrImg = function hoverRefOrImg(hovered, highlight) {
