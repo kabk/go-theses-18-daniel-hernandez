@@ -81,3 +81,25 @@ canvas {
 
 .shiny {
   background-color: rgba(255, 255, 255, 0.5); }
+
+#rateBar {
+  height: 15px;
+  width: 70px;
+  background-color: gray;
+  margin-top: 2px;
+  margin-right: 4px;
+  float: right;
+  cursor: pointer;
+  text-align: center;
+  font-size: 9pt; }
+  #rateBar.innactive {
+    pointer-events: none; }
+    #rateBar.innactive #rateBarInner {
+      background-color: lightgrey;
+      color: white !important; }
+  #rateBar #rateBarInner {
+    height: 100%;
+    width: 50%;
+    left: 0;
+    background-color: lime;
+    transition: width 0.1s; }
