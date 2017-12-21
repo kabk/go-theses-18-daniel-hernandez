@@ -45,8 +45,8 @@ h3{
 }
 
 header{
-	// position: fixed;
-	// width: 100%;
+	position: fixed;
+	width: 100%;
 	z-index: 100;
 
 	// &.bottom {
@@ -66,8 +66,7 @@ canvas{
 }
 
 #mainWrap{
-	// border-top: 4px dashed red;
-	// padding-top: 100vh;
+	padding-top: 18px;
 }
 
 .linkedImg{

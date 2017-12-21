@@ -119,9 +119,16 @@ var design = function design() {
 	}
 
 	//big landing
-	var headerH = $("header").outerHeight();
+	var headerH = void 0;
+
+	setTimeout(function () {
+		headerH = $("header").outerHeight();
+		$("#mainWrap").css("padding-top", headerH + "px");
+	}, 1200);
+
 	if (DNA[30] === 0) {
-		$("#landing").addClass("bigLanding").css("top", headerH + "px");
+		// $("#landing").addClass("bigLanding").css("top",`${headerH}px`);
+		$("#landing").addClass("bigLanding");
 		$("#textWrap").addClass("bigLanding");
 		// activateProperty("h2", "font-size", randFl(1.2,9)+"rem", 1);
 

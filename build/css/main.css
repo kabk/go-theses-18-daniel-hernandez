@@ -35,6 +35,8 @@ h3 {
   margin: 0; }
 
 header {
+  position: fixed;
+  width: 100%;
   z-index: 100; }
   header #genInfo {
     float: right; }
@@ -42,6 +44,9 @@ header {
 canvas {
   z-index: -1;
   position: fixed; }
+
+#mainWrap {
+  padding-top: 18px; }
 
 .linkedImg {
   position: absolute;
