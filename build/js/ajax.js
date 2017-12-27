@@ -1,6 +1,6 @@
 "use strict";
 
-function myFunction() {
+function pushDNAtoDB() {
 	// // Returns successful data submission message when the entered information is stored in database.
 	// let dataString = 'a0=' + name + '&email1=' + email + '&password1=' + password + '&contact1=' + contact;
 
@@ -23,7 +23,7 @@ function myFunction() {
 		// console.log("ADNA"+(i));
 	}
 
-	console.log(dataString);
+	// console.log(dataString);
 
 	$.ajax({
 		type: "POST",

@@ -12,6 +12,9 @@ let tempCount = 0;
 let DNA;
 let aDNA;
 
+var gen = 1;
+var specimen = 0;
+
 const generationSpecimens = 20;
 
 const generateDNA = () => {

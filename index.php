@@ -56,11 +56,6 @@
 				<p>Genetic algorithms allow us to solve problems very efficiently. Instead of searching for all possible solutions, this model is selective and explores what it deems more valuable. For this reason it commonly used to carry out several tasks, from solving mathematical problems to developing medicines to product design. Since often this processes occur with very limited human intervention, the results are often very unexpected and seem counter intuitive, but nonetheless, perform much better than their human-designed predecessors. A good example of this is NASA’s spacecraft antenna which, despite its alien appearance, is remarkably optimized to carry out it’s task. These strange design choices are one of the reasons why it would be very interesting to</p></section>
 			<section id="info">
 
-				<form id="form" name="form">
-					<input id="submit" onclick="myFunction()" type="button" value="Submit">
-				</div>
-				</form>
-				
 			</section>
 
 
@@ -106,6 +101,7 @@
 	</div>
 	<script src="build/js/main.js"></script>
 	<script src="build/js/ajax.js"></script>
+	<script src="build/js/firstGen.js"></script>
 
 </body>
 </html>

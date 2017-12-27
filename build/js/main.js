@@ -14,6 +14,9 @@ var tempCount = 0;
 var DNA = void 0;
 var aDNA = void 0;
 
+var gen = 1;
+var specimen = 0;
+
 var generationSpecimens = 20;
 
 var generateDNA = function generateDNA() {
