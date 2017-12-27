@@ -1,15 +1,21 @@
 <?php
 // Fetching Values From URL
-$name2 = $_POST['name1'];
-$email2 = $_POST['email1'];
-$password2 = $_POST['password1'];
-$contact2 = $_POST['contact1'];
+// $name2 = $_POST['a0'];
+// $email2 = $_POST['a1'];
+// $password2 = $_POST['a2'];
+// $contact2 = $_POST['a3'];
+
+$DNA = [$_POST['a0'],$_POST['a1'],$_POST['a2'],$_POST['a3']];
+
+// $DNA = [];
+
+// array_push($DNA, 14);
 
 
 $servername = "localhost:8889";
 $username = "root";
 $password = "root";
-$dbname = "mydba";
+$dbname = "genetic";
 
 $bar = isset($_POST['bar']) ? $_POST['bar'] : null;
 
@@ -19,10 +25,10 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if (isset($_POST['name1'])) {
+// if (isset($_POST['a1'])) {
 
-	$sql = "INSERT INTO form_element (student_name, student_email, student_contact, student_address)
-	VALUES ('$name2', '$email2', '$password2', '$contact2')";
+	$sql = "INSERT INTO initDNAtest (a0, a1, a2, a3)
+	VALUES ('$DNA[0]', '$DNA[1]', '$DNA[2]', '$DNA[3]')";
 
 	if ($conn->query($sql) === TRUE) {
 	    echo "New record created successfully";
@@ -30,6 +36,6 @@ if (isset($_POST['name1'])) {
 	    echo "Error: " . $sql . "<br>" . $conn->error;
 	}
 
-}
+// }
 
 $conn->close();

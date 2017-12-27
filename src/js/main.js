@@ -65,10 +65,8 @@ const generateADNA = () => {
 	return arr;
 }
 
-
 DNA = generateDNA();
 aDNA = generateADNA();
-
 
 for (var i = 0; i < generationSpecimens; i++) {
 	// console.log(generateDNA());
