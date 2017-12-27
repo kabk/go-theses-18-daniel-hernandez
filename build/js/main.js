@@ -12,12 +12,13 @@ var c1 = []; //bg
 var c2 = []; //fg
 var tempCount = 0;
 
+//jquery ajax post php mysql
 var DNA = [rand(0, fonts.length), // font size 0
 rand(0, fonts.length), // font size 1
 rand(0, weights.length), // font weight 2
 rand(0, tTransforms.length), // text transform 3
 rand(0, tDecorations.length), // text decoration 4
-rand(0, 24), // padding 5
+rand(1, 24), // padding 5
 rand(0, 6), // box shadow length(?) 6
 rand(0, 10), // box shadow blur(?) 7
 rand(-10, 15), // border radius 8
@@ -43,21 +44,19 @@ rand(0, 255), // main colors 27
 rand(40, 70), // col width 28
 rand(0, 1), // float L or R 29
 rand(0, 3), // big landing 30
-randFl(0.9, 1.8), // font size p 31
-randFl(1.8, 5.8), // font size h2 32
-randFl(1.2, 4.8), // font size h3 33
-randFl(0, 1) // box shadow opacity 34
+parseFloat(randFl(0.9, 1.8)), // font size p 31
+parseFloat(randFl(1.8, 5.8)), // font size h2 32
+parseFloat(randFl(1.2, 4.8)), // font size h3 33
+parseFloat(randFl(0, 1)) // box shadow opacity 34
 ];
 
 var aDNA = []; //activeDNA
 
-console.log(DNA.length);
+console.log(DNA);
 
 for (var i = 0; i < DNA.length; i++) {
 	aDNA.push(rand(0, 1));
 }
-
-console.log(aDNA);
 
 function rand(min, max) {
 	return Math.floor(Math.random() * (max - min + 1) + min);
@@ -91,6 +90,10 @@ var randomColor = function randomColor() {
 	// randomColor();
 	// }
 };
+
+// const map = () => {
+
+// }
 
 var indexDNA = 0;
 
@@ -137,7 +140,14 @@ var design = function design() {
 		$("#landing").removeClass("bigLanding");
 		$("#textWrap").removeClass("bigLanding");
 	}
-	$("#landing").append("Design ID: " + DNA);
+
+	$("#landing").append("Design ID: [");
+
+	for (var i = 0; i < DNA.length; i++) {
+		$("#landing").append(Math.floor(DNA[i]) + " ");
+	}
+
+	$("#landing").append("]");
 
 	randomColor();
 
@@ -252,16 +262,15 @@ var rate = function rate() {
 	var $barInner = $("#rateBarInner");
 	var barW = $bar.width();
 	var score = 0;
-	console.log(barW + " lel");
 
 	$bar.mousemove(function (e) {
 		var parentOffset = $(this).offset();
 		//or $(this).offset(); if you really just want the current element's offset
 		var relX = Math.floor(e.pageX - parentOffset.left);
 		score = Math.floor(relX / barW * 10);
-		console.log(score);
 
 		$barInner.css("width", relX + "px");
+		// $barInner.css("background-color", `rgb(0,${score*26},0)`);
 	});
 
 	$bar.mouseup(function () {
