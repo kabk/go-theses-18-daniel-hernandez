@@ -98,9 +98,9 @@ var applyColor = function applyColor() {
 	$("body, a").css("color", "rgb(" + c2[0] + "," + c2[1] + "," + c2[2] + ")");
 };
 
-var randomColor = function randomColor() {
-	c1 = [DNA[22], DNA[23], DNA[24]];
-	c2 = [DNA[25], DNA[26], DNA[27]];
+var randomColor = function randomColor(DNAarr) {
+	c1 = [DNAarr[22], DNAarr[23], DNAarr[24]];
+	c2 = [DNAarr[25], DNAarr[26], DNAarr[27]];
 
 	// if (colorDiff(c1,c2) >= 140) {
 	applyColor();
@@ -115,23 +115,23 @@ var randomColor = function randomColor() {
 
 var indexDNA = 0;
 
-var activateProperty = function activateProperty(target, property, setting, probability) {
-	if (aDNA[indexDNA] === 1) {
+var activateProperty = function activateProperty(target, property, setting, probability, aDNAarr) {
+	if (aDNAarr[indexDNA] === 1) {
 		$(target).css(property, setting);
 	}
 	indexDNA++;
 };
 
-var design = function design(DNAarr) {
+var design = function design(DNAarr, aDNAarr) {
 
-	var colWidth = DNA[28];
+	var colWidth = DNAarr[28];
 
 	tempCount++;
 
 	$("#textWrap").css("width", colWidth + "%");
 	$(".linkedImg, .linkedRef").css("width", 100 - colWidth + "%");
 
-	if (DNA[29] === 1) {
+	if (DNAarr[29] === 1) {
 		$("#textWrap").css("float", "left");
 		$(".linkedImg, .linkedRef").css("left", "auto").css("right", "0");
 	} else {
@@ -147,7 +147,7 @@ var design = function design(DNAarr) {
 		$("#mainWrap").css("padding-top", headerH + "px");
 	}, 1200);
 
-	if (DNA[30] === 0) {
+	if (DNAarr[30] === 0) {
 		// $("#landing").addClass("bigLanding").css("top",`${headerH}px`);
 		$("#landing").addClass("bigLanding");
 		$("#textWrap").addClass("bigLanding");
@@ -167,32 +167,32 @@ var design = function design(DNAarr) {
 
 	$("#landing").append("]");
 
-	randomColor();
+	randomColor(DNAarr);
 
-	activateProperty("body", "font-family", fonts[DNA[0]], 1);
-	activateProperty("h2, h3", "font-family", fonts[DNA[1]], 1);
-	activateProperty("p", "font-size", DNA[31] + "rem", 1);
-	activateProperty("h2", "font-size", DNA[32] + "rem", 1);
-	activateProperty("h3", "font-size", DNA[33] + "rem", 1);
-	activateProperty("h2, h3", "font-weight", weights[DNA[2]], 1);
-	activateProperty("h2, h3, header", "text-transform", tTransforms[DNA[3]], 1);
-	activateProperty("h2, h3", "text-decoration", tDecorations[DNA[4]], 1);
-	activateProperty("section, header, .linkedImg, .linkedRef", "padding", DNA[5] + "px", 1);
-	activateProperty("section, header", "box-shadow", "0px " + DNA[6] + "px " + DNA[7] + "px rgba(" + c2[0] + "," + c2[1] + "," + c2[2] + "," + DNA[34] + ")", 3); //fix
-	activateProperty("section, header", "border-radius", DNA[8] + "px", 3);
-	activateProperty("h2, h3", "text-align", tAligns[DNA[9]], 1);
-	// activateProperty("section", "column-count", `${rand(-3,2)}`, 10);
-	activateProperty("section", "padding-bottom", DNA[10] + "px", 1);
-	activateProperty("body", "background-color", "rgb(" + DNA[11] + "," + DNA[12] + "," + DNA[13] + ")", 1);
-	activateProperty("#bg", "filter", "blur(" + DNA[14] + "px)", 10);
-	activateProperty("#bg", "filter", "grayscale(" + DNA[15] + "%) ", 3);
-	activateProperty("#textWrap, header", "filter", "grayscale(" + DNA[16] + "%) ", 3);
-	activateProperty("#bg", "background-color", bw[DNA[17]], 4);
+	activateProperty("body", "font-family", fonts[DNAarr[0]], 1, aDNAarr);
+	activateProperty("h2, h3", "font-family", fonts[DNAarr[1]], 1, aDNAarr);
+	activateProperty("p", "font-size", DNAarr[31] + "rem", 1, aDNAarr);
+	activateProperty("h2", "font-size", DNAarr[32] + "rem", 1, aDNAarr);
+	activateProperty("h3", "font-size", DNAarr[33] + "rem", 1, aDNAarr);
+	activateProperty("h2, h3", "font-weight", weights[DNAarr[2]], 1, aDNAarr);
+	activateProperty("h2, h3, header", "text-transform", tTransforms[DNAarr[3]], 1, aDNAarr);
+	activateProperty("h2, h3", "text-decoration", tDecorations[DNAarr[4]], 1, aDNAarr);
+	activateProperty("section, header, .linkedImg, .linkedRef", "padding", DNAarr[5] + "px", 1, aDNAarr);
+	activateProperty("section, header", "box-shadow", "0px " + DNAarr[6] + "px " + DNAarr[7] + "px rgba(" + c2[0] + "," + c2[1] + "," + c2[2] + "," + DNAarr[34] + ")", 3); //f, aDNAarrix
+	activateProperty("section, header", "border-radius", DNAarr[8] + "px", 3, aDNAarr);
+	activateProperty("h2, h3", "text-align", tAligns[DNAarr[9]], 1, aDNAarr);
+	// activateProperty("section", "column-count", `${rand(-3,2)}`, 10, aDNAarr);
+	activateProperty("section", "padding-bottom", DNAarr[10] + "px", 1, aDNAarr);
+	activateProperty("body", "background-color", "rgb(" + DNAarr[11] + "," + DNAarr[12] + "," + DNAarr[13] + ")", 1, aDNAarr);
+	activateProperty("#bg", "filter", "blur(" + DNAarr[14] + "px)", 10, aDNAarr);
+	activateProperty("#bg", "filter", "grayscale(" + DNAarr[15] + "%) ", 3, aDNAarr);
+	activateProperty("#textWrap, header", "filter", "grayscale(" + DNAarr[16] + "%) ", 3, aDNAarr);
+	activateProperty("#bg", "background-color", bw[DNAarr[17]], 4, aDNAarr);
 
 	//BORDER //////////////WHERE IS THE BORDER
-	if (DNA[18] === 1) {
+	if (DNAarr[18] === 1) {
 		var color = "rgb(" + c2[0] + "," + c2[1] + "," + c2[2] + ")";
-		var randThickness = DNA[19];
+		var randThickness = DNAarr[19];
 
 		$("header").css("border-bottom", randThickness + "px solid " + color);
 		$("#textWrap").css("border-right", randThickness + "px solid " + color);
@@ -202,7 +202,7 @@ var design = function design(DNAarr) {
 
 	//section bgs
 	var alternateColor = function alternateColor() {
-		if (DNA[20] === 1) {
+		if (DNAarr[20] === 1) {
 			$("header").css("background-color", "rgb(" + c1[0] + "," + c1[1] + "," + c1[2] + ")");
 			$("header, a").css("color", "rgb(" + c2[0] + "," + c2[1] + "," + c2[2] + ")");
 		} else {
@@ -221,7 +221,7 @@ var design = function design(DNAarr) {
 		});
 	};
 
-	var colorProb = DNA[21];
+	var colorProb = DNAarr[21];
 	if (colorProb === 0) {
 		alternateColor();
 	} else if (colorProb === 1) {
@@ -234,7 +234,7 @@ var design = function design(DNAarr) {
 };
 
 setTimeout(function () {
-	design();
+	// design(DNA);
 }, 500);
 
 // setTimeout(function(){

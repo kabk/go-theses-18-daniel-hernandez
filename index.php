@@ -107,7 +107,7 @@
 				if ($result->num_rows > 0) {
 				    // output data of each row
 				    while($row = $result->fetch_assoc()) {
-				    	if ($row["ID"] == 57) {
+				    	if ($row["ID"] == 57) {  ///////////////here goes the specimen ID
 
 				    		echo "DNA<br>";
 							for ($x = 0; $x <= 34; $x++) {
@@ -217,6 +217,10 @@
 
 					console.log(dbDNA);
 					console.log(dbADNA);
+
+
+
+					design(dbDNA, dbADNA);
 				});
 			</script>
 
