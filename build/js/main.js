@@ -20,8 +20,8 @@ var specimen = 0;
 var generationSpecimens = 20;
 
 var generateDNA = function generateDNA() {
-	var arr = [rand(0, fonts.length), // font size 0
-	rand(0, fonts.length), // font size 1
+	var arr = [rand(0, fonts.length), // font 0
+	rand(0, fonts.length), // font 1
 	rand(0, weights.length), // font weight 2
 	rand(0, tTransforms.length), // text transform 3
 	rand(0, tDecorations.length), // text decoration 4
@@ -159,10 +159,14 @@ var design = function design(DNAarr, aDNAarr) {
 		$("#textWrap").removeClass("bigLanding");
 	}
 
-	$("#landing").append("Design ID: [");
+	$("#landing").append("Design ID: [ ");
 
 	for (var i = 0; i < DNA.length; i++) {
-		$("#landing").append(Math.floor(DNA[i]) + " ");
+		$("#landing").append(Math.floor(DNAarr[i]) + " ");
+	}
+
+	for (var i = 0; i < DNA.length; i++) {
+		$("#landing").append(Math.floor(aDNAarr[i]) + " ");
 	}
 
 	$("#landing").append("]");
@@ -178,7 +182,7 @@ var design = function design(DNAarr, aDNAarr) {
 	activateProperty("h2, h3, header", "text-transform", tTransforms[DNAarr[3]], 1, aDNAarr);
 	activateProperty("h2, h3", "text-decoration", tDecorations[DNAarr[4]], 1, aDNAarr);
 	activateProperty("section, header, .linkedImg, .linkedRef", "padding", DNAarr[5] + "px", 1, aDNAarr);
-	activateProperty("section, header", "box-shadow", "0px " + DNAarr[6] + "px " + DNAarr[7] + "px rgba(" + c2[0] + "," + c2[1] + "," + c2[2] + "," + DNAarr[34] + ")", 3); //f, aDNAarrix
+	activateProperty("section, header", "box-shadow", "0px " + DNAarr[6] + "px " + DNAarr[7] + "px rgba(" + c2[0] + "," + c2[1] + "," + c2[2] + "," + DNAarr[34] + ")", 3, aDNAarr); //f, aDNAarrix
 	activateProperty("section, header", "border-radius", DNAarr[8] + "px", 3, aDNAarr);
 	activateProperty("h2, h3", "text-align", tAligns[DNAarr[9]], 1, aDNAarr);
 	// activateProperty("section", "column-count", `${rand(-3,2)}`, 10, aDNAarr);
@@ -188,6 +192,14 @@ var design = function design(DNAarr, aDNAarr) {
 	activateProperty("#bg", "filter", "grayscale(" + DNAarr[15] + "%) ", 3, aDNAarr);
 	activateProperty("#textWrap, header", "filter", "grayscale(" + DNAarr[16] + "%) ", 3, aDNAarr);
 	activateProperty("#bg", "background-color", bw[DNAarr[17]], 4, aDNAarr);
+
+	if (DNAarr[0] === 6) {
+		$("p").css("line-height", "130%"); //fortesque correction
+		console.log("asdh");
+	}
+
+	// console.log(DNAarr[0]);
+
 
 	//BORDER //////////////WHERE IS THE BORDER
 	if (DNAarr[18] === 1) {

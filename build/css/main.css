@@ -19,7 +19,7 @@
   src: url(../../fonts/HelveticaNeue-BoldExt.otf); }
 
 * {
-  transition: 1s; }
+  transition: .6s; }
 
 html {
   font-size: 1.2vw; }
