@@ -9,52 +9,69 @@ const bw= ["black", "white"];
 let c1 = []; //bg
 let c2 = []; //fg
 let tempCount = 0;
+let DNA;
+let aDNA;
 
-//jquery ajax post php mysql
-let DNA = [
-	rand(0,fonts.length), // font size 0
-	rand(0,fonts.length), // font size 1
-	rand(0,weights.length), // font weight 2
-	rand(0,tTransforms.length), // text transform 3
-	rand(0,tDecorations.length), // text decoration 4
-	rand(1,24), // padding 5
-	rand(0,6), // box shadow length(?) 6
-	rand(0,10), // box shadow blur(?) 7
-	rand(-10,15), // border radius 8
-	rand(0,tAligns.length), // text align 9
-	rand(0,300), // sect padding bottom 10
-	rand(0,255), // bg color r 11
-	rand(0,255), // bg color g 12
-	rand(0,255), // bg color b 13
-	rand(0,130), // bg blur 14
-	rand(-50,100), // bg grayscale 15
-	rand(-50,100), // textwrap grayscale 16
-	rand(0,1), // bg bw 17
-	rand(0,9), // border activate 18
-	rand(0,4), // border thickness 19
-	rand(0,1), // alternate section bg activate 20
-	rand(0,6), // alternate section bg activate(2) 21
-	rand(0,255), // main colors 22
-	rand(0,255), // main colors 23
-	rand(0,255), // main colors 24
-	rand(0,255), // main colors 25
-	rand(0,255), // main colors 26
-	rand(0,255), // main colors 27
-	rand(40,70), // col width 28
-	rand(0,1), // float L or R 29
-	rand(0,3), // big landing 30
-	parseFloat(randFl(0.9,1.8)), // font size p 31
-	parseFloat(randFl(1.8,5.8)), // font size h2 32
-	parseFloat(randFl(1.2,4.8)), // font size h3 33
-	parseFloat(randFl(0,1)) // box shadow opacity 34
-];
+const generationSpecimens = 20;
 
-let aDNA = []; //activeDNA
+const generateDNA = () => {
+	let arr = [
+		rand(0,fonts.length), // font size 0
+		rand(0,fonts.length), // font size 1
+		rand(0,weights.length), // font weight 2
+		rand(0,tTransforms.length), // text transform 3
+		rand(0,tDecorations.length), // text decoration 4
+		rand(1,24), // padding 5
+		rand(0,6), // box shadow length(?) 6
+		rand(0,10), // box shadow blur(?) 7
+		rand(-10,15), // border radius 8
+		rand(0,tAligns.length), // text align 9
+		rand(0,300), // sect padding bottom 10
+		rand(0,255), // bg color r 11
+		rand(0,255), // bg color g 12
+		rand(0,255), // bg color b 13
+		rand(0,130), // bg blur 14
+		rand(-50,100), // bg grayscale 15
+		rand(-50,100), // textwrap grayscale 16
+		rand(0,1), // bg bw 17
+		rand(0,9), // border activate 18
+		rand(0,4), // border thickness 19
+		rand(0,1), // alternate section bg activate 20
+		rand(0,6), // alternate section bg activate(2) 21
+		rand(0,255), // main colors 22
+		rand(0,255), // main colors 23
+		rand(0,255), // main colors 24
+		rand(0,255), // main colors 25
+		rand(0,255), // main colors 26
+		rand(0,255), // main colors 27
+		rand(40,70), // col width 28
+		rand(0,1), // float L or R 29
+		rand(0,3), // big landing 30
+		parseFloat(randFl(0.9,1.8)), // font size p 31
+		parseFloat(randFl(1.8,5.8)), // font size h2 32
+		parseFloat(randFl(1.2,4.8)), // font size h3 33
+		parseFloat(randFl(0,1)) // box shadow opacity 34
+	];
+	return arr;
+}
 
-console.log(DNA);
+const generateADNA = () => {
+	let arr = []; //activeDNA
 
-for (var i = 0; i < DNA.length; i++) {
-	aDNA.push(rand(0,1));
+	for (var i = 0; i < DNA.length; i++) {
+		arr.push(rand(0,1));
+	}
+
+	return arr;
+}
+
+
+DNA = generateDNA();
+aDNA = generateADNA();
+
+
+for (var i = 0; i < generationSpecimens; i++) {
+	// console.log(generateDNA());
 }
 
 function rand(min,max) {
@@ -290,3 +307,15 @@ const rate = () => {
 }
 
 rate();
+
+
+
+
+
+
+
+
+
+
+
+

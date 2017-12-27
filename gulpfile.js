@@ -9,7 +9,7 @@ const plumber = require('gulp-plumber');
 /////////DEVELOP/////////
 
 gulp.task('es6', () => {
-	return gulp.src('src/js/main.js')
+	return gulp.src('src/js/*.js')
 		.pipe(plumber())
 		.pipe(babel({
 			presets: ['es2015']
