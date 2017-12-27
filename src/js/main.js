@@ -121,7 +121,7 @@ const activateProperty = (target, property, setting, probability) => {
 	indexDNA++;
 }
 
-const design = () => {
+const design = (DNAarr) => {
 
 	let colWidth = DNA[28];
 

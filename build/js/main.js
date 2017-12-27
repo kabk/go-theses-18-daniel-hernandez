@@ -122,7 +122,7 @@ var activateProperty = function activateProperty(target, property, setting, prob
 	indexDNA++;
 };
 
-var design = function design() {
+var design = function design(DNAarr) {
 
 	var colWidth = DNA[28];
 
