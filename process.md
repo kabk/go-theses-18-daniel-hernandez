@@ -13,6 +13,13 @@ If designCounter > specimens per generation
 		crossover
 
 
+///////
 
+
+DNA[gen, spec, dna, dna, etc]
+FIT[key, fit]
+
+
+///////
 
 Add "view previous gens"

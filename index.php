@@ -85,10 +85,58 @@
 
 				// $conn->close();
 
-				/////////////////////
+				/////////////////////Get DNA data from DB
+				$servername = "localhost:8889";
+				$username = "root";
+				$password = "root";
+				$dbname = "genetic";
+
+				// Create connection
+				$conn = new mysqli($servername, $username, $password, $dbname);
+				// Check connection
+				if ($conn->connect_error) {
+				    die("Connection failed: " . $conn->connect_error);
+				} 
+
+				$sql = "SELECT ID, a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32, a33, a34, b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20, b21, b22, b23, b24, b25, b26, b27, b28, b29, b30, b31, b32, b33, b34 FROM initDNAtest";
+				$result = $conn->query($sql);
+
+				$DNA = [];
+				$aDNA = [];
+
+				if ($result->num_rows > 0) {
+				    // output data of each row
+				    while($row = $result->fetch_assoc()) {
+				    	if ($row["ID"] == 57) {
+
+				    		echo "DNA<br>";
+							for ($x = 0; $x <= 34; $x++) {
+					    		$int = $x;
+					    		$str = "a";
+						        
+						        array_push($DNA, $row[$str.$int]);
+						        echo $DNA[$x] . " ";
+						        // echo $x." ";
+						    }
+
+						    echo "<br><br>aDNA<br>";
+
+						    for ($x = 0; $x <= 34; $x++) {
+					    		$int = $x;
+					    		$str = "b";
+						        
+						        array_push($aDNA, $row[$str.$int]);
+						        echo $aDNA[$x] . " ";
+						    }
+					    }
+				    }
+				} else {
+				    echo "0 results";
+				}
+				$conn->close();
 
 
-			?>
+				?>
 
 			<script type="text/javascript">
 				$(document).ready(function(){
