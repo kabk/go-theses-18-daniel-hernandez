@@ -21,8 +21,8 @@ if ($conn->connect_error) {
 
 if (isset($_POST['name1'])) {
 
-	$sql = "INSERT INTO form_element (student_name, student_email)
-	VALUES ('$name2', '$email2')";
+	$sql = "INSERT INTO form_element (student_name, student_email, student_contact, student_address)
+	VALUES ('$name2', '$email2', '$password2', '$contact2')";
 
 	if ($conn->query($sql) === TRUE) {
 	    echo "New record created successfully";

@@ -1,24 +1,22 @@
-"use strict";
+'use strict';
 
 function myFunction() {
 	var name = DNA[0];
-	var email = document.getElementById("email").value;
-	var password = document.getElementById("password").value;
-	var contact = document.getElementById("contact").value;
+	var email = DNA[1];
+	var password = DNA[2];
+	var contact = DNA[3];
 	// Returns successful data submission message when the entered information is stored in database.
 	var dataString = 'name1=' + name + '&email1=' + email + '&password1=' + password + '&contact1=' + contact;
-	if (name == '' || email == '' || password == '' || contact == '') {
-		alert("Please Fill All Fields");
-	} else {
-		$.ajax({
-			type: "POST",
-			url: "ajaxjs.php",
-			data: dataString,
-			cache: false,
-			success: function success(html) {
-				alert(html);
-			}
-		});
-	}
+
+	$.ajax({
+		type: "POST",
+		url: "ajaxjs.php",
+		data: dataString,
+		cache: false,
+		success: function success(html) {
+			alert("cool");
+		}
+	});
+
 	return false;
 }

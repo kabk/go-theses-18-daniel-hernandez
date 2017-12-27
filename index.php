@@ -56,68 +56,21 @@
 				<p>Genetic algorithms allow us to solve problems very efficiently. Instead of searching for all possible solutions, this model is selective and explores what it deems more valuable. For this reason it commonly used to carry out several tasks, from solving mathematical problems to developing medicines to product design. Since often this processes occur with very limited human intervention, the results are often very unexpected and seem counter intuitive, but nonetheless, perform much better than their human-designed predecessors. A good example of this is NASA’s spacecraft antenna which, despite its alien appearance, is remarkably optimized to carry out it’s task. These strange design choices are one of the reasons why it would be very interesting to</p></section>
 			<section id="info">
 
-
-
 				<form id="form" name="form">
-				<h3>Fill Your Information!</h3>
-				<div>
-				<label>Name :</label>
-				<input id="name" type="text">
-				<label>Email :</label>
-				<input id="email" type="text">
-				<label>Password :</label>
-				<input id="password" type="password">
-				<label>Contact No :</label>
-				<input id="contact" type="text">
-				<input id="submit" onclick="myFunction()" type="button" value="Submit">
+					<input id="submit" onclick="myFunction()" type="button" value="Submit">
 				</div>
 				</form>
 				
 			</section>
 
-			<script type="text/javascript">
-
-				var db = openDatabase('genetic', '1.0', 'test2', 2 * 1024 * 1024);
-
-
-				function submit() {
-					var input = 7;
-			        // localStorage.setItem("inputed_name", input);
-			        var msg;
-			        db.transaction(function (tx) 
-			        {
-			            tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (id unique, log varchar(50))');
-			            tx.executeSql('delete from LOGS'); // Clears table (for debugging)
-
-					tx.executeSql('INSERT INTO LOGS (key,value) VALUES (?,?)',[1,8]);
-			            msg = '<p>Log message created and row inserted.</p>';
-			            console.log(msg);
-			        });
-
-			        db.transaction(function (tx) {
-			            tx.executeSql('SELECT * FROM LOGS', [], function (tx, results) {
-			                var len = results.rows.length, i;
-			                msg = "<p>Found rows: " + len + "</p>";
-			                console.log(msg);
-			                for (i = 0; i < len; i++) {
-			                    msg = "<p><b>" + results.rows.item(i).log + "</b></p>";
-			                    console.log(msg);
-			                }
-			            }, null);
-			        });
-				}
-
-				submit();
-
-			</script>
 
 			<?php
-				$servername = "localhost:8889";
-				$username = "root";
-				$password = "root";
-				$dbname = "genetic";
+				// $servername = "localhost:8889";
+				// $username = "root";
+				// $password = "root";
+				// $dbname = "genetic";
 
-				$bar = isset($_POST['bar']) ? $_POST['bar'] : null;
+				// $bar = isset($_POST['bar']) ? $_POST['bar'] : null;
 
 				// // Create connection
 				// $conn = new mysqli($servername, $username, $password, $dbname);
@@ -137,8 +90,6 @@
 
 				// $conn->close();
 
-
-
 				/////////////////////
 
 
@@ -146,7 +97,7 @@
 
 			<script type="text/javascript">
 				$(document).ready(function(){
-					var phptest = "<?php echo $dbname; ?>";
+					// var phptest = "<?php echo $dbname; ?>";
 				});
 			</script>
 

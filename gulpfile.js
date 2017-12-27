@@ -25,8 +25,8 @@ gulp.task('sass', () => {
 });
 
 gulp.task('default', ['es6','sass'], () => {
-	gulp.watch('src/js/main.js', ['es6']);
-	gulp.watch('src/sass/main.scss', ['sass']);
+	gulp.watch('src/js/*.js', ['es6']);
+	gulp.watch('src/sass/*.scss', ['sass']);
 });
 
 
