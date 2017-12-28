@@ -134,15 +134,45 @@
 				    echo "0 results";
 				}
 
-				// Get current gen and sp
-
-				//$sql = "SELECT ID, gen, sp, rating FROM initDNAtest";
-
-
-
-
 				$conn->close();
 
+
+
+
+				// Get current gen and sp
+				$conn = new mysqli($servername, $username, $password, $dbname);
+				// Check connection
+				if ($conn->connect_error) {
+				    die("Connection failed: " . $conn->connect_error);
+				} 
+
+				$sql = "SELECT ID, gen, sp FROM activeSpTest";
+				$result = $conn->query($sql);
+
+				$generalCount = 0;
+				$gen = 1;
+				$sp = 0;
+
+				if ($result->num_rows > 0) {
+				    // output data of each row
+				    while($row = $result->fetch_assoc()) {
+
+				    	$generalCount++;
+				    	$sp++;
+
+				    	if ($generalCount % 20 === 0) {
+				    		$gen++;
+				    		$sp = 1;
+				    	}
+				    }
+
+				    echo "<br>gc " . $generalCount . "<br>gen " . $gen . "<br>sp " . $sp;
+
+				} else {
+				    echo "0 results";
+				}
+
+				$conn->close();
 
 				?>
 
