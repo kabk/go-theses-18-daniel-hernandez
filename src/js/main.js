@@ -306,12 +306,11 @@ const rate = () => {
 		score = Math.floor((relX / barW) * 10.9);
 		$barInner.css("width", `${relX}px`);
 		$barInner.text(score);
-
 	});
 
 	$bar.mouseup(function(){
 		$bar.addClass("innactive");
-		pushGenSpToDB(gen, specimen, score);
+		pushRatingToDB(dbGen, dbSp, score);
 	});
 }
 

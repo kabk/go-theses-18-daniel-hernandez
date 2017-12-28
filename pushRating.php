@@ -3,10 +3,16 @@ $gen = $_POST['gen'];
 $sp = $_POST['sp'];
 $rating = $_POST['rating'];
 
+$idPad = 33;
+
+$newId = $idPad . $sp;
+
 $servername = "localhost:8889";
 $username = "root";
 $password = "root";
 $dbname = "genetic";
+
+echo "lolololo";
 
 $bar = isset($_POST['bar']) ? $_POST['bar'] : null;
 
@@ -16,12 +22,12 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-	$sql = "UPDATE activeSpTest SET rating = '$rating' WHERE ID = $sp";
+	$sql = "UPDATE activeSpTest SET rating = '$rating' WHERE id = '$sp'";
 
 	if ($conn->query($sql) === TRUE) {
-	    echo "New record created successfully";
+	    // echo "New record created successfully";
 	} else {
-	    echo "Error: " . $sql . "<br>" . $conn->error;
+	    // echo "Error: " . $sql . "<br>" . $conn->error;
 	}
 
 $conn->close();

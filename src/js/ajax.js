@@ -44,8 +44,11 @@ function pushGenSpToDB(){ //init only
 
 
 
-function pushGenSpToDB(gene, spec, rate){
-	let dataString = `gen=${gene}&sp=${spec}&rating=${rate}`;
+function pushRatingToDB(gene, spec, rate){
+
+	let idPadding = 33 - 1; //where DB id starts
+
+	let dataString = `gen=${gene}&sp=${spec+32}&rating=${rate}`;
 
 	$.ajax({
 		type: "POST",
@@ -56,6 +59,6 @@ function pushGenSpToDB(gene, spec, rate){
 			// alert("cool");
 		}
 	});
-	
+	console.log(dataString);
 	return false;
 }

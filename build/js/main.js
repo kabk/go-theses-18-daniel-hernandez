@@ -303,7 +303,7 @@ var rate = function rate() {
 
 	$bar.mouseup(function () {
 		$bar.addClass("innactive");
-		pushGenSpToDB(gen, specimen, score);
+		pushRatingToDB(dbGen, dbSp, score);
 	});
 };
 
