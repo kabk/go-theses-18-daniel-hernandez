@@ -31,7 +31,7 @@
 			</section>
 			<section>
 			<h3>Abstract</h3>
-				<p>In an age where artificial intelligence is expanding towards more and more areas, it is essential for <span class="imgLink">graphic designers</span><span class="linkedImg"><img src="img/nick.png" /><span class="imgCaption"><br>Caption blerp, 1923</span></span> to learn about this topic and understand its potential implications. This thesis attempts to tackle the problem of computational creativity with a focus on graphic design. This problem lies in the fact that it is very difficult to emulate a form of human creativity that is able to transform, combine and explore a vast conceptual space. This thesis examines several existing technologies, aiming to find out how they can be used to carry out the tasks that graphic designers perform. By finding out the potential capabilities of these technologies, graphic designers may know how how to adapt to the technological revolution that is rapidly approaching.</p>
+				<p>In an age where artificial intelligence is expanding towards more and more areas, it is essential for <span class="imgLink">graphic designers</span><span class="linkedImg"><img src="img/nickj.png" /><span class="imgCaption"><br>Caption blerp, 1923</span></span> to learn about this topic and understand its potential implications. This thesis attempts to tackle the problem of computational creativity with a focus on graphic design. This problem lies in the fact that it is very difficult to emulate a form of human creativity that is able to transform, combine and explore a vast conceptual space. This thesis examines several existing technologies, aiming to find out how they can be used to carry out the tasks that graphic designers perform. By finding out the potential capabilities of these technologies, graphic designers may know how how to adapt to the technological revolution that is rapidly approaching.</p>
 				<p>Developing an artificial intelligence capable of autonomous design is a very difficult problem, because graphic design, and especially “good graphic design" is an intrinsically subjective and abstract concept which is very difficult to quantify and fully automate. This thesis aims to examine to what extent this kind of autonomous design is possible, how it might be achieved, and what this achievement would imply.</p>
 				<p>The focus of this research is mostly based on practical, hands-on experimentation with existing technologies like deep neural networks, generative adversarial networks and genetic algorithms. The use of these technologies in the area of graphic design remains virtually unexplored, so by conducting several experiments, it might be possible to identify the potential of these technologies, as well as its limitations.</p>
 				<p>Followed by these experiments is a reflection on the potential effect that machine learning can have on the discipline of graphic design and how designers might be able to adapt to a future of creative machines.</p>
@@ -40,7 +40,7 @@
 			<h3>Abstract</h3>
 				<p>In an age where artificial intelligence is expanding towards more and more areas, it is essential for graphic designers to learn about this topic and understand its potential implications. This thesis attempts to tackle the problem of computational creativity with a focus on graphic design. This problem lies in the fact that it is very difficult to emulate a form of human creativity that is able to transform, combine and explore a vast conceptual space. This thesis examines several existing technologies, aiming to find out how they can be used to carry out the tasks that graphic designers perform. By finding out the potential capabilities of these technologies, graphic designers may know how how to adapt to the technological revolution that is rapidly approaching.</p>
 				<p>Developing an artificial intelligence capable of autonomous design is a very difficult problem, because graphic design, and especially “good graphic design" is an intrinsically subjective and abstract concept which is very difficult to quantify and fully automate. This thesis aims to examine to what extent this kind of autonomous design is possible, how it might be achieved, and what this achievement would imply.</p>
-				<p>The focus of this research is mostly based on practical, hands-on experimentation with existing technologies like deep neural networks, generative adversarial networks and genetic algorithms. The use of these technologies in the area of graphic design remains virtually unexplored, so by conducting several experiments, it might be possible to identify the potential of these technologies<sup class="refLink">1</sup><span class="linkedRef">1. Hijazi, Samer, Rishi Kumar, and Chris Rowen. “Using Convolu- tional Neural Networks for Image Recognition.” Cadence, 2015.</span>, as well as its limitations.</p>
+				<p>The focus of this research is mostly based on practical, hands-on experimentation with existing technologies like deep neural networks, generative adversarial networks and genetic algorithms. The use of these technologies in the area of graphic design remains virtually unexplored, so by conducting several experiments, it might be possible to identify the potential of these technologies<sup class="refLink">1</sup><span class="linkedRef">1. Hijazi, Samer, Rishi Kumar, and Chris Rowen. “Using Convolutional Neural Networks for Image Recognition.” Cadence, 2015.</span>, as well as its limitations.</p>
 				<p>Followed by these experiments is a reflection on the potential effect that machine learning can have on the discipline of graphic design and how designers might be able to adapt to a future of creative machines.</p>
 			</section>
 			<section><h3>Introduction</h3>
@@ -85,61 +85,19 @@
 
 				// $conn->close();
 
-				/////////////////////Get DNA data from DB
 				$servername = "localhost:8889";
 				$username = "root";
 				$password = "root";
 				$dbname = "genetic";
 
-				// Create connection
-				$conn = new mysqli($servername, $username, $password, $dbname);
-				// Check connection
-				if ($conn->connect_error) {
-				    die("Connection failed: " . $conn->connect_error);
-				} 
-
-				$sql = "SELECT ID, a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32, a33, a34, b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20, b21, b22, b23, b24, b25, b26, b27, b28, b29, b30, b31, b32, b33, b34 FROM initDNAtest";
-				$result = $conn->query($sql);
-
-				$DNA = [];
-				$aDNA = [];
-
-				if ($result->num_rows > 0) {
-				    // output data of each row
-				    while($row = $result->fetch_assoc()) {
-				    	if ($row["ID"] == 250) {  ///////////////here goes the specimen ID
-
-				    		echo "DNA<br>";
-							for ($x = 0; $x <= 34; $x++) {
-					    		$int = $x;
-					    		$str = "a";
-						        
-						        array_push($DNA, $row[$str.$int]);
-						        echo $DNA[$x] . " ";
-						        // echo $x." ";
-						    }
-
-						    echo "<br><br>aDNA<br>";
-
-						    for ($x = 0; $x <= 34; $x++) {
-					    		$int = $x;
-					    		$str = "b";
-						        
-						        array_push($aDNA, $row[$str.$int]);
-						        echo $aDNA[$x] . " ";
-						    }
-					    }
-				    }
-				} else {
-				    echo "0 results";
-				}
-
-				$conn->close();
+				$generalCount = 0;
+				$gen = 1;
+				$sp = 1;
 
 
 
 
-				// Get current gen and sp
+				///////////// Get current gen and sp
 				$conn = new mysqli($servername, $username, $password, $dbname);
 				// Check connection
 				if ($conn->connect_error) {
@@ -148,10 +106,6 @@
 
 				$sql = "SELECT ID, rating FROM activeSpTest";
 				$result = $conn->query($sql);
-
-				$generalCount = 0;
-				$gen = 1;
-				$sp = 1;
 
 				if ($result->num_rows > 0) {
 				    // output data of each row
@@ -166,13 +120,68 @@
 				    	}
 				    }
 
-				    echo "<br>gc " . $generalCount . "<br>gen " . $gen . "<br>sp " . $sp;
+				    // echo "<br>gc " . $generalCount . "<br>gen " . $gen . "<br>sp " . $sp;
 
 				} else {
 				    echo "0 results";
 				}
 
 				$conn->close();
+
+
+				/////////////////////Get DNA data from DB
+
+				// Create connection
+				$conn = new mysqli($servername, $username, $password, $dbname);
+				// Check connection
+				if ($conn->connect_error) {
+				    die("Connection failed: " . $conn->connect_error);
+				} 
+
+				$sql = "SELECT ID, a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32, a33, a34, b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20, b21, b22, b23, b24, b25, b26, b27, b28, b29, b30, b31, b32, b33, b34 FROM initDNAtest";
+				$result = $conn->query($sql);
+
+				$DNA = [];
+				$aDNA = [];
+
+				$idPad = intval(237 + $sp); // +sp
+
+				if ($result->num_rows > 0) {
+				    // output data of each row
+				    while($row = $result->fetch_assoc()) {
+				    	if ($row["ID"] == $idPad) {  ///////////////here goes the specimen ID that will be displayed
+
+				    		// echo "DNA<br>";
+							for ($x = 0; $x <= 34; $x++) {
+					    		$int = $x;
+					    		$str = "a";
+						        
+						        array_push($DNA, $row[$str.$int]);
+						        // echo $DNA[$x] . " ";
+						        // echo $x." ";
+						    }
+
+						    // echo "<br><br>aDNA<br>";
+
+						    for ($x = 0; $x <= 34; $x++) {
+					    		$int = $x;
+					    		$str = "b";
+						        
+						        array_push($aDNA, $row[$str.$int]);
+						        // echo $aDNA[$x] . " ";
+						    }
+					    }
+				    }
+				} else {
+				    echo "0 results";
+				}
+
+				$conn->close();
+
+
+
+
+				
 
 				?>
 
