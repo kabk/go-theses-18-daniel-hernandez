@@ -1,14 +1,4 @@
 function pushDNAtoDB() {
-	// // Returns successful data submission message when the entered information is stored in database.
-	// let dataString = 'a0=' + name + '&email1=' + email + '&password1=' + password + '&contact1=' + contact;
-
-	// let dataString = `
-	// 	a0=${}
-	// 	&a1=${}
-	// 	&a1=${}
-	// 	&a1=${}
-	// `;
-
 	let dataString = `a0=${DNA[0]}`;
 	
 	for (var i = 0; i < DNA.length-1; i++) {
@@ -39,9 +29,6 @@ function pushDNAtoDB() {
 function pushGenSpToDB(){ //init only
 	let dataString = `gen=${1}&sp=${1}`;
 	
-
-	// console.log(dataString);
-
 	$.ajax({
 		type: "POST",
 		url: "initPushGenSp.php",
