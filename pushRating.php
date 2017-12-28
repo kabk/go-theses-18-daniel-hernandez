@@ -12,8 +12,6 @@ $username = "root";
 $password = "root";
 $dbname = "genetic";
 
-echo "lolololo";
-
 $bar = isset($_POST['bar']) ? $_POST['bar'] : null;
 
 $conn = new mysqli($servername, $username, $password, $dbname);

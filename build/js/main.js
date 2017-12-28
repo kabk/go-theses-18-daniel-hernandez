@@ -10,7 +10,6 @@ var bw = ["black", "white"];
 
 var c1 = []; //bg
 var c2 = []; //fg
-var tempCount = 0;
 var DNA = void 0;
 var aDNA = void 0;
 
@@ -125,8 +124,6 @@ var activateProperty = function activateProperty(target, property, setting, prob
 var design = function design(DNAarr, aDNAarr) {
 
 	var colWidth = DNAarr[28];
-
-	tempCount++;
 
 	$("#textWrap").css("width", colWidth + "%");
 	$(".linkedImg, .linkedRef").css("width", 100 - colWidth + "%");
@@ -306,5 +303,8 @@ var rate = function rate() {
 		pushRatingToDB(dbGen, dbSp, score);
 	});
 };
+
+$("#designCounter").text(dbSp);
+$("#generationCounter").text(dbGen);
 
 rate();

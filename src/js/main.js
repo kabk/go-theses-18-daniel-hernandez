@@ -8,7 +8,6 @@ const bw= ["black", "white"];
 
 let c1 = []; //bg
 let c2 = []; //fg
-let tempCount = 0;
 let DNA;
 let aDNA;
 
@@ -124,8 +123,6 @@ const activateProperty = (target, property, setting, probability, aDNAarr) => {
 const design = (DNAarr, aDNAarr) => {
 
 	let colWidth = DNAarr[28];
-
-	tempCount++;
 
 	$("#textWrap").css("width", colWidth+"%");
 	$(".linkedImg, .linkedRef").css("width", 100-colWidth+"%");
@@ -313,5 +310,10 @@ const rate = () => {
 		pushRatingToDB(dbGen, dbSp, score);
 	});
 }
+
+
+$("#designCounter").text(dbSp);
+$("#generationCounter").text(dbGen);
+
 
 rate();
