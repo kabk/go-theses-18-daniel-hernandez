@@ -302,20 +302,16 @@ const rate = () => {
 
 	$bar.mousemove(function(e){
 		var parentOffset = $(this).offset(); 
-		//or $(this).offset(); if you really just want the current element's offset
 		var relX = Math.floor(e.pageX - parentOffset.left);
-		score = Math.floor((relX / barW) * 10);
-
+		score = Math.floor((relX / barW) * 10.9);
 		$barInner.css("width", `${relX}px`);
-		// $barInner.css("background-color", `rgb(0,${score*26},0)`);
+		$barInner.text(score);
 
 	});
 
 	$bar.mouseup(function(){
-		$barInner.prepend(score);
 		$bar.addClass("innactive");
 		pushGenSpToDB(gen, specimen, score);
-
 	});
 }
 
