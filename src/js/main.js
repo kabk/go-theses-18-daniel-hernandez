@@ -13,7 +13,7 @@ let DNA;
 let aDNA;
 
 var gen = 1;
-var specimen = 0;
+var specimen = 1;
 
 const generationSpecimens = 20;
 
@@ -315,6 +315,10 @@ const rate = () => {
 		// alert(`Thank you. Your score ----> ${score}/10`);
 		$barInner.prepend(score);
 		$bar.addClass("innactive");
+
+		pushGenSpToDB(gen, specimen, score);
+
+		// console.log(gen, specimen, score);
 	});
 }
 

@@ -107,7 +107,7 @@
 				if ($result->num_rows > 0) {
 				    // output data of each row
 				    while($row = $result->fetch_assoc()) {
-				    	if ($row["ID"] == 57) {  ///////////////here goes the specimen ID
+				    	if ($row["ID"] == 250) {  ///////////////here goes the specimen ID
 
 				    		echo "DNA<br>";
 							for ($x = 0; $x <= 34; $x++) {
@@ -133,6 +133,14 @@
 				} else {
 				    echo "0 results";
 				}
+
+				// Get current gen and sp
+
+				//$sql = "SELECT ID, gen, sp, rating FROM initDNAtest";
+
+
+
+
 				$conn->close();
 
 
@@ -215,10 +223,8 @@
 					dbADNA.push(parseInt("<?php echo $aDNA[33]; ?>"));
 					dbADNA.push(parseInt("<?php echo $aDNA[34]; ?>"));
 
-					console.log(dbDNA);
-					console.log(dbADNA);
-
-
+					console.log(DNA);
+					console.log(aDNA);
 
 					design(dbDNA, dbADNA);
 				});

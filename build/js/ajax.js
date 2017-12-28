@@ -37,3 +37,38 @@ function pushDNAtoDB() {
 
 	return false;
 }
+
+function pushGenSpToDB() {
+	//init only
+	var dataString = "gen=" + 1 + "&sp=" + 1;
+
+	// console.log(dataString);
+
+	$.ajax({
+		type: "POST",
+		url: "initPushGenSp.php",
+		data: dataString,
+		cache: false,
+		success: function success(html) {
+			// alert("cool");
+		}
+	});
+
+	return false;
+}
+
+function pushGenSpToDB(gene, spec, rate) {
+	var dataString = "gen=" + gene + "&sp=" + spec + "&rating=" + rate;
+
+	$.ajax({
+		type: "POST",
+		url: "pushRating.php",
+		data: dataString,
+		cache: false,
+		success: function success(html) {
+			// alert("cool");
+		}
+	});
+
+	return false;
+}
