@@ -11,8 +11,8 @@ let c2 = []; //fg
 let DNA;
 let aDNA;
 
-var gen = 1;
-var specimen = 1;
+// var gen = 1;
+// var specimen = 1;
 
 const generationSpecimens = 20;
 

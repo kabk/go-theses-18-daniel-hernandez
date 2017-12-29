@@ -139,6 +139,7 @@
 				$result = $conn->query($sql);
 
 				$allDNA = [];
+				$allADNA = [];
 
 				$DNA = [];
 				$aDNA = [];
@@ -156,17 +157,16 @@
 				    while($row = $result->fetch_assoc()) {
 
 				    	array_push($allDNA, []);
+				    	array_push($allADNA, []);
 
 
 				    	for ($x = 0; $x <= 34; $x++) {
 				    		array_push($allDNA[$genCount], $row[$strA . $x]);
+				    		array_push($allADNA[$genCount], $row[$strB . $x]);
 					    }
 
 					    $genCount++;
 				    	
-
-				    	// array_push($allDNA[0], 1)
-
 				    	if ($row["ID"] == $idPad) {  ///////////////here goes the specimen ID that will be displayed
 
 							for ($x = 0; $x <= 34; $x++) {
@@ -194,10 +194,8 @@
 				var dbADNA = <?php echo json_encode( $aDNA ); ?>;
 				var dbRatings = <?php echo json_encode( $ratings ); ?>;
 
-				var tempAllDNA = <?php echo json_encode( $allDNA ); ?>;
-
-				// console.log(tempAllDNA + " all dna ", tempAllDNA.length);
-				console.log(tempAllDNA);
+				var allDNA = <?php echo json_encode( $allDNA ); ?>;
+				var allADNA = <?php echo json_encode( $allADNA ); ?>;
 
 				$(document).ready(function(){
 

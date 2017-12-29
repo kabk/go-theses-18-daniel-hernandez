@@ -13,8 +13,8 @@ var c2 = []; //fg
 var DNA = void 0;
 var aDNA = void 0;
 
-var gen = 1;
-var specimen = 1;
+// var gen = 1;
+// var specimen = 1;
 
 var generationSpecimens = 20;
 
