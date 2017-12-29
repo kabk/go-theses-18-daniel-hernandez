@@ -37,3 +37,10 @@ and adjust counters taking gen in account
 
 
 id paddings : index.php, ajax.js
+
+
+
+
+
+add TOC
+add some kind of explanation

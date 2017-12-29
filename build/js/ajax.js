@@ -47,7 +47,7 @@ function pushGenSpToDB() {
 
 function pushRatingToDB(gene, spec, rate) {
 
-	var idPadding = 220 - 1; //where DB id starts ---> db = activeSP (?)
+	var idPadding = 284 - 1; //where DB id starts ---> db = activeSP (?)
 
 	var dataString = "gen=" + gene + "&sp=" + (spec + idPadding) + "&rating=" + rate;
 

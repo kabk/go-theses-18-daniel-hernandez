@@ -65,7 +65,7 @@
 			</section>
 
 			<section>
-				<span class="imgLink">image example</span><span class="linkedImg"><img src="img/nickj.png" /><span class="imgCaption"><br>Caption blerp, 1923</span></span>
+				<span class="imgLink">image example</span><span class="linkedImg"><img src="img/galapagos-icc240.jpg" /><span class="imgCaption"><br>Caption blerp, 1923</span></span>
 				<sup class="refLink">1</sup><span class="linkedRef">1. Hijazi, Samer, Rishi Kumar, and Chris Rowen. “Using Convolutional Neural Networks for Image Recognition.” Cadence, 2015.</span>
 			</section>
 
@@ -162,7 +162,7 @@
 				$DNA = [];
 				$aDNA = [];
 
-				$idPad = intval(237 + $sp - 1); // +sp   first ID from initDNA DB
+				$idPad = intval(297 + $sp - 1); // +sp   first ID from initDNA DB
 
 				if ($result->num_rows > 0) {
 				    // output data of each row
@@ -287,8 +287,8 @@
 					dbADNA.push(parseInt("<?php echo $aDNA[33]; ?>"));
 					dbADNA.push(parseInt("<?php echo $aDNA[34]; ?>"));
 
-					console.log(DNA);
-					console.log(aDNA);
+					// console.log(DNA);
+					// console.log(aDNA);
 
 					design(dbDNA, dbADNA);
 				});
@@ -300,6 +300,7 @@
 	<script src="build/js/main.js"></script>
 	<script src="build/js/ajax.js"></script>
 	<script src="build/js/firstGen.js"></script>
+	<script src="build/js/reproduce.js"></script>
 
 </body>
 </html>
