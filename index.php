@@ -138,28 +138,43 @@
 				$sql = "SELECT ID, a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32, a33, a34, b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20, b21, b22, b23, b24, b25, b26, b27, b28, b29, b30, b31, b32, b33, b34 FROM initDNAtest";
 				$result = $conn->query($sql);
 
+				$allDNA = [];
+
 				$DNA = [];
 				$aDNA = [];
 
-				$idPad = intval(297 + $sp - 1); // +sp   first ID from initDNA DB
+				$genCount = 0;
+
+				$idPad = intval(337 + $sp - 1); // +sp   first ID from initDNA DB
 
 				if ($result->num_rows > 0) {
+
+					$strA = "a";
+					$strB = "b";
+
 				    // output data of each row
 				    while($row = $result->fetch_assoc()) {
+
+				    	array_push($allDNA, []);
+
+
+				    	for ($x = 0; $x <= 34; $x++) {
+				    		array_push($allDNA[$genCount], $row[$strA . $x]);
+					    }
+
+					    $genCount++;
+				    	
+
+				    	// array_push($allDNA[0], 1)
+
 				    	if ($row["ID"] == $idPad) {  ///////////////here goes the specimen ID that will be displayed
 
 							for ($x = 0; $x <= 34; $x++) {
-					    		$int = $x;
-					    		$str = "a";
-						        
-						        array_push($DNA, $row[$str.$int]);
+					        	array_push($DNA, $row[$strA . $x]);
 						    }
 
 						    for ($x = 0; $x <= 34; $x++) {
-					    		$int = $x;
-					    		$str = "b";
-						        
-						        array_push($aDNA, $row[$str.$int]);
+					    		array_push($aDNA, $row[$strB . $x]);
 						    }
 					    }
 				    }
@@ -178,6 +193,11 @@
 				var dbDNA = <?php echo json_encode( $DNA ); ?>;
 				var dbADNA = <?php echo json_encode( $aDNA ); ?>;
 				var dbRatings = <?php echo json_encode( $ratings ); ?>;
+
+				var tempAllDNA = <?php echo json_encode( $allDNA ); ?>;
+
+				// console.log(tempAllDNA + " all dna ", tempAllDNA.length);
+				console.log(tempAllDNA);
 
 				$(document).ready(function(){
 

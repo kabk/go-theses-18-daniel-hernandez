@@ -1,12 +1,14 @@
 const reproduce = () => {
-	console.log(dbRatings);
+	
+	// console.log(dbRatings);
 
-	mutate();
+	
+
 }
 
-const mutate = () => {
-	const mutationRate = 1;
-}
+// const mutate = () => {
+// 	const mutationRate = 1;
+// }
 
 
 if (dbGeneralCount == 20) {

@@ -1,16 +1,16 @@
 "use strict";
 
-var reproduce = function reproduce() {
-	console.log(dbRatings);
+var reproduce = function reproduce() {}
 
-	mutate();
-};
+// console.log(dbRatings);
 
-var mutate = function mutate() {
-	var mutationRate = 1;
-};
 
-if (dbGeneralCount == 20) {
+// const mutate = () => {
+// 	const mutationRate = 1;
+// }
+
+
+;if (dbGeneralCount == 20) {
 	alert("generate new gen");
 }
 
