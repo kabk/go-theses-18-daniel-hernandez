@@ -1,5 +1,5 @@
 const reproduce = () => {
-	console.log(DNA.length);
+	console.log(dbRatings);
 
 	mutate();
 }

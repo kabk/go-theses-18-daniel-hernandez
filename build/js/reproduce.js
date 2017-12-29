@@ -1,7 +1,7 @@
 "use strict";
 
 var reproduce = function reproduce() {
-	console.log(DNA.length);
+	console.log(dbRatings);
 
 	mutate();
 };

@@ -78,30 +78,6 @@
 
 
 			<?php
-				// $servername = "localhost:8889";
-				// $username = "root";
-				// $password = "root";
-				// $dbname = "genetic";
-
-				// $bar = isset($_POST['bar']) ? $_POST['bar'] : null;
-
-				// // Create connection
-				// $conn = new mysqli($servername, $username, $password, $dbname);
-				// // Check connection
-				// if ($conn->connect_error) {
-				//     die("Connection failed: " . $conn->connect_error);
-				// } 
-
-				// $sql = "INSERT INTO test2 (a0, a1)
-				// VALUES (32, 3)";
-
-				// if ($conn->query($sql) === TRUE) {
-				//     echo "New record created successfully";
-				// } else {
-				//     echo "Error: " . $sql . "<br>" . $conn->error;
-				// }
-
-				// $conn->close();
 
 				$servername = "localhost:8889";
 				$username = "root";
@@ -139,12 +115,9 @@
 				    		$sp = 1;
 				    	}
 
-				    	echo '<br>rating ' . $row['rating'];
 				    	array_push($ratings, $row['rating']);
 
 				    }
-
-				    // echo "<br>gc " . $generalCount . "<br>gen " . $gen . "<br>sp " . $sp;
 
 				} else {
 				    echo "0 results";
@@ -175,24 +148,18 @@
 				    while($row = $result->fetch_assoc()) {
 				    	if ($row["ID"] == $idPad) {  ///////////////here goes the specimen ID that will be displayed
 
-				    		// echo "DNA<br>";
 							for ($x = 0; $x <= 34; $x++) {
 					    		$int = $x;
 					    		$str = "a";
 						        
 						        array_push($DNA, $row[$str.$int]);
-						        // echo $DNA[$x] . " ";
-						        // echo $x." ";
 						    }
-
-						    // echo "<br><br>aDNA<br>";
 
 						    for ($x = 0; $x <= 34; $x++) {
 					    		$int = $x;
 					    		$str = "b";
 						        
 						        array_push($aDNA, $row[$str.$int]);
-						        // echo $aDNA[$x] . " ";
 						    }
 					    }
 				    }
@@ -222,7 +189,6 @@
 			</script>
 
 		</div>
-		<!-- <div id="images">col2</div> -->
 	</div>
 	<script src="build/js/main.js"></script>
 	<script src="build/js/ajax.js"></script>
