@@ -3,9 +3,9 @@ $gen = $_POST['gen'];
 $sp = $_POST['sp'];
 $rating = $_POST['rating'];
 
-$idPad = 33;
+// $idPad = 237;
 
-$newId = $idPad . $sp;
+// $newId = $idPad . $sp;
 
 $servername = "localhost:8889";
 $username = "root";

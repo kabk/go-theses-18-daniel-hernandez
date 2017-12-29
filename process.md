@@ -31,3 +31,9 @@ Add "view previous gens"
 shifted ratings -1
 if 19 already create new gen
 and adjust counters taking gen in account
+
+
+
+
+
+id paddings : index.php, ajax.js
