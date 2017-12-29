@@ -144,7 +144,7 @@
 				$DNA = [];
 				$aDNA = [];
 
-				$idPad = intval(237 + $sp); // +sp   first ID from initDNA DB
+				$idPad = intval(237 + $sp - 1); // +sp   first ID from initDNA DB
 
 				if ($result->num_rows > 0) {
 				    // output data of each row
