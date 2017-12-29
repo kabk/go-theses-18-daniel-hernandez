@@ -49,11 +49,6 @@ header{
 	width: 100%;
 	z-index: 100;
 
-	// &.bottom {
-	// 	position: fixed;
-	// 	bottom: 0;
-	// }
-
 	#genInfo {
 		float: right;
 	}
@@ -89,11 +84,6 @@ canvas{
 	padding-top: 0 !important;
 }
 
-.checkCross{
-	// font-size: 18pt;
-	// margin-top: -5px;
-}
-
 #bg{
 	position: fixed;
 	width: 100%;
@@ -119,9 +109,6 @@ canvas{
 	}
 }
 
-
-
-//temp
 .imgLink, .refLink {
 	text-decoration: underline;
 	cursor: pointer;
@@ -129,11 +116,6 @@ canvas{
 
 .shiny{
 	background-color: rgba(255, 255, 255, 0.5);
-	// mix-blend-mode: difference;
-}
-
-div{
-	// border: 1px dashed white;
 }
 
 #rateBar{
@@ -152,7 +134,6 @@ div{
 
 		#rateBarInner{
 			background-color: lightgrey;
-			// opacity: 0.4;
 			color: white !important;
 		}
 	}
