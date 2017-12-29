@@ -112,6 +112,8 @@
 				$gen = 1;
 				$sp = 1;
 
+				$ratings = [];
+
 
 
 
@@ -136,6 +138,10 @@
 				    		$gen++;
 				    		$sp = 1;
 				    	}
+
+				    	echo '<br>rating ' . $row['rating'];
+				    	array_push($ratings, $row['rating']);
+
 				    }
 
 				    // echo "<br>gc " . $generalCount . "<br>gen " . $gen . "<br>sp " . $sp;
@@ -204,17 +210,12 @@
 				var dbSp = parseInt("<?php echo $sp; ?>");
 				var dbDNA = [];
 				var dbADNA = [];
+				var dbRatings = <?php echo json_encode( $ratings ); ?>;
 
 				$(document).ready(function(){
 
-					pushGenSpToDB();
-
-					
-					// console.log(dbGeneralCount,dbGen, dbSp);
-
-					///////get DNA from db to js
-					
-
+					// pushGenSpToDB();
+										
 					dbDNA.push(parseInt("<?php echo $DNA[0]; ?>"));
 					dbDNA.push(parseInt("<?php echo $DNA[1]; ?>"));
 					dbDNA.push(parseInt("<?php echo $DNA[2]; ?>"));

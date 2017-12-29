@@ -308,3 +308,8 @@ $("#designCounter").text(dbSp);
 $("#generationCounter").text(dbGen);
 
 rate();
+
+// function lel(arr, ind){
+// 	var str = `<?php echo ${arr}[${ind}]; ?>`;
+// 	dbRatings.push(parseInt(str));
+// }
