@@ -208,90 +208,16 @@
 				var dbGeneralCount = parseInt("<?php echo $generalCount; ?>");
 				var dbGen = parseInt("<?php echo $gen; ?>");
 				var dbSp = parseInt("<?php echo $sp; ?>");
-				var dbDNA = [];
-				var dbADNA = [];
+				var dbDNA = <?php echo json_encode( $DNA ); ?>;
+				var dbADNA = <?php echo json_encode( $aDNA ); ?>;
 				var dbRatings = <?php echo json_encode( $ratings ); ?>;
 
 				$(document).ready(function(){
 
 					// pushGenSpToDB();
-										
-					dbDNA.push(parseInt("<?php echo $DNA[0]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[1]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[2]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[3]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[4]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[5]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[6]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[7]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[8]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[9]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[10]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[11]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[12]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[13]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[14]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[15]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[16]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[17]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[18]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[19]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[20]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[21]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[22]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[23]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[24]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[25]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[26]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[27]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[28]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[29]; ?>"));
-					dbDNA.push(parseInt("<?php echo $DNA[30]; ?>"));
-					dbDNA.push(parseFloat("<?php echo $DNA[31]; ?>"));
-					dbDNA.push(parseFloat("<?php echo $DNA[32]; ?>"));
-					dbDNA.push(parseFloat("<?php echo $DNA[33]; ?>"));
-					dbDNA.push(parseFloat("<?php echo $DNA[34]; ?>"));
-
-					dbADNA.push(parseInt("<?php echo $aDNA[0]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[1]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[2]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[3]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[4]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[5]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[6]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[7]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[8]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[9]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[10]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[11]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[12]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[13]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[14]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[15]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[16]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[17]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[18]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[19]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[20]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[21]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[22]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[23]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[24]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[25]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[26]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[27]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[28]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[29]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[30]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[31]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[32]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[33]; ?>"));
-					dbADNA.push(parseInt("<?php echo $aDNA[34]; ?>"));
-
-					// console.log(DNA);
-					// console.log(aDNA);
 
 					design(dbDNA, dbADNA);
+
 				});
 			</script>
 
