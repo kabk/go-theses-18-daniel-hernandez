@@ -26,7 +26,6 @@ const reproduce = () => {
 
 	}
 
-
 	for (var j = offspringNo; j < generationSpecimens; j++) { // generate children from all parents
 		newDNA.push([]);
 		newADNA.push([]);
@@ -55,4 +54,4 @@ if (dbGeneralCount == 20) {
 	alert("generate new gen");
 }
 
-reproduce();
+// reproduce();

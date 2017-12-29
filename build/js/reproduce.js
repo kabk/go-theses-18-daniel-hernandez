@@ -54,4 +54,4 @@ if (dbGeneralCount == 20) {
 	alert("generate new gen");
 }
 
-reproduce();
+// reproduce();

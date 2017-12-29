@@ -197,6 +197,8 @@
 				var allDNA = <?php echo json_encode( $allDNA ); ?>;
 				var allADNA = <?php echo json_encode( $allADNA ); ?>;
 
+				console.log(dbDNA, dbADNA);
+
 				$(document).ready(function(){
 
 					// pushGenSpToDB();

@@ -11,9 +11,6 @@ let c2 = []; //fg
 let DNA;
 let aDNA;
 
-// var gen = 1;
-// var specimen = 1;
-
 const generationSpecimens = 20;
 
 const generateDNA = () => {
@@ -99,6 +96,7 @@ const applyColor = () => {
 const randomColor = (DNAarr) => {
 	c1 = [DNAarr[22], DNAarr[23], DNAarr[24]];
 	c2 = [DNAarr[25], DNAarr[26], DNAarr[27]];
+	indexDNA+=6;
 
 	// if (colorDiff(c1,c2) >= 140) {
 		applyColor();
@@ -114,47 +112,13 @@ const randomColor = (DNAarr) => {
 let indexDNA = 0;
 
 const activateProperty = (target, property, setting, probability, aDNAarr) => {
-	if (aDNAarr[indexDNA] === 1) {
+	if (parseInt(aDNAarr[indexDNA]) === 1) {
 		$(target).css(property, setting);
 	}
 	indexDNA++;
 }
 
 const design = (DNAarr, aDNAarr) => {
-
-	let colWidth = DNAarr[28];
-
-	$("#textWrap").css("width", colWidth+"%");
-	$(".linkedImg, .linkedRef").css("width", 100-colWidth+"%");
-
-	if (DNAarr[29]===1) {
-		$("#textWrap").css("float","left");
-		$(".linkedImg, .linkedRef").css("left","auto").css("right", "0");
-	} else {
-		$("#textWrap").css("float","right");
-		$(".linkedImg, .linkedRef").css("right","auto").css("left","0");
-	}
-
-	//big landing
-	let headerH;
-
-	setTimeout(function(){
-		headerH = $("header").outerHeight();
-		$("#mainWrap").css("padding-top",`${headerH}px`);
-	},1200);
-
-	if (DNAarr[30]===0) {
-		// $("#landing").addClass("bigLanding").css("top",`${headerH}px`);
-		$("#landing").addClass("bigLanding");
-		$("#textWrap").addClass("bigLanding");
-		// activateProperty("h2", "font-size", randFl(1.2,9)+"rem", 1);
-
-		// $("#mainWrap").css("padding-top", "100vh !important");
-	} else {
-		$("#landing").removeClass("bigLanding");
-		$("#textWrap").removeClass("bigLanding");
-
-	}
 
 	$("#landing").append(`Design ID: [ `);
 
@@ -168,14 +132,8 @@ const design = (DNAarr, aDNAarr) => {
 	
 	$("#landing").append(`]`);
 
-	randomColor(DNAarr);
-
-
 	activateProperty("body", "font-family", fonts[DNAarr[0]], 1, aDNAarr);
 	activateProperty("h2, h3", "font-family", fonts[DNAarr[1]], 1, aDNAarr);
-	activateProperty("p", "font-size", DNAarr[31]+"rem", 1, aDNAarr);
-	activateProperty("h2", "font-size", DNAarr[32]+"rem", 1, aDNAarr);
-	activateProperty("h3", "font-size", DNAarr[33]+"rem", 1, aDNAarr);
 	activateProperty("h2, h3", "font-weight", weights[DNAarr[2]], 1, aDNAarr);
 	activateProperty("h2, h3, header", "text-transform", tTransforms[DNAarr[3]], 1, aDNAarr);
 	activateProperty("h2, h3", "text-decoration", tDecorations[DNAarr[4]], 1, aDNAarr);
@@ -190,15 +148,6 @@ const design = (DNAarr, aDNAarr) => {
 	activateProperty("#bg", "filter", `grayscale(${DNAarr[15]}%) `, 3, aDNAarr);
 	activateProperty("#textWrap, header", "filter", `grayscale(${DNAarr[16]}%) `, 3, aDNAarr);
 	activateProperty("#bg", "background-color", bw[DNAarr[17]], 4, aDNAarr);
-
-	if (DNAarr[0]===6) {
-		$("p").css("line-height","130%"); //fortesque correction
-		console.log("asdh");
-	}
-
-	// console.log(DNAarr[0]);
-
-
 
 	//BORDER //////////////WHERE IS THE BORDER
 	if (DNAarr[18]===1) {
@@ -243,31 +192,63 @@ const design = (DNAarr, aDNAarr) => {
 		$("section, header, a").css("color", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
 	}
 
+	indexDNA+=4;
+
+	randomColor(DNAarr);
+
+
+	let colWidth = DNAarr[28];
+
+	$("#textWrap").css("width", colWidth+"%");
+	$(".linkedImg, .linkedRef").css("width", 100-colWidth+"%");
+
+	if (DNAarr[29]===1) {
+		$("#textWrap").css("float","left");
+		$(".linkedImg, .linkedRef").css("left","auto").css("right", "0");
+	} else {
+		$("#textWrap").css("float","right");
+		$(".linkedImg, .linkedRef").css("right","auto").css("left","0");
+	}
+
+	//big landing
+	let headerH;
+
+	setTimeout(function(){
+		headerH = $("header").outerHeight();
+		$("#mainWrap").css("padding-top",`${headerH}px`);
+	},1200);
+
+	if (DNAarr[30]===0) {
+		// $("#landing").addClass("bigLanding").css("top",`${headerH}px`);
+		$("#landing").addClass("bigLanding");
+		$("#textWrap").addClass("bigLanding");
+		// activateProperty("h2", "font-size", randFl(1.2,9)+"rem", 1);
+		// $("#mainWrap").css("padding-top", "100vh !important");
+	} else {
+		$("#landing").removeClass("bigLanding");
+		$("#textWrap").removeClass("bigLanding");
+
+	}
+
+	indexDNA+=3;
+
+
+	activateProperty("p", "font-size", DNAarr[31]+"rem", 1, aDNAarr);
+	activateProperty("h2", "font-size", DNAarr[32]+"rem", 1, aDNAarr);
+	activateProperty("h3", "font-size", DNAarr[33]+"rem", 1, aDNAarr);
+	
+
+	if (parseInt(DNAarr[0])===6) {
+		$("p").css("line-height","130%"); //fortesque correction
+		console.log("asdh");
+	}
+
 }
-
-
-
-setTimeout(function(){
-	// design(DNA);
-},500);
-
-// setTimeout(function(){
-// 	$("*").css("transition", ".3s");
-// },1000);
 
 
 $("#redesign").click(function(){
 	location.reload();
 });
-
-// $(document).ready(function() {
-//     $(document).bind('keydown',function(e){
-//        if(e.keyCode == 82) {
-//        	design();
-//        }
-//     });
-// });
-
 
 
 //this might be very inefficient
