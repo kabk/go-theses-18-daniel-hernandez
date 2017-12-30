@@ -82,17 +82,19 @@ var reproduce = function reproduce() {
 		}
 	}
 
-	console.log(newDNA[0]);
-
-	for (var i = 0; i < newDNA[0].length; i++) {
-		mutateSingleDNA(newDNA[0], i);
+	for (var h = 0; h < newDNA.length; h++) {
+		// i could add if statement so only sometimes it mutates --- ?
+		for (var i = 0; i < newDNA[h].length; i++) {
+			mutateSingleDNA(newDNA[h], i);
+		}
 	}
 
-	console.log(newDNA[0]);
+	// pushNewGen(newDNA, newADNA);
+	// console.log(newDNA);
 };
 
 var mutateSingleDNA = function mutateSingleDNA(arr, ind) {
-	var mutationRate = 8; // Mutation probability. Lower numbers = more likely (0 being certain)
+	var mutationRate = 0; // Mutation probability. Lower numbers = more likely (0 being certain)
 	var mutationStrength = 20; // Lower numbers result in more drastic changes
 	var mutationEffective = Math.ceil(arr[ind] / mutationStrength);
 	var mutationEffectiveFl = arr[ind] / mutationStrength;
@@ -103,8 +105,6 @@ var mutateSingleDNA = function mutateSingleDNA(arr, ind) {
 
 	var posNeg = [-1, 1];
 
-	// console.log(arr[ind]+" original val");
-	// console.log(ind, mutationEffective + " mutationEffective");
 	if (isInt(arr[ind]) === true) {
 		if (rand(0, mutationRate) === 0) {
 			arr[ind] += mutationEffective * posNeg[rand(0, 1)];
@@ -116,7 +116,7 @@ var mutateSingleDNA = function mutateSingleDNA(arr, ind) {
 	}
 };
 
-if (dbGeneralCount == 20) {
+if (dbSp === 20) {
 	alert("generate new gen");
 }
 

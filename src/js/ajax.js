@@ -1,13 +1,13 @@
-function pushDNAtoDB() {
-	let dataString = `a0=${DNA[0]}`;
+function pushDNAtoDB(DNAarr, aDNAarr) {
+	let dataString = `a0=${DNAarr[0]}`;
 	
-	for (var i = 0; i < DNA.length-1; i++) {
-		dataString += `&a${i+1}=${DNA[1+i]}`;
+	for (var i = 0; i < DNAarr.length-1; i++) {
+		dataString += `&a${i+1}=${DNAarr[1+i]}`;
 		// console.log(`a${i+1} DNA[${i+1}]`);
 	}
 
-	for (var i = 0; i < DNA.length; i++) {
-		dataString += `&b${i}=${aDNA[i]}`;
+	for (var i = 0; i < DNAarr.length; i++) {
+		dataString += `&b${i}=${aDNAarr[i]}`;
 		// console.log("ADNA"+(i));
 	}
 
@@ -46,7 +46,7 @@ function pushGenSpToDB(){ //init only
 
 function pushRatingToDB(gene, spec, rate){
 
-	let idPadding = 499 - 1; //where DB id starts ---> db = activeSP
+	let idPadding = 619 - 1; //where DB id starts ---> db = activeSP
 
 	let dataString = `gen=${gene}&sp=${spec+idPadding}&rating=${rate}`;
 

@@ -44,3 +44,9 @@ id paddings : index.php, ajax.js
 
 add TOC
 add some kind of explanation
+
+
+
+//issues ---
+	some css properties not workning
+	fails if no ratings still

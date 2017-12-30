@@ -146,7 +146,7 @@
 
 				$genCount = 0;
 
-				$idPad = intval(357 + $sp - 1); // +sp   first ID from initDNA DB
+				$idPad = intval(397 + $sp - 1); // +sp   first ID from initDNA DB
 
 				if ($result->num_rows > 0) {
 
