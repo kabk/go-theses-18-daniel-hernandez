@@ -13,6 +13,6 @@ const pushNewGen = (DNAarr, aDNAarr) => {
 		let DNA = DNAarr[i];
 		let aDNA = aDNAarr[i];
 		pushDNAtoDB(DNA, aDNA);
-		console.log(DNA, aDNA);
+		// console.log(DNA, aDNA);
 	}
 }

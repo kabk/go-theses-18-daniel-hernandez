@@ -96,7 +96,8 @@ canvas {
   float: right;
   cursor: pointer;
   text-align: center;
-  font-size: 9pt; }
+  font-size: 9pt;
+  color: white !important; }
   #rateBar.innactive {
     pointer-events: none; }
     #rateBar.innactive #rateBarInner {

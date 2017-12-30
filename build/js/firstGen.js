@@ -15,6 +15,6 @@ var pushNewGen = function pushNewGen(DNAarr, aDNAarr) {
 		var _DNA = DNAarr[i];
 		var _aDNA = aDNAarr[i];
 		pushDNAtoDB(_DNA, _aDNA);
-		console.log(_DNA, _aDNA);
+		// console.log(DNA, aDNA);
 	}
 };
