@@ -141,8 +141,8 @@
 				$allDNA = [];
 				$allADNA = [];
 
-				$DNA = [];
-				$aDNA = [];
+				// $DNA = [];
+				// $aDNA = [];
 
 				$genCount = 0;
 
@@ -170,11 +170,11 @@
 				    	if ($row["ID"] == $idPad) {  ///////////////here goes the specimen ID that will be displayed
 
 							for ($x = 0; $x <= 34; $x++) {
-					        	array_push($DNA, $row[$strA . $x]);
+					        	// array_push($DNA, $row[$strA . $x]);
 						    }
 
 						    for ($x = 0; $x <= 34; $x++) {
-					    		array_push($aDNA, $row[$strB . $x]);
+					    		// array_push($aDNA, $row[$strB . $x]);
 						    }
 					    }
 				    }
@@ -190,20 +190,31 @@
 				var dbGeneralCount = parseInt("<?php echo $generalCount; ?>");
 				var dbGen = parseInt("<?php echo $gen; ?>");
 				var dbSp = parseInt("<?php echo $sp; ?>");
-				var dbDNA = <?php echo json_encode( $DNA ); ?>;
-				var dbADNA = <?php echo json_encode( $aDNA ); ?>;
+				// var dbDNA = <?php echo json_encode( $DNA ); ?>;
+				// var dbADNA = <?php echo json_encode( $aDNA ); ?>;
 				var dbRatings = <?php echo json_encode( $ratings ); ?>;
 
 				var allDNA = <?php echo json_encode( $allDNA ); ?>;
 				var allADNA = <?php echo json_encode( $allADNA ); ?>;
 
+				var activeDNA = allDNA[dbGeneralCount];
+				var activeADNA = allADNA[dbGeneralCount];
+
+				// console.log(dbGeneralCount);
+
+				// if (true) {}
+
+				console.log(dbGeneralCount)
+
+				// console.log(dbDNA);
+
 				// console.log(dbDNA, dbADNA);
 
 				$(document).ready(function(){
 
-					// pushGenSpToDB();
+					pushGenSpToDB();
 
-					design(dbDNA, dbADNA);
+					design(activeDNA, activeADNA);
 
 				});
 			</script>
