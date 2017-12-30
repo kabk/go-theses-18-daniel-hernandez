@@ -76,6 +76,10 @@ function rand(min, max) {
 	return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+function isInt(n) {
+	return n % 1 === 0;
+}
+
 function randFl(min, max) {
 	return (Math.random() * (max - min) + min).toFixed(4);
 }

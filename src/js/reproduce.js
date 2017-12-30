@@ -10,15 +10,15 @@ const reproduce = () => {
 		var fitParents = 0;
 		var eliteOffspring;
 		var maxEliteOffspring = 18;
+		var promiscuity = 2; // how much fit parents will reproduce
 
-		console.log(dbRatings);
 		for (var i = 0; i < dbRatings.length; i++) {
 			if (dbRatings[i] >=1) {
 				fitParents++;
 			}
 		}
 
-		eliteOffspring = fitParents * 2;
+		eliteOffspring = Math.floor(fitParents * promiscuity);
 
 		if (eliteOffspring >= maxEliteOffspring) {
 			eliteOffspring = maxEliteOffspring;
@@ -27,7 +27,6 @@ const reproduce = () => {
 		if (eliteOffspring <= 1) {
 			eliteOffspring = 2;
 		}
-
 		return eliteOffspring;
 	}
 
@@ -47,8 +46,14 @@ const reproduce = () => {
 		for (var i = 0; i < allDNA[0].length; i++) { // generate DNA of 1 specimen
 
 			var randParent = indByPro[rand(0,indByPro.length-1)]; //random with probability based on fitness
-			newDNA[j].push(allDNA[randParent][i]);
-			newADNA[j].push(allADNA[randParent][i]);
+
+			if (isInt(allDNA[randParent][i]) === true) {
+				newDNA[j].push(parseInt(allDNA[randParent][i]));
+			} else {
+				newDNA[j].push(parseFloat(allDNA[randParent][i]));
+			}
+
+			newADNA[j].push(parseInt(allADNA[randParent][i]));
 
 		}
 
@@ -62,21 +67,55 @@ const reproduce = () => {
 		for (var i = 0; i < allDNA[0].length; i++) { // generate DNA of 1 specimen
 
 			var randParent = rand(0,allDNA.length-1);; //random
-			newDNA[j].push(allDNA[randParent][i]);
-			newADNA[j].push(allADNA[randParent][i]);
+
+			if (isInt(allDNA[randParent][i]) === true) {
+				newDNA[j].push(parseInt(allDNA[randParent][i]));
+			} else {
+				newDNA[j].push(parseFloat(allDNA[randParent][i]));
+			}
+
+			newADNA[j].push(parseInt(allADNA[randParent][i]));
 
 		}	
 
 	}
 
-	console.log(newDNA);
+	console.log(newDNA[0]);
 
-	// mutate(newDNA[0]);
+	for (var i = 0; i < newDNA[0].length; i++) {
+		mutateSingleDNA(newDNA[0], i);
+	}
+	
+
+
+	console.log(newDNA[0]);
 
 }
 
-const mutate = (arr) => {
-	// arr / 
+const mutateSingleDNA = (arr, ind) => {
+	const mutationRate = 8; // Mutation probability. Lower numbers = more likely (0 being certain)
+	const mutationStrength = 20; // Lower numbers result in more drastic changes
+	let mutationEffective = Math.ceil(arr[ind]/mutationStrength);
+	const mutationEffectiveFl = arr[ind]/mutationStrength;
+
+	if (mutationEffective === 0) {
+		mutationEffective = 1;
+	}
+
+
+	const posNeg = [-1, 1];
+
+	// console.log(arr[ind]+" original val");
+	// console.log(ind, mutationEffective + " mutationEffective");
+	if (isInt(arr[ind]) === true) {
+		if (rand(0,mutationRate)===0) {
+			arr[ind] += (mutationEffective * posNeg[rand(0,1)]);
+		}
+	} else {
+		if (rand(0,mutationRate)===0) {
+			arr[ind] += (mutationEffectiveFl * posNeg[rand(0,1)]);
+		}
+	}
 }
 
 
