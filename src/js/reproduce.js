@@ -7,10 +7,22 @@ const reproduce = () => {
 	// console.log(allDNA);
 
 	const calculateOffspring = () => { // calculate number of elite offspring
-		var fitParents = 0;
-		var eliteOffspring;
-		var maxEliteOffspring = 18;
-		var promiscuity = 2; // how much fit parents will reproduce
+		let fitParents = 0;
+		let eliteOffspring;
+		let maxEliteOffspring = 18;
+		let promiscuity = 2; // how much fit parents will reproduce
+
+		// let ratingLen = dbRatings.length;
+
+
+		if (dbRatings.join() >= 0) {
+			dbRatings = [];
+			for (var i = 0; i < generationSpecimens; i++) {
+				dbRatings.push(1);
+			}	
+		}
+
+		console.log(dbRatings);
 
 		for (var i = 0; i < dbRatings.length; i++) {
 			if (dbRatings[i] >=1) {
@@ -87,7 +99,7 @@ const reproduce = () => {
 		}
 	}
 
-	// pushNewGen(newDNA, newADNA);
+	pushNewGen(newDNA, newADNA);
 	// console.log(newDNA);
 }
 
@@ -118,6 +130,5 @@ const mutateSingleDNA = (arr, ind) => {
 
 if (dbSp === 20) {
 	alert("generate new gen");
+	reproduce();
 }
-
-reproduce();
