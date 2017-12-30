@@ -4,7 +4,23 @@ const reproduce = () => {
 	let newADNA = [];
 	let indByPro = []; //indexes by probability. unrated designs and 0 scores are ignored
 
-	// console.log(allDNA);
+	let activeRatings = [];
+	let activeDNA = [];
+	let activeADNA = [];
+
+	dbRatings.push(rand(0,1)); // last design that cant be rated (solve)
+	
+	//grab last 20 elements from array
+	for (var i = (dbRatings.length - generationSpecimens); i < dbRatings.length; i++) {
+		activeRatings.push(parseInt(dbRatings[i]));
+		activeDNA.push([]);
+		activeDNA[i - generationSpecimens] = allDNA[i];
+		activeADNA.push([]);
+		activeADNA[i - generationSpecimens] = allADNA[i];
+	}
+
+	console.log(activeDNA);
+	console.log(allDNA);
 
 	const calculateOffspring = () => { // calculate number of elite offspring
 		let fitParents = 0;
@@ -12,20 +28,17 @@ const reproduce = () => {
 		let maxEliteOffspring = 18;
 		let promiscuity = 2; // how much fit parents will reproduce
 
-		// let ratingLen = dbRatings.length;
-
-
-		if (dbRatings.join() >= 0) {
-			dbRatings = [];
+		// if no ratings, still reproduce. otherwise error
+		if (combineArr(activeRatings) <= 1) {
+			activeRatings = [];
 			for (var i = 0; i < generationSpecimens; i++) {
-				dbRatings.push(1);
+				activeRatings.push(1);
 			}	
 		}
 
-		console.log(dbRatings);
 
-		for (var i = 0; i < dbRatings.length; i++) {
-			if (dbRatings[i] >=1) {
+		for (var i = 0; i < activeRatings.length; i++) {
+			if (activeRatings[i] >=1) {
 				fitParents++;
 			}
 		}
@@ -43,10 +56,10 @@ const reproduce = () => {
 	}
 
 	let offspringNo = calculateOffspring(); // elite offspring
-	let offspringRand = generationSpecimens - offspringNo; // offspring from all
+	let offspringRand = generationSpecimens - offspringNo; // offspring from all in generation
 
-	for (var i = 0; i < dbRatings.length; i++) {
-		for (var j = 0; j < dbRatings[i]; j++) {
+	for (var i = 0; i < activeRatings.length; i++) {
+		for (var j = 0; j < activeRatings[i]; j++) {
 			indByPro.push(i);
 		}
 	}
@@ -55,17 +68,17 @@ const reproduce = () => {
 		newDNA.push([]);
 		newADNA.push([]);
 
-		for (var i = 0; i < allDNA[0].length; i++) { // generate DNA of 1 specimen
+		for (var i = 0; i < activeDNA[0].length; i++) { // generate DNA of 1 specimen
 
 			var randParent = indByPro[rand(0,indByPro.length-1)]; //random with probability based on fitness
 
-			if (isInt(allDNA[randParent][i]) === true) {
-				newDNA[j].push(parseInt(allDNA[randParent][i]));
+			if (isInt(activeDNA[randParent][i]) === true) {
+				newDNA[j].push(parseInt(activeDNA[randParent][i]));
 			} else {
-				newDNA[j].push(parseFloat(allDNA[randParent][i]));
+				newDNA[j].push(parseFloat(activeDNA[randParent][i]));
 			}
 
-			newADNA[j].push(parseInt(allADNA[randParent][i]));
+			newADNA[j].push(parseInt(activeADNA[randParent][i]));
 
 		}
 
@@ -76,17 +89,17 @@ const reproduce = () => {
 		newADNA.push([]);
 
 
-		for (var i = 0; i < allDNA[0].length; i++) { // generate DNA of 1 specimen
+		for (var i = 0; i < activeDNA[0].length; i++) { // generate DNA of 1 specimen
 
-			var randParent = rand(0,allDNA.length-1);; //random
+			var randParent = rand(0,activeDNA.length-1); //random parent
 
-			if (isInt(allDNA[randParent][i]) === true) {
-				newDNA[j].push(parseInt(allDNA[randParent][i]));
+			if (isInt(activeDNA[randParent][i]) === true) {
+				newDNA[j].push(parseInt(activeDNA[randParent][i]));
 			} else {
-				newDNA[j].push(parseFloat(allDNA[randParent][i]));
+				newDNA[j].push(parseFloat(activeDNA[randParent][i]));
 			}
 
-			newADNA[j].push(parseInt(allADNA[randParent][i]));
+			newADNA[j].push(parseInt(activeADNA[randParent][i]));
 
 		}	
 
@@ -99,12 +112,12 @@ const reproduce = () => {
 		}
 	}
 
-	pushNewGen(newDNA, newADNA);
-	// console.log(newDNA);
+	// pushNewGen(newDNA, newADNA);
+	console.log(newDNA);
 }
 
 const mutateSingleDNA = (arr, ind) => {
-	const mutationRate = 0; // Mutation probability. Lower numbers = more likely (0 being certain)
+	const mutationRate = 8; // Mutation probability. Lower numbers = more likely (0 being certain)
 	const mutationStrength = 20; // Lower numbers result in more drastic changes
 	let mutationEffective = Math.ceil(arr[ind]/mutationStrength);
 	const mutationEffectiveFl = arr[ind]/mutationStrength;
@@ -126,9 +139,9 @@ const mutateSingleDNA = (arr, ind) => {
 	}
 }
 
-
+reproduce();
 
 if (dbSp === 20) {
-	alert("generate new gen");
-	reproduce();
+	// alert("generate new gen");
+	// reproduce();
 }

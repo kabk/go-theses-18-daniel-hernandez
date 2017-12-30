@@ -146,7 +146,7 @@
 
 				$genCount = 0;
 
-				$idPad = intval(497 + $sp - 1); // +sp   first ID from initDNA DB
+				$idPad = intval(617 + $sp - 1); // +sp   first ID from initDNA DB
 
 				if ($result->num_rows > 0) {
 
@@ -200,21 +200,14 @@
 				var activeDNA = allDNA[dbGeneralCount];
 				var activeADNA = allADNA[dbGeneralCount];
 
-				// console.log(dbGeneralCount);
-
-				// if (true) {}
-
-				console.log(dbGeneralCount)
-
-				// console.log(dbDNA);
-
-				// console.log(dbDNA, dbADNA);
+				// console.log(dbGeneralCount)
 
 				$(document).ready(function(){
 
-					pushGenSpToDB();
+					// pushGenSpToDB();
 
 					design(activeDNA, activeADNA);
+					// console.log(allDNA);
 
 				});
 			</script>

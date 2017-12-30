@@ -83,6 +83,14 @@ function randFl(min,max) {
     return (Math.random() * (max - min) + min).toFixed(4)
 }
 
+function combineArr(arr){
+	let x = 0;
+	for (var i = 0; i < arr.length; i++) {
+		x += arr[i];
+	}
+	return x;
+}
+
 const colorDiff = (v1,v2) => {
 	let i,
         d = 0;

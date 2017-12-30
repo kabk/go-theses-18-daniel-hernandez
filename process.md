@@ -50,3 +50,4 @@ add some kind of explanation
 //issues ---
 	some css properties not workning
 	fails if no ratings still
+	rating gen > 1 not working
