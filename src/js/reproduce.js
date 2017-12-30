@@ -3,8 +3,36 @@ const reproduce = () => {
 	let newDNA = [];
 	let newADNA = [];
 	let indByPro = []; //indexes by probability. unrated designs and 0 scores are ignored
-	let offspringNo = 16;
-	let offspringRand = generationSpecimens - offspringNo;
+
+	// console.log(allDNA);
+
+	const calculateOffspring = () => { // calculate number of elite offspring
+		var fitParents = 0;
+		var eliteOffspring;
+		var maxEliteOffspring = 18;
+
+		console.log(dbRatings);
+		for (var i = 0; i < dbRatings.length; i++) {
+			if (dbRatings[i] >=1) {
+				fitParents++;
+			}
+		}
+
+		eliteOffspring = fitParents * 2;
+
+		if (eliteOffspring >= maxEliteOffspring) {
+			eliteOffspring = maxEliteOffspring;
+		}
+
+		if (eliteOffspring <= 1) {
+			eliteOffspring = 2;
+		}
+
+		return eliteOffspring;
+	}
+
+	let offspringNo = calculateOffspring(); // elite offspring
+	let offspringRand = generationSpecimens - offspringNo; // offspring from all
 
 	for (var i = 0; i < dbRatings.length; i++) {
 		for (var j = 0; j < dbRatings[i]; j++) {
@@ -41,17 +69,19 @@ const reproduce = () => {
 
 	}
 
-	console.log(newADNA);
+	console.log(newDNA);
+
+	// mutate(newDNA[0]);
 
 }
 
-// const mutate = () => {
-// 	const mutationRate = 1;
-// }
+const mutate = (arr) => {
+	// arr / 
+}
 
 
 if (dbGeneralCount == 20) {
 	alert("generate new gen");
 }
 
-// reproduce();
+reproduce();

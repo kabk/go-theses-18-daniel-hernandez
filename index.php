@@ -146,7 +146,7 @@
 
 				$genCount = 0;
 
-				$idPad = intval(337 + $sp - 1); // +sp   first ID from initDNA DB
+				$idPad = intval(357 + $sp - 1); // +sp   first ID from initDNA DB
 
 				if ($result->num_rows > 0) {
 
@@ -197,7 +197,7 @@
 				var allDNA = <?php echo json_encode( $allDNA ); ?>;
 				var allADNA = <?php echo json_encode( $allADNA ); ?>;
 
-				console.log(dbDNA, dbADNA);
+				// console.log(dbDNA, dbADNA);
 
 				$(document).ready(function(){
 

@@ -5,8 +5,37 @@ var reproduce = function reproduce() {
 	var newDNA = [];
 	var newADNA = [];
 	var indByPro = []; //indexes by probability. unrated designs and 0 scores are ignored
-	var offspringNo = 16;
-	var offspringRand = generationSpecimens - offspringNo;
+
+	// console.log(allDNA);
+
+	var calculateOffspring = function calculateOffspring() {
+		// calculate number of elite offspring
+		var fitParents = 0;
+		var eliteOffspring;
+		var maxEliteOffspring = 18;
+
+		console.log(dbRatings);
+		for (var i = 0; i < dbRatings.length; i++) {
+			if (dbRatings[i] >= 1) {
+				fitParents++;
+			}
+		}
+
+		eliteOffspring = fitParents * 2;
+
+		if (eliteOffspring >= maxEliteOffspring) {
+			eliteOffspring = maxEliteOffspring;
+		}
+
+		if (eliteOffspring <= 1) {
+			eliteOffspring = 2;
+		}
+
+		return eliteOffspring;
+	};
+
+	var offspringNo = calculateOffspring(); // elite offspring
+	var offspringRand = generationSpecimens - offspringNo; // offspring from all
 
 	for (var i = 0; i < dbRatings.length; i++) {
 		for (var j = 0; j < dbRatings[i]; j++) {
@@ -42,16 +71,17 @@ var reproduce = function reproduce() {
 		}
 	}
 
-	console.log(newADNA);
+	console.log(newDNA);
+
+	// mutate(newDNA[0]);
 };
 
-// const mutate = () => {
-// 	const mutationRate = 1;
-// }
-
+var mutate = function mutate(arr) {
+	// arr / 
+};
 
 if (dbGeneralCount == 20) {
 	alert("generate new gen");
 }
 
-// reproduce();
+reproduce();

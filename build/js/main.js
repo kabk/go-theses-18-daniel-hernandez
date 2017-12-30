@@ -237,7 +237,6 @@ var design = function design(DNAarr, aDNAarr) {
 
 	if (parseInt(DNAarr[0]) === 6) {
 		$("p").css("line-height", "130%"); //fortesque correction
-		console.log("asdh");
 	}
 };
 
