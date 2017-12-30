@@ -6,7 +6,6 @@ const firstGen = () => {
 	}
 }
 
-// firstGen();
 
 const pushNewGen = (DNAarr, aDNAarr) => {
 	for (var i = 0; i < generationSpecimens; i++) {

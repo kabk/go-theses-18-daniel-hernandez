@@ -8,7 +8,7 @@ const reproduce = () => {
 	let activeParentDNA = [];
 	let activePatentADNA = [];
 
-	// dbRatings.push(rand(0,1)); // last design that cant be rated (solve)
+	dbRatings.push(rand(0,1)); // last design that cant be rated (solve)
 	
 	//grab last 20 elements from array
 
@@ -20,11 +20,14 @@ const reproduce = () => {
 		activeParentDNA[count] = allDNA[i];
 		activePatentADNA.push([]);
 		activePatentADNA[count] = allADNA[i];
+		console.log(i,count);
 		count++;
 	}
 
 	console.log("activeParentDNA ",activeParentDNA);
-	// console.log("allDNA ",allDNA);
+	console.log("allDNA ",allDNA);
+	console.log("arratings ",activeRatings);
+
 
 	const calculateOffspring = () => { // calculate number of elite offspring
 		let fitParents = 0;
@@ -68,46 +71,46 @@ const reproduce = () => {
 		}
 	}
 
-	// for (var j = 0; j < offspringNo; j++) { // generate children from rated parents
-	// 	newDNA.push([]);
-	// 	newADNA.push([]);
+	for (var j = 0; j < offspringNo; j++) { // generate children from rated parents
+		newDNA.push([]);
+		newADNA.push([]);
 
-	// 	for (var i = 0; i < activeParentDNA[0].length; i++) { // generate DNA of 1 specimen
+		for (var i = 0; i < activeParentDNA[0].length; i++) { // generate DNA of 1 specimen
 
-	// 		var randParent = indByPro[rand(0,indByPro.length-1)]; //random with probability based on fitness
+			var randParent = indByPro[rand(0,indByPro.length-1)]; //random with probability based on fitness
 
-	// 		if (isInt(activeParentDNA[randParent][i]) === true) {
-	// 			newDNA[j].push(parseInt(activeParentDNA[randParent][i]));
-	// 		} else {
-	// 			newDNA[j].push(parseFloat(activeParentDNA[randParent][i]));
-	// 		}
+			if (isInt(activeParentDNA[randParent][i]) === true) {
+				newDNA[j].push(parseInt(activeParentDNA[randParent][i]));
+			} else {
+				newDNA[j].push(parseFloat(activeParentDNA[randParent][i]));
+			}
 
-	// 		newADNA[j].push(parseInt(activePatentADNA[randParent][i]));
+			newADNA[j].push(parseInt(activePatentADNA[randParent][i]));
 
-	// 	}
+		}
 
-	// }
+	}
 
-	// for (var j = offspringNo; j < generationSpecimens; j++) { // generate children from all parents
-	// 	newDNA.push([]);
-	// 	newADNA.push([]);
+	for (var j = offspringNo; j < generationSpecimens; j++) { // generate children from all parents
+		newDNA.push([]);
+		newADNA.push([]);
 
 
-	// 	for (var i = 0; i < activeParentDNA[0].length; i++) { // generate DNA of 1 specimen
+		for (var i = 0; i < activeParentDNA[0].length; i++) { // generate DNA of 1 specimen
 
-	// 		var randParent = rand(0,activeParentDNA.length-1); //random parent
+			var randParent = rand(0,activeParentDNA.length-1); //random parent
 
-	// 		if (isInt(activeParentDNA[randParent][i]) === true) {
-	// 			newDNA[j].push(parseInt(activeParentDNA[randParent][i]));
-	// 		} else {
-	// 			newDNA[j].push(parseFloat(activeParentDNA[randParent][i]));
-	// 		}
+			if (isInt(activeParentDNA[randParent][i]) === true) {
+				newDNA[j].push(parseInt(activeParentDNA[randParent][i]));
+			} else {
+				newDNA[j].push(parseFloat(activeParentDNA[randParent][i]));
+			}
 
-	// 		newADNA[j].push(parseInt(activePatentADNA[randParent][i]));
+			newADNA[j].push(parseInt(activePatentADNA[randParent][i]));
 
-	// 	}	
+		}	
 
-	// }
+	}
 
 	for (var h = 0; h < newDNA.length; h++) {
 		// i could add if statement so only sometimes it mutates --- ?
@@ -116,7 +119,7 @@ const reproduce = () => {
 		}
 	}
 
-	// pushNewGen(newDNA, newADNA);
+	pushNewGen(newDNA, newADNA);
 	console.log("newDNA ",newDNA);
 }
 
@@ -143,9 +146,7 @@ const mutateSingleDNA = (arr, ind) => {
 	}
 }
 
-reproduce();
-
-if (dbSp === 20) {
-	alert("generate new gen");
+if (dbSp === generationSpecimens) {
+	alert("generating new generation");
 	reproduce();
 }

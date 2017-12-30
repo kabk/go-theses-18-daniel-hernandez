@@ -146,7 +146,7 @@
 
 				$genCount = 0;
 
-				$idPad = intval(717 + $sp - 1); // +sp   first ID from initDNA DB
+				$idPad = intval(797 + $sp - 1); // +sp   first ID from initDNA DB
 
 				if ($result->num_rows > 0) {
 
@@ -190,8 +190,6 @@
 				var dbGeneralCount = parseInt("<?php echo $generalCount; ?>");
 				var dbGen = parseInt("<?php echo $gen; ?>");
 				var dbSp = parseInt("<?php echo $sp; ?>");
-				// var dbDNA = <?php echo json_encode( $DNA ); ?>;
-				// var dbADNA = <?php echo json_encode( $aDNA ); ?>;
 				var dbRatings = <?php echo json_encode( $ratings ); ?>;
 
 				var allDNA = <?php echo json_encode( $allDNA ); ?>;
@@ -200,15 +198,13 @@
 				var activeDNA = allDNA[dbGeneralCount];
 				var activeADNA = allADNA[dbGeneralCount];
 
-				// console.log(dbGeneralCount)
+				var idPadding = 889 - 1; //where DB id starts ---> db = activeSP
 
 				$(document).ready(function(){
-
-					// pushGenSpToDB();
-
-					// design(activeDNA, activeADNA);
-					// console.log(allDNA);
-
+					// firstGen(); // init only
+					// reproduce(); // for debugging
+					pushGenSpToDB();
+					design(activeDNA, activeADNA);
 				});
 			</script>
 

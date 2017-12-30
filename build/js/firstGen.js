@@ -8,8 +8,6 @@ var firstGen = function firstGen() {
 	}
 };
 
-// firstGen();
-
 var pushNewGen = function pushNewGen(DNAarr, aDNAarr) {
 	for (var i = 0; i < generationSpecimens; i++) {
 		var _DNA = DNAarr[i];
