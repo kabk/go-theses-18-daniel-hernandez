@@ -17,7 +17,7 @@ function pushDNAtoDB(DNAarr, aDNAarr) {
 
 	$.ajax({
 		type: "POST",
-		url: "ajaxjs.php",
+		url: "php/pushDNA.php",
 		data: dataString,
 		cache: false,
 		success: function success(html) {
@@ -34,7 +34,7 @@ function pushGenSpToDB() {
 
 	$.ajax({
 		type: "POST",
-		url: "initPushGenSp.php",
+		url: "php/pushGenSp.php",
 		data: dataString,
 		cache: false,
 		success: function success(html) {
@@ -55,7 +55,7 @@ function pushRatingToDB(gene, spec, rate) {
 
 	$.ajax({
 		type: "POST",
-		url: "pushRating.php",
+		url: "php/pushRating.php",
 		data: dataString,
 		cache: false,
 		success: function success(html) {

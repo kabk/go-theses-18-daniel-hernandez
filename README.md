@@ -19,11 +19,3 @@
  )`. _ _               `-       ..  - .    . - ~ ~ .    \    ~-` ` `  `. _
        _     _                                      - .  `  .   \  \ `.
 ```
-
-# Setup:
-
-Clone
-
-npm install
-
-gulp / guilp build
