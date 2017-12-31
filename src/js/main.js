@@ -11,8 +11,6 @@ let c2 = []; //fg
 let DNA;
 let aDNA;
 
-const generationSpecimens = 20;
-
 const generateDNA = () => {
 	let arr = [
 		rand(0,fonts.length), // font 0

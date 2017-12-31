@@ -13,8 +13,6 @@ var c2 = []; //fg
 var DNA = void 0;
 var aDNA = void 0;
 
-var generationSpecimens = 20;
-
 var generateDNA = function generateDNA() {
 	var arr = [rand(0, fonts.length), // font 0
 	rand(0, fonts.length), // font 1

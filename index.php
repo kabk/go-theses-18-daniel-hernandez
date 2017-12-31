@@ -8,6 +8,7 @@
 	<script src="build/js/jquery-1.10.2.min.js"></script>
 </head>
 <body>
+	<div>YOOO</div>
 	<div id="bg"></div>
 	<header class="bottom">
 		<span id="headerTitle">Title here?</span>
@@ -78,6 +79,7 @@
 
 
 			<?php
+				$generationSpecimens = 30;
 
 				$servername = "localhost:8889";
 				$username = "root";
@@ -110,7 +112,7 @@
 				    	$generalCount++;
 				    	$sp++;
 
-				    	if ($generalCount % 20 === 0) {
+				    	if ($generalCount % $generationSpecimens === 0) {
 				    		$gen++;
 				    		$sp = 1;
 				    	}
@@ -146,7 +148,7 @@
 
 				$genCount = 0;
 
-				$idPad = intval(1737 + $sp - 1); // +sp   first ID from initDNA DB
+				$idPad = intval(2417 + $sp - 1); // +sp   first ID from initDNA DB
 
 				if ($result->num_rows > 0) {
 
@@ -187,6 +189,8 @@
 				?>
 
 			<script type="text/javascript">
+				var generationSpecimens = 30;
+
 				var dbGeneralCount = parseInt("<?php echo $generalCount; ?>");
 				var dbGen = parseInt("<?php echo $gen; ?>");
 				var dbSp = parseInt("<?php echo $sp; ?>");
@@ -198,13 +202,13 @@
 				var activeDNA = allDNA[dbGeneralCount];
 				var activeADNA = allADNA[dbGeneralCount];
 
-				var idPadding = 1771 - 1; //where DB id starts ---> db = activeSP
+				var idPadding = 2438 - 1; //where DB id starts ---> db = activeSP
 
 				$(document).ready(function(){
 					// firstGen(); // init only
 					// reproduce(); // for debugging
-					pushGenSpToDB();
-					design(activeDNA, activeADNA);
+					// pushGenSpToDB();
+					// design(activeDNA, activeADNA);
 				});
 			</script>
 

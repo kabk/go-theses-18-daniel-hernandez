@@ -47,3 +47,9 @@ print
 //issues ---
 	bw bg still not working
 	padding not working
+
+
+
+
+if no rate = no push new shet
+if redesign = 0;
