@@ -304,8 +304,9 @@ const rate = () => {
 }
 
 
-$("#designCounter").text(dbSp);
+$("#designCounter").text(dbGeneralCount+1);
 $("#generationCounter").text(dbGen);
+$("#specimenCounter").text(dbSp);
 
 
 rate();

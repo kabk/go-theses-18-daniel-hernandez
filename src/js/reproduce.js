@@ -124,7 +124,7 @@ const reproduce = () => {
 }
 
 const mutateSingleDNA = (arr, ind) => {
-	const mutationRate = 8; // Mutation probability. Lower numbers = more likely (0 being certain)
+	const mutationRate = 7; // Mutation probability. Lower numbers = more likely (0 being certain)
 	const mutationStrength = 20; // Lower numbers result in more drastic changes
 	let mutationEffective = Math.ceil(arr[ind]/mutationStrength);
 	const mutationEffectiveFl = arr[ind]/mutationStrength;

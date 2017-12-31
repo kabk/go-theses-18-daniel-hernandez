@@ -14,7 +14,8 @@
 		<span id="headerTitle">Title here?</span>
 		<span id="genInfo">
 			Design #<span id="designCounter">1</span>&nbsp;&nbsp;&nbsp;&nbsp;
-			Generation #<span id="generationCounter">1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			Generation #<span id="generationCounter">1</span>&nbsp;&nbsp;&nbsp;&nbsp;
+			Specimen #<span id="specimenCounter">1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<a id="redesign" href="#">Redesign</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			Rate this design:&nbsp;<div id="rateBar"><div id="rateBarInner"></div></div>&nbsp;
 		</span>
@@ -146,7 +147,7 @@
 
 				$genCount = 0;
 
-				$idPad = intval(797 + $sp - 1); // +sp   first ID from initDNA DB
+				$idPad = intval(997 + $sp - 1); // +sp   first ID from initDNA DB
 
 				if ($result->num_rows > 0) {
 
@@ -198,7 +199,7 @@
 				var activeDNA = allDNA[dbGeneralCount];
 				var activeADNA = allADNA[dbGeneralCount];
 
-				var idPadding = 889 - 1; //where DB id starts ---> db = activeSP
+				var idPadding = 1074 - 1; //where DB id starts ---> db = activeSP
 
 				$(document).ready(function(){
 					// firstGen(); // init only
