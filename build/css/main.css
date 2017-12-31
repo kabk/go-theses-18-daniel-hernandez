@@ -63,7 +63,7 @@
   src: url(../../fonts/Univers.otf); }
 
 * {
-  transition: .6s; }
+  transition: .8s; }
 
 html {
   font-size: 1.2vw; }
@@ -153,3 +153,19 @@ canvas {
     left: 0;
     background-color: lime;
     transition: width 0.1s; }
+
+#landingMessage {
+  position: fixed;
+  border: 1px solid black;
+  left: 50%;
+  top: 50%;
+  background: white;
+  background-color: white;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  z-index: 300; }
+  #landingMessage a {
+    float: right; }
+
+section, header:not(.notTransp) {
+  opacity: 0.3; }

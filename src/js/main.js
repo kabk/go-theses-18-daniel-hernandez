@@ -315,3 +315,17 @@ $("#specimenCounter").text(dbSp);
 
 
 rate();
+
+
+const landingMessage = () =>{
+	let $message = $("#landingMessage");
+	let $button = $("#landingMessage a");
+
+	$button.click(function(event){
+		event.preventDefault();
+		$message.remove();
+		design(activeDNA, activeADNA);
+
+		$("section, header:not(.notTransp)").css("opacity", 1);
+	});
+}

@@ -305,3 +305,16 @@ $("#generationCounter").text(dbGen);
 $("#specimenCounter").text(dbSp);
 
 rate();
+
+var landingMessage = function landingMessage() {
+	var $message = $("#landingMessage");
+	var $button = $("#landingMessage a");
+
+	$button.click(function (event) {
+		event.preventDefault();
+		$message.remove();
+		design(activeDNA, activeADNA);
+
+		$("section, header:not(.notTransp)").css("opacity", 1);
+	});
+};

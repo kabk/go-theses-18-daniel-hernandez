@@ -75,7 +75,7 @@
 }
 
 * {
-	transition: .6s; //.2
+	transition: .8s; //.2
 }
 
 html{
@@ -198,4 +198,24 @@ canvas{
 		background-color: lime;
 		transition: width 0.1s;
 	}
+}
+
+#landingMessage{
+	position: fixed;
+	border: 1px solid black;
+	left: 50%;
+	top: 50%;
+	background: white;
+	background-color: white;
+	transform: translate(-50%, -50%);
+	padding: 10px;
+	z-index: 300;
+
+	a{
+		float: right;
+	}
+}
+
+section, header:not(.notTransp){
+	opacity: 0.3;
 }
