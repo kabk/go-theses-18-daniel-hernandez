@@ -321,6 +321,12 @@ const landingMessage = () =>{
 	let $message = $("#landingMessage");
 	let $button = $("#landingMessage a");
 
+	$message.show();
+	$message.addClass("notTransp");
+	$button.addClass("notTransp");
+	$("section, header:not(.notTransp)").css("opacity", 0.3);
+
+
 	$button.click(function(event){
 		event.preventDefault();
 		$message.remove();
@@ -328,4 +334,14 @@ const landingMessage = () =>{
 
 		$("section, header:not(.notTransp)").css("opacity", 1);
 	});
+}
+
+const showLandingOnce = () => {
+
+	if (sessionStorage.seen) {
+		design(activeDNA, activeADNA);
+	} else {
+		landingMessage();
+		sessionStorage.setItem("seen", true);
+	}
 }

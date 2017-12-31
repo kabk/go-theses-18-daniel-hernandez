@@ -310,6 +310,11 @@ var landingMessage = function landingMessage() {
 	var $message = $("#landingMessage");
 	var $button = $("#landingMessage a");
 
+	$message.show();
+	$message.addClass("notTransp");
+	$button.addClass("notTransp");
+	$("section, header:not(.notTransp)").css("opacity", 0.3);
+
 	$button.click(function (event) {
 		event.preventDefault();
 		$message.remove();
@@ -317,4 +322,14 @@ var landingMessage = function landingMessage() {
 
 		$("section, header:not(.notTransp)").css("opacity", 1);
 	});
+};
+
+var showLandingOnce = function showLandingOnce() {
+
+	if (sessionStorage.seen) {
+		design(activeDNA, activeADNA);
+	} else {
+		landingMessage();
+		sessionStorage.setItem("seen", true);
+	}
 };
