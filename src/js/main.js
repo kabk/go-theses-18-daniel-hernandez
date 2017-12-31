@@ -34,7 +34,7 @@ const generateDNA = () => {
 		rand(-50,100), // textwrap grayscale 16
 		rand(0,1), // bg bw 17
 		rand(0,5), // border activate 18
-		rand(0,4), // border thickness 19
+		rand(0,3), // border thickness 19
 		rand(0,1), // alternate section bg activate 20
 		rand(0,6), // alternate section bg activate(2) 21
 		rand(0,255), // main colors 22
@@ -163,12 +163,11 @@ const design = (DNAarr, aDNAarr) => {
 	activateProperty("#textWrap, header", "filter", `grayscale(${DNAarr[16]}%) `, 3, aDNAarr);
 	activateProperty("#bg", "background-color", bw[DNAarr[17]], 4, aDNAarr);
 
-	console.log(DNAarr[18]);
-	//BORDER //////////////WHERE IS THE BORDER
-	if (DNAarr[18]===1) {
+	//BORDER
+	if (DNAarr[18] <= 0) {
 		var color = `rgb(${c2[0]},${c2[1]},${c2[2]})`;
 		var randThickness = DNAarr[19];
-
+		// console.log("border");
 		$("header").css("border-bottom", `${randThickness}px solid ${color}`);
 		$("#textWrap").css("border-right", `${randThickness}px solid ${color}`);
 		$("#textWrap").css("border-left", `${randThickness}px solid ${color}`);
@@ -177,7 +176,7 @@ const design = (DNAarr, aDNAarr) => {
 
 	//section bgs
 	const alternateColor = () => {
-		if (DNAarr[20]===1) {
+		if (DNAarr[20] <= 0) {
 			$("header").css("background-color", `rgb(${c1[0]},${c1[1]},${c1[2]})`);
 			$("header, a").css("color", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
 		} else {
@@ -196,15 +195,20 @@ const design = (DNAarr, aDNAarr) => {
 		});
 	}
 
+
 	var colorProb = DNAarr[21];
-	if (colorProb===0) {
+	if (colorProb<=0) {
 		alternateColor();
 	} else if (colorProb === 1) {
-		$("section").css("background-color", `transparent`);
+		$("header").css("background-color", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
+		$("header").css("color", `rgb(${c1[0]},${c1[1]},${c1[2]})`);
+		$("#bg").css("background-color", `rgb(${c1[0]},${c1[1]},${c1[2]})`);
 		$("section").css("color, a", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
-	} else {
-		$("section, header").css("background-color", `transparent`);
-		$("section, header, a").css("color", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
+	} else if (colorProb === 2) {
+		$("header, section").css("background-color", `transparent`);
+	} else{
+		$("header, #bg").css("background-color", `rgb(${c1[0]},${c1[1]},${c1[2]})`);
+		$("header").css("color", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
 	}
 
 	indexDNA+=4;
@@ -215,8 +219,8 @@ const design = (DNAarr, aDNAarr) => {
 
 	$("#textWrap").css("width", colWidth+"%");
 	$(".linkedImg, .linkedRef").css("width", 100-colWidth+"%");
-
-	if (DNAarr[29]===1) {
+	
+	if (parseInt(DNAarr[29])===0) {
 		$("#textWrap").css("float","left");
 		$(".linkedImg, .linkedRef").css("left","auto").css("right", "0");
 	} else {
@@ -232,7 +236,7 @@ const design = (DNAarr, aDNAarr) => {
 		$("#mainWrap").css("padding-top",`${headerH}px`);
 	},1200);
 
-	if (DNAarr[30]===0) {
+	if (parseInt(DNAarr[30])===0) {
 		// $("#landing").addClass("bigLanding").css("top",`${headerH}px`);
 		$("#landing").addClass("bigLanding");
 		$("#textWrap").addClass("bigLanding");

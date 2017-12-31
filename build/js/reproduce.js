@@ -34,8 +34,8 @@ var reproduce = function reproduce() {
 		// calculate number of elite offspring
 		var fitParents = 0;
 		var eliteOffspring = void 0;
-		var maxEliteOffspring = 18;
-		var promiscuity = 2; // how much fit parents will reproduce
+		var maxEliteOffspring = 16;
+		var promiscuity = 1; // how much fit parents will reproduce
 
 		// if no ratings, still reproduce. otherwise error
 		if (combineArr(activeRatings) <= 1) {

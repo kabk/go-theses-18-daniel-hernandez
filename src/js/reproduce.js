@@ -32,8 +32,8 @@ const reproduce = () => {
 	const calculateOffspring = () => { // calculate number of elite offspring
 		let fitParents = 0;
 		let eliteOffspring;
-		let maxEliteOffspring = 18;
-		let promiscuity = 2; // how much fit parents will reproduce
+		let maxEliteOffspring = 16;
+		let promiscuity = 1; // how much fit parents will reproduce
 
 		// if no ratings, still reproduce. otherwise error
 		if (combineArr(activeRatings) <= 1) {

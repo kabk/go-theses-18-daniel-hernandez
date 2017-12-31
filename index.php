@@ -8,7 +8,6 @@
 	<script src="build/js/jquery-1.10.2.min.js"></script>
 </head>
 <body>
-	<canvas id="myCanvas"></canvas>
 	<div id="bg"></div>
 	<header class="bottom">
 		<span id="headerTitle">Title here?</span>
@@ -147,7 +146,7 @@
 
 				$genCount = 0;
 
-				$idPad = intval(1237 + $sp - 1); // +sp   first ID from initDNA DB
+				$idPad = intval(1497 + $sp - 1); // +sp   first ID from initDNA DB
 
 				if ($result->num_rows > 0) {
 
@@ -199,12 +198,12 @@
 				var activeDNA = allDNA[dbGeneralCount];
 				var activeADNA = allADNA[dbGeneralCount];
 
-				var idPadding = 1294 - 1; //where DB id starts ---> db = activeSP
+				var idPadding = 1546 - 1; //where DB id starts ---> db = activeSP
 
 				$(document).ready(function(){
 					// firstGen(); // init only
 					// reproduce(); // for debugging
-					pushGenSpToDB();
+					// pushGenSpToDB();
 					design(activeDNA, activeADNA);
 				});
 			</script>
