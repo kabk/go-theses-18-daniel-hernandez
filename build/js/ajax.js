@@ -30,7 +30,7 @@ function pushDNAtoDB(DNAarr, aDNAarr) {
 
 function pushGenSpToDB() {
 	//init only
-	var dataString = "gen=" + 1 + "&sp=" + 1;
+	var dataString = "";
 
 	$.ajax({
 		type: "POST",
@@ -45,9 +45,9 @@ function pushGenSpToDB() {
 	return false;
 }
 
-function pushRatingToDB(gene, spec, rate) {
+function pushRatingToDB(gCount, gene, spec, rate) {
 
-	var dataString = "gen=" + gene + "&sp=" + (spec + idPadding) + "&rating=" + rate;
+	var dataString = "generalCount=" + gCount + "&gen=" + gene + "&sp=" + (spec + idPadding) + "&rating=" + rate;
 
 	// console.log(spec+idPadding);
 

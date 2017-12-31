@@ -292,7 +292,7 @@ var rate = function rate() {
 
 	$bar.mouseup(function () {
 		$bar.addClass("innactive");
-		pushRatingToDB(dbGen, dbSp, score);
+		pushRatingToDB(dbGeneralCount + idPadding + 1, dbGen, dbSp, score);
 	});
 };
 

@@ -1,4 +1,5 @@
 <?php
+$generalCount = $_POST['generalCount'];
 $gen = $_POST['gen'];
 $sp = $_POST['sp'];
 $rating = $_POST['rating'];
@@ -6,6 +7,8 @@ $rating = $_POST['rating'];
 // $idPad = 237;
 
 // $newId = $idPad . $sp;
+
+// $newId = $idPad . $generalCount;
 
 $servername = "localhost:8889";
 $username = "root";
@@ -20,13 +23,13 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-	$sql = "UPDATE activeSpTest SET rating = '$rating' WHERE id = '$sp'";
+$sql = "UPDATE activeSpTest SET rating = '$rating' WHERE id = '$generalCount'";
 
-	if ($conn->query($sql) === TRUE) {
-	    // echo "New record created successfully";
-	} else {
-	    // echo "Error: " . $sql . "<br>" . $conn->error;
-	}
+if ($conn->query($sql) === TRUE) {
+    // echo "New record created successfully";
+} else {
+    // echo "Error: " . $sql . "<br>" . $conn->error;
+}
 
 $conn->close();
 
