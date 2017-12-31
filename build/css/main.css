@@ -7,6 +7,14 @@
   src: url(../../fonts/Akkurat-Mono.otf); }
 
 @font-face {
+  font-family: AkzidenzGroteskBE-Regular;
+  src: url(../../fonts/AkzidenzGroteskBE-Regular.otf); }
+
+@font-face {
+  font-family: Bembo;
+  src: url(../../fonts/Bembo.otf); }
+
+@font-face {
   font-family: Eczar-Regular;
   src: url(../../fonts/Eczar-Regular.ttf); }
 
@@ -17,6 +25,42 @@
 @font-face {
   font-family: HelveticaNeue-BoldExt;
   src: url(../../fonts/HelveticaNeue-BoldExt.otf); }
+
+@font-face {
+  font-family: HelveticaNeue-Extended;
+  src: url(../../fonts/HelveticaNeue-Extended.otf); }
+
+@font-face {
+  font-family: Lexicon-RomanA;
+  src: url(../../fonts/LexiconNo1-RomanA.otf); }
+
+@font-face {
+  font-family: Lexicon-RomanD;
+  src: url(../../fonts/LexiconNo1-RomanD.otf); }
+
+@font-face {
+  font-family: Perpetua;
+  src: url(../../fonts/Perpetua.otf); }
+
+@font-face {
+  font-family: PxGrotesk-Regular;
+  src: url(../../fonts/PxGrotesk-Regular.otf); }
+
+@font-face {
+  font-family: Stanley-Bold;
+  src: url(../../fonts/Stanley-Bold.otf); }
+
+@font-face {
+  font-family: Stanley-Regular;
+  src: url(../../fonts/Stanley-Regular.otf); }
+
+@font-face {
+  font-family: Univers-Extended;
+  src: url(../../fonts/Univers-Extended.otf); }
+
+@font-face {
+  font-family: Univers;
+  src: url(../../fonts/Univers.otf); }
 
 * {
   transition: .6s; }
