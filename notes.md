@@ -40,6 +40,10 @@ add some kind of explanation
 mutations not able to surpass certain limits
 
 
+print
+
+
 
 //issues ---
-	some css properties not workning
+	bw bg still not working
+	padding not working

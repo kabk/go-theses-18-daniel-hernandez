@@ -125,7 +125,7 @@ const reproduce = () => {
 
 const mutateSingleDNA = (arr, ind) => {
 	const mutationRate = 6; // Mutation probability. Lower numbers = more likely (0 being certain)
-	const mutationStrength = 20; // Lower numbers result in more drastic changes
+	const mutationStrength = 13; // Lower numbers result in more drastic changes
 	let mutationEffective = Math.ceil(arr[ind]/mutationStrength);
 	const mutationEffectiveFl = arr[ind]/mutationStrength;
 
@@ -147,6 +147,6 @@ const mutateSingleDNA = (arr, ind) => {
 }
 
 if (dbSp === generationSpecimens) {
-	alert("generating new generation");
+	alert("reproducing a new generation");
 	reproduce();
 }

@@ -21,7 +21,7 @@ var generateDNA = function generateDNA() {
 	rand(0, weights.length), // font weight 2
 	rand(0, tTransforms.length), // text transform 3
 	rand(0, tDecorations.length), // text decoration 4
-	rand(1, 24), // padding 5
+	rand(3, 25), // padding 5
 	rand(0, 6), // box shadow length(?) 6
 	rand(0, 10), // box shadow blur(?) 7
 	rand(-10, 15), // border radius 8
@@ -125,7 +125,7 @@ var randomColor = function randomColor(DNAarr) {
 var indexDNA = 0;
 
 var activateProperty = function activateProperty(target, property, setting, probability, aDNAarr) {
-	if (parseInt(aDNAarr[indexDNA]) === 1) {
+	if (parseInt(aDNAarr[indexDNA]) <= 1) {
 		// === 1
 		$(target).css(property, setting);
 	}
@@ -153,9 +153,10 @@ var design = function design(DNAarr, aDNAarr) {
 	activateProperty("h2, h3", "font-weight", weights[DNAarr[2]], 1, aDNAarr);
 	activateProperty("h2, h3, header", "text-transform", tTransforms[DNAarr[3]], 1, aDNAarr);
 	activateProperty("h2, h3", "text-decoration", tDecorations[DNAarr[4]], 1, aDNAarr);
-	activateProperty("section, header, .linkedImg, .linkedRef", "padding", DNAarr[5] + "px", 1, aDNAarr);
+	activateProperty("section, header, .linkedImg, .linkedRef", "padding", parseInt(DNAarr[5]) + "px", 1, aDNAarr);
+	console.log(DNAarr[5], "wtf");
 	activateProperty("section, header", "box-shadow", "0px " + DNAarr[6] + "px " + DNAarr[7] + "px rgba(" + c2[0] + "," + c2[1] + "," + c2[2] + "," + DNAarr[34] + ")", 3, aDNAarr); //f, aDNAarrix
-	activateProperty("section, header", "border-radius", DNAarr[8] + "px", 3, aDNAarr);
+	activateProperty("section, header, #rateBar, #rateBarInner", "border-radius", DNAarr[8] + "px", 3, aDNAarr);
 	activateProperty("h2, h3", "text-align", tAligns[DNAarr[9]], 1, aDNAarr);
 	// activateProperty("section", "column-count", `${rand(-3,2)}`, 10, aDNAarr);
 	activateProperty("section", "padding-bottom", DNAarr[10] + "px", 1, aDNAarr);
@@ -163,12 +164,12 @@ var design = function design(DNAarr, aDNAarr) {
 	activateProperty("#bg", "filter", "blur(" + DNAarr[14] + "px)", 10, aDNAarr);
 	activateProperty("#bg", "filter", "grayscale(" + DNAarr[15] + "%) ", 3, aDNAarr);
 	activateProperty("#textWrap, header", "filter", "grayscale(" + DNAarr[16] + "%) ", 3, aDNAarr);
-	activateProperty("#bg", "background-color", bw[DNAarr[17]], 4, aDNAarr);
+	activateProperty("#bg, body", "background-color", bw[DNAarr[17]], 4, aDNAarr);
 
 	//BORDER
-	if (DNAarr[18] <= 0) {
+	if (parseInt(DNAarr[18]) <= 0) {
 		var color = "rgb(" + c2[0] + "," + c2[1] + "," + c2[2] + ")";
-		var randThickness = DNAarr[19];
+		var randThickness = parseInt(DNAarr[19]);
 		// console.log("border");
 		$("header").css("border-bottom", randThickness + "px solid " + color);
 		$("#textWrap").css("border-right", randThickness + "px solid " + color);
@@ -178,7 +179,7 @@ var design = function design(DNAarr, aDNAarr) {
 
 	//section bgs
 	var alternateColor = function alternateColor() {
-		if (DNAarr[20] <= 0) {
+		if (parseInt(DNAarr[20]) <= 0) {
 			$("header").css("background-color", "rgb(" + c1[0] + "," + c1[1] + "," + c1[2] + ")");
 			$("header, a").css("color", "rgb(" + c2[0] + "," + c2[1] + "," + c2[2] + ")");
 		} else {
@@ -197,7 +198,7 @@ var design = function design(DNAarr, aDNAarr) {
 		});
 	};
 
-	var colorProb = DNAarr[21];
+	var colorProb = parseInt(DNAarr[21]);
 	if (colorProb <= 0) {
 		alternateColor();
 	} else if (colorProb === 1) {
@@ -252,7 +253,7 @@ var design = function design(DNAarr, aDNAarr) {
 	activateProperty("h2", "font-size", DNAarr[32] + "rem", 1, aDNAarr);
 	activateProperty("h3", "font-size", DNAarr[33] + "rem", 1, aDNAarr);
 
-	if (parseInt(DNAarr[0]) === 6) {
+	if (parseInt(parseInt(DNAarr[0])) === 8) {
 		$("p").css("line-height", "130%"); //fortesque correction
 	}
 };
