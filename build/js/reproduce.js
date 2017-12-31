@@ -124,7 +124,7 @@ var reproduce = function reproduce() {
 };
 
 var mutateSingleDNA = function mutateSingleDNA(arr, ind) {
-	var mutationRate = 7; // Mutation probability. Lower numbers = more likely (0 being certain)
+	var mutationRate = 6; // Mutation probability. Lower numbers = more likely (0 being certain)
 	var mutationStrength = 20; // Lower numbers result in more drastic changes
 	var mutationEffective = Math.ceil(arr[ind] / mutationStrength);
 	var mutationEffectiveFl = arr[ind] / mutationStrength;

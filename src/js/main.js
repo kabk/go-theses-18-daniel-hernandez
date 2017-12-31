@@ -33,7 +33,7 @@ const generateDNA = () => {
 		rand(-50,100), // bg grayscale 15
 		rand(-50,100), // textwrap grayscale 16
 		rand(0,1), // bg bw 17
-		rand(0,9), // border activate 18
+		rand(0,5), // border activate 18
 		rand(0,4), // border thickness 19
 		rand(0,1), // alternate section bg activate 20
 		rand(0,6), // alternate section bg activate(2) 21
@@ -124,7 +124,7 @@ const randomColor = (DNAarr) => {
 let indexDNA = 0;
 
 const activateProperty = (target, property, setting, probability, aDNAarr) => {
-	if (parseInt(aDNAarr[indexDNA]) === 1) {
+	if (parseInt(aDNAarr[indexDNA]) === 1) { // === 1
 		$(target).css(property, setting);
 	}
 	indexDNA++;
@@ -144,6 +144,8 @@ const design = (DNAarr, aDNAarr) => {
 	
 	$("#landing").append(`]`);
 
+	randomColor(DNAarr); // this should be below, as it shifts adna. but it's here because color must be defined before. not so important thoush. still - fix
+
 	activateProperty("body", "font-family", fonts[DNAarr[0]], 1, aDNAarr);
 	activateProperty("h2, h3", "font-family", fonts[DNAarr[1]], 1, aDNAarr);
 	activateProperty("h2, h3", "font-weight", weights[DNAarr[2]], 1, aDNAarr);
@@ -161,6 +163,7 @@ const design = (DNAarr, aDNAarr) => {
 	activateProperty("#textWrap, header", "filter", `grayscale(${DNAarr[16]}%) `, 3, aDNAarr);
 	activateProperty("#bg", "background-color", bw[DNAarr[17]], 4, aDNAarr);
 
+	console.log(DNAarr[18]);
 	//BORDER //////////////WHERE IS THE BORDER
 	if (DNAarr[18]===1) {
 		var color = `rgb(${c2[0]},${c2[1]},${c2[2]})`;
@@ -206,7 +209,6 @@ const design = (DNAarr, aDNAarr) => {
 
 	indexDNA+=4;
 
-	randomColor(DNAarr);
 
 
 	let colWidth = DNAarr[28];

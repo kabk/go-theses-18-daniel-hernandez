@@ -28,14 +28,6 @@ Add "view previous gens"
 
 
 
-shifted ratings -1
-if 19 already create new gen
-and adjust counters taking gen in account
-
-
-
-
-
 id paddings : index.php, ajax.js
 
 
@@ -45,9 +37,9 @@ id paddings : index.php, ajax.js
 add TOC
 add some kind of explanation
 
+mutations not able to surpass certain limits
+
 
 
 //issues ---
 	some css properties not workning
-	fails if no ratings still
-	rating gen > 1 not working
