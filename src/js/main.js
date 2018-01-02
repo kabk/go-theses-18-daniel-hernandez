@@ -130,27 +130,26 @@ const activateProperty = (target, property, setting, probability, aDNAarr) => {
 
 const design = (DNAarr, aDNAarr) => {
 
-	$("#landing").append(`Design ID: [ `);
+	// $("#landing").append(`Design ID: [ `);
 
-	for (var i = 0; i < DNA.length; i++) {
-		$("#landing").append(`${Math.floor(DNAarr[i])} `);
-	}
+	// for (var i = 0; i < DNA.length; i++) {
+	// 	$("#landing").append(`${Math.floor(DNAarr[i])} `);
+	// }
 
-	for (var i = 0; i < DNA.length; i++) {
-		$("#landing").append(`${Math.floor(aDNAarr[i])} `);
-	}
+	// for (var i = 0; i < DNA.length; i++) {
+	// 	$("#landing").append(`${Math.floor(aDNAarr[i])} `);
+	// }
 	
-	$("#landing").append(`]`);
+	// $("#landing").append(`]`);
 
 	randomColor(DNAarr); // this should be below, as it shifts adna. but it's here because color must be defined before. not so important thoush. still - fix
 
-	activateProperty("body", "font-family", fonts[DNAarr[0]], 1, aDNAarr);
-	activateProperty("h2, h3", "font-family", fonts[DNAarr[1]], 1, aDNAarr);
-	activateProperty("h2, h3", "font-weight", weights[DNAarr[2]], 1, aDNAarr);
-	activateProperty("h2, h3, header", "text-transform", tTransforms[DNAarr[3]], 1, aDNAarr);
-	activateProperty("h2, h3", "text-decoration", tDecorations[DNAarr[4]], 1, aDNAarr);
+	activateProperty("body", "font-family", fonts[parseInt(DNAarr[0])], 1, aDNAarr);
+	activateProperty("h2, h3", "font-family", fonts[parseInt(DNAarr[1])], 1, aDNAarr);
+	activateProperty("h2, h3", "font-weight", weights[parseInt(DNAarr[2])], 1, aDNAarr);
+	activateProperty("h2, h3, header", "text-transform", tTransforms[parseInt(DNAarr[3])], 1, aDNAarr);
+	activateProperty("h2, h3", "text-decoration", tDecorations[parseInt(DNAarr[4])], 1, aDNAarr);
 	activateProperty("section, header, .linkedImg, .linkedRef, #prevDesigns div", "padding", `${parseInt(DNAarr[5])}px`, 1, aDNAarr);
-	console.log(DNAarr[5], "wtf");
 	activateProperty("section, header", "box-shadow", `0px ${DNAarr[6]}px ${DNAarr[7]}px rgba(${c2[0]},${c2[1]},${c2[2]},${DNAarr[34]})`, 3, aDNAarr); //f, aDNAarrix
 	activateProperty("section, header, #rateBar, #rateBarInner", "border-radius", `${DNAarr[8]}px`, 3, aDNAarr);
 	activateProperty("h2, h3", "text-align", tAligns[DNAarr[9]], 1, aDNAarr);
@@ -250,9 +249,14 @@ const design = (DNAarr, aDNAarr) => {
 	indexDNA+=3;
 
 
-	activateProperty("p", "font-size", DNAarr[31]+"rem", 1, aDNAarr);
-	activateProperty("h2", "font-size", DNAarr[32]+"rem", 1, aDNAarr);
-	activateProperty("h3", "font-size", DNAarr[33]+"rem", 1, aDNAarr);
+	activateProperty("p", "font-size", parseInt(DNAarr[31])+"rem", 1, aDNAarr);
+	activateProperty("h2", "font-size", parseInt(DNAarr[32])+"rem", 1, aDNAarr);
+	activateProperty("h3", "font-size", parseInt(DNAarr[33])+"rem", 1, aDNAarr);
+
+	let midSize = (parseInt(DNAarr[31])+parseInt(DNAarr[33]))/2.2;
+
+	$("h4").css("font-size", `${midSize}rem`);
+	$(".smallerNo").css("font-size", `${midSize/1.4}rem`);
 	
 
 	if (parseInt(parseInt(DNAarr[0]))===8) {
@@ -344,4 +348,17 @@ const showLandingOnce = () => {
 		landingMessage();
 		sessionStorage.setItem("seen", true);
 	}
+}
+
+const tableOfContents = () => {
+	var count = 0;
+	$("section").each(function(i){
+		var lel = $(this).find("h3").text();
+
+		if (lel.length >= 1 && i >= 2) {
+			count++;
+			$("#toc").append(`<h4><span class="smallerNo">0${count}</span> <strong>${lel}</strong></h4>`);
+		}
+
+	});
 }

@@ -20,7 +20,7 @@ var prevDesigns = function prevDesigns() {
 	}
 
 	$("#prevDesigns div a").each(function (i) {
-		$(this).click(function () {
+		$(this).hover(function () {
 			design(allDNA[topDesignIndexes[i]], allADNA[topDesignIndexes[i]]);
 			console.log(i);
 		});

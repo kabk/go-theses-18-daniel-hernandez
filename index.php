@@ -34,6 +34,7 @@
 				<h4>Use cases and implications of machine<br>
 					learning technology in graphic design</h4>
 			</section>
+			<section id="toc"><h3>Contents</h3><br><br></section>
 			<section>
 				<h3>Abstract</h3>
 				<p>As artificial intelligence rapidly expands towards new areas, it is essential for graphic designers to learn about this topic and understand its potential implications. It is still very unclear what these emerging technologies might be able to achieve in a creative field like graphic design, given that it is very difficult to emulate a form of human creativity that is able to transform, combine and explore a vast conceptual space, like graphic designers do. This thesis aims to envision what might be possible through machine learning in the future, and specifically through which methods this might be achieved.</p>
@@ -67,6 +68,21 @@
 				<p>The purpose of the following experiment is to determine whether using a DNN to determine the fitness function of a genetic algorithm is viable. The results are rather uncertain, mostly because the DNN could or could not accurate capture the pattern that links all the good posters together and all the bad posters together. DNNs are very good at finding patterns, which is why they often excel at image recognition and classification. If we were to try to classify dolphin images, it would find all the common characteristics that constitute a dolphin image, and effectively classify any image within this class. The difficulty with graphic design posters, lies in the fact that the posters themselves vary vastly. While a dolphin image will always contain some kind of dolphin, posters will most of the time not have any resemblance to each other. My hypothesis is that the DNN will be able to find certain patterns in the way typography is placed, as well as the use of colour throughout the image. However, it is very possible that the trained DNN will have a hard time classifying with perfect accuracy, given the fact that the differences between the good and bad posters is not so evident, nor objective. On the other hand DNNs are known for being able to identify differences between very similar inputs.</p>
 				<p>The training data consists of little over 3000 images, half of which are pre-classified as bad and the other as good. The training will be done using Google’s Tensorflow machine learning library, which provides a basic structure for the deep neural network. In order to be able to accurately identify patterns, shapes, colours, and edges, I will be using a pre-trained model called Inception-V3, which already has the ability to recognize over 1000 different objects with a high degree of accuracy. Subsequently, I will add the two classes “good poster”, and “bad poster” and train the network for 24 hrs.</p>
 				<p>After successful training, the DNN was ready to be to be tested. Any number of posters can be fed to the DNN, an will be classified, on a scale from 0 to 100, on the network’s interpretation of good and bad. I avoided classifying any of the posters that were in the original dataset, as they would probably return an output of 100% good or bad, according to my initial pre-classification. Following are some of the results.</p>
+			</section>
+
+			<section>
+				<h3>On generative adversarial networks</h3>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. A quae maiores aut iure sint harum sit, recusandae esse voluptatem, possimus, autem reiciendis, expedita eveniet quasi blanditiis optio ipsum. Consequuntur, delectus!
+			</section>
+
+			<section>
+				<h3>Conclusion</h3>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. A quae maiores aut iure sint harum sit, recusandae esse voluptatem, possimus, autem reiciendis, expedita eveniet quasi blanditiis optio ipsum. Consequuntur, delectus!
+			</section>
+
+			<section>
+				<h3>Aknowledgements</h3>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. A quae maiores aut iure sint harum sit, recusandae esse voluptatem, possimus, autem reiciendis, expedita eveniet quasi blanditiis optio ipsum. Consequuntur, delectus!
 			</section>
 
 			<section>
@@ -216,6 +232,7 @@
 					// pushGenSpToDB();
 					// design(activeDNA, activeADNA);
 					// landingMessage();
+					tableOfContents();
 					showLandingOnce();
 				});
 			</script>
