@@ -251,6 +251,9 @@ var design = function design(DNAarr, aDNAarr) {
 	activateProperty("h3", "font-size", parseInt(DNAarr[33]) + "rem", 1, aDNAarr);
 
 	var midSize = (parseInt(DNAarr[31]) + parseInt(DNAarr[33])) / 2.2;
+	if (midSize < DNAarr[31]) {
+		midSize = DNAarr[31];
+	}
 
 	$("h4").css("font-size", midSize + "rem");
 	$(".smallerNo").css("font-size", midSize / 1.4 + "rem");
@@ -340,12 +343,28 @@ var showLandingOnce = function showLandingOnce() {
 
 var tableOfContents = function tableOfContents() {
 	var count = 0;
-	$("section").each(function (i) {
-		var lel = $(this).find("h3").text();
+	var sectionCoords = [];
 
-		if (lel.length >= 1 && i >= 2) {
-			count++;
-			$("#toc").append("<h4><span class=\"smallerNo\">0" + count + "</span> <strong>" + lel + "</strong></h4>");
-		}
-	});
+	setTimeout(function () {
+		$("section").each(function (i) {
+			var lel = $(this).find("h3").text();
+
+			if (lel.length >= 1 && i >= 2) {
+				count++;
+				sectionCoords.push($(this).offset().top);
+				$("#toc").append("<h4><span class=\"smallerNo\">0" + count + "</span> <strong>" + lel + "</strong></h4>");
+			}
+		});
+
+		$("#toc h4").each(function (i) {
+			$(this).click(function () {
+				event.preventDefault();
+				$('html, body').animate({
+					scrollTop: sectionCoords[i]
+				}, 1000);
+
+				console.log(i * 100);
+			});
+		});
+	}, 1200);
 };

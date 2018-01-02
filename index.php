@@ -44,7 +44,7 @@
 
 			<section>
 				<h3>Introduction</h3>
-				<p>Machine learning is a field in computer science which revolves around providing a computer program the capacity to learn something without direct programming. For example, one might try to get a computer to excel at chess. One way to do that would be to program all the rules, as well as what move it’s supposed to perform given a certain configuration of the board. Another possibility would be to have it calculate all the potential moves in the future and to chose from the best solution. Both of these options would be far from ideal because it would take a very long time and effort to program them manually. Furthermore, programming the computer’s moves manually would mean that all kinds of human errors would be encoded into the program, restraining it from the potential of coming up with a solution the programmer didn’t think of.</p>
+				<p>Machine learning is a field in computer science which revolves around providing a computer program the capacity to learn something without direct programming. For example, one might try to get a computer to excel at <span class="imgLink">chess</span><span class="linkedImg"><img src="img/chess.jpg" /><span class="imgCaption"><br>Caption blerp, 1923</span></span>. One way to do that would be to program all the rules, as well as what move it’s supposed to perform given a certain configuration of the board. Another possibility would be to have it calculate all the potential moves in the future and to chose from the best solution. Both of these options would be far from ideal because it would take a very long time and effort to program them manually. Furthermore, programming the computer’s moves manually would mean that all kinds of human errors would be encoded into the program, restraining it from the potential of coming up with a solution the programmer didn’t think of.</p>
 				<p>An approach based on machine learning, would likely be much more efficient, effective and ultimately produce a better chess player. A machine learning model would provide the program the ability to learn the game by itself, gradually improving until reaching its goal, all with very little human intervention. There are several different kinds of models of machine learning, several of which are inspired by natural, biological processes. Some well known examples are genetic algorithms, inspired by Darwinian evolution and neural networks, largely inspired by how groups of neurons work inside the human brain. Both of these, as well as other machine learning models, will be discussed in detail below.</p>
 				<p>In the past couple years, we have begun to see this area of computer science really thriving and achieving very impressive feats. This has been accomplished with methods developed over a decade ago, but that only now we can carry out because of an exponential increase in the computing power available to us, and the equally vast amount of data at our disposal.</p>
 				<p>Machine learning methods can now accomplish tasks we couldn’t have deemed possible 5 years ago. In fact, without the general population’s knowledge, it is an essential component to many of the technologies we use daily, it picks the songs we listen to, the results of out internet searches, it translates our texts, verifies our identities, predicts the weather and so on. Furthermore, the range of tasks AI performs in our daily life will most probably dramatically increase in the coming years. There is no doubt that these systems can accomplish a wide range of tasks more efficiently than humans, and in many cases with much better results.</p>
@@ -88,13 +88,6 @@
 			<section>
 				<span class="imgLink">image example</span><span class="linkedImg"><img src="img/galapagos-icc240.jpg" /><span class="imgCaption"><br>Caption blerp, 1923</span></span>
 				<sup class="refLink">1</sup><span class="linkedRef">1. Hijazi, Samer, Rishi Kumar, and Chris Rowen. “Using Convolutional Neural Networks for Image Recognition.” Cadence, 2015.</span>
-			</section>
-
-
-
-				
-			<section id="info">
-
 			</section>
 
 
@@ -226,10 +219,18 @@
 
 				var idPadding = 2438 - 1; //where DB id starts ---> db = activeSP
 
+				for (var i = 0; i < allDNA.length; i++) {
+					for (var j = 0; j < allDNA[i].length-4; j++) { //turn all into ints (exept last 4 floats)
+						let intVal = parseInt(allDNA[i][j]);
+						allDNA[i][j] = intVal;
+					}
+				}
+				
+
 				$(document).ready(function(){
 					// firstGen(); // init only
 					// reproduce(); // for debugging
-					// pushGenSpToDB();
+					pushGenSpToDB();
 					// design(activeDNA, activeADNA);
 					// landingMessage();
 					tableOfContents();
