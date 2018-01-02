@@ -100,8 +100,8 @@ var colorDiff = function colorDiff(v1, v2) {
 };
 
 var applyColor = function applyColor() {
-	$("#bg").css("background-color", "rgb(" + c1[0] + "," + c1[1] + "," + c1[2] + ")");
-	$("body, a").css("color", "rgb(" + c2[0] + "," + c2[1] + "," + c2[2] + ")");
+	$("#bg, #prevDesigns").css("background-color", "rgb(" + c1[0] + "," + c1[1] + "," + c1[2] + ")");
+	$("body, a, #prevDesigns div").css("color", "rgb(" + c2[0] + "," + c2[1] + "," + c2[2] + ")");
 };
 
 var randomColor = function randomColor(DNAarr) {
@@ -151,18 +151,18 @@ var design = function design(DNAarr, aDNAarr) {
 	activateProperty("h2, h3", "font-weight", weights[DNAarr[2]], 1, aDNAarr);
 	activateProperty("h2, h3, header", "text-transform", tTransforms[DNAarr[3]], 1, aDNAarr);
 	activateProperty("h2, h3", "text-decoration", tDecorations[DNAarr[4]], 1, aDNAarr);
-	activateProperty("section, header, .linkedImg, .linkedRef", "padding", parseInt(DNAarr[5]) + "px", 1, aDNAarr);
+	activateProperty("section, header, .linkedImg, .linkedRef, #prevDesigns div", "padding", parseInt(DNAarr[5]) + "px", 1, aDNAarr);
 	console.log(DNAarr[5], "wtf");
 	activateProperty("section, header", "box-shadow", "0px " + DNAarr[6] + "px " + DNAarr[7] + "px rgba(" + c2[0] + "," + c2[1] + "," + c2[2] + "," + DNAarr[34] + ")", 3, aDNAarr); //f, aDNAarrix
 	activateProperty("section, header, #rateBar, #rateBarInner", "border-radius", DNAarr[8] + "px", 3, aDNAarr);
 	activateProperty("h2, h3", "text-align", tAligns[DNAarr[9]], 1, aDNAarr);
 	// activateProperty("section", "column-count", `${rand(-3,2)}`, 10, aDNAarr);
 	activateProperty("section", "padding-bottom", DNAarr[10] + "px", 1, aDNAarr);
-	activateProperty("body", "background-color", "rgb(" + DNAarr[11] + "," + DNAarr[12] + "," + DNAarr[13] + ")", 1, aDNAarr);
+	activateProperty("body, #prevDesigns", "background-color", "rgb(" + DNAarr[11] + "," + DNAarr[12] + "," + DNAarr[13] + ")", 1, aDNAarr);
 	activateProperty("#bg", "filter", "blur(" + DNAarr[14] + "px)", 10, aDNAarr);
 	activateProperty("#bg", "filter", "grayscale(" + DNAarr[15] + "%) ", 3, aDNAarr);
 	activateProperty("#textWrap, header", "filter", "grayscale(" + DNAarr[16] + "%) ", 3, aDNAarr);
-	activateProperty("#bg, body", "background-color", bw[DNAarr[17]], 4, aDNAarr);
+	activateProperty("#bg, body, #prevDesigns", "background-color", bw[DNAarr[17]], 4, aDNAarr);
 
 	//BORDER
 	if (parseInt(DNAarr[18]) <= 0) {
@@ -202,8 +202,8 @@ var design = function design(DNAarr, aDNAarr) {
 	} else if (colorProb === 1) {
 		$("header").css("background-color", "rgb(" + c2[0] + "," + c2[1] + "," + c2[2] + ")");
 		$("header").css("color", "rgb(" + c1[0] + "," + c1[1] + "," + c1[2] + ")");
-		$("#bg").css("background-color", "rgb(" + c1[0] + "," + c1[1] + "," + c1[2] + ")");
-		$("section").css("color, a", "rgb(" + c2[0] + "," + c2[1] + "," + c2[2] + ")");
+		$("#bg, #prevDesigns").css("background-color", "rgb(" + c1[0] + "," + c1[1] + "," + c1[2] + ")");
+		$("section, #prevDesigns").css("color, a", "rgb(" + c2[0] + "," + c2[1] + "," + c2[2] + ")");
 	} else if (colorProb === 2) {
 		$("header, section").css("background-color", "transparent");
 	} else {
