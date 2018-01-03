@@ -122,14 +122,15 @@ const randomColor = (DNAarr) => {
 let indexDNA = 0;
 
 const activateProperty = (target, property, setting, probability, aDNAarr) => {
-	if (parseInt(aDNAarr[indexDNA]) <= 1) { // === 1
+	// if (parseInt(aDNAarr[indexDNA]) === 1) { // === 1
 		$(target).css(property, setting);
-	}
+	// }
+
 	indexDNA++;
 }
 
 const design = (DNAarr, aDNAarr) => {
-
+	indexDNA = 0;
 	// $("#landing").append(`Design ID: [ `);
 
 	// for (var i = 0; i < DNA.length; i++) {
@@ -149,9 +150,9 @@ const design = (DNAarr, aDNAarr) => {
 	activateProperty("h2, h3", "font-weight", weights[parseInt(DNAarr[2])], 1, aDNAarr);
 	activateProperty("h2, h3, header", "text-transform", tTransforms[parseInt(DNAarr[3])], 1, aDNAarr);
 	activateProperty("h2, h3", "text-decoration", tDecorations[parseInt(DNAarr[4])], 1, aDNAarr);
-	activateProperty("section, header, .linkedImg, .linkedRef, #prevDesigns div", "padding", `${parseInt(DNAarr[5])}px`, 1, aDNAarr);
-	activateProperty("section, header", "box-shadow", `0px ${DNAarr[6]}px ${DNAarr[7]}px rgba(${c2[0]},${c2[1]},${c2[2]},${DNAarr[34]})`, 3, aDNAarr); //f, aDNAarrix
-	activateProperty("section, header, #rateBar, #rateBarInner", "border-radius", `${DNAarr[8]}px`, 3, aDNAarr);
+	activateProperty("section, header, .linkedImg, .linkedRef, #prevDesigns", "padding", `${parseInt(DNAarr[5])}px`, 1, aDNAarr);
+	activateProperty("section, header, #prevDesigns", "box-shadow", `0px ${DNAarr[6]}px ${DNAarr[7]}px rgba(${c2[0]},${c2[1]},${c2[2]},${DNAarr[34]})`, 3, aDNAarr); //f, aDNAarrix
+	activateProperty("section, header, #rateBar, #rateBarInner, #prevDesigns", "border-radius", `${DNAarr[8]}px`, 3, aDNAarr);
 	activateProperty("h2, h3", "text-align", tAligns[DNAarr[9]], 1, aDNAarr);
 	// activateProperty("section", "column-count", `${rand(-3,2)}`, 10, aDNAarr);
 	activateProperty("section", "padding-bottom", `${DNAarr[10]}px`, 1, aDNAarr);
@@ -166,20 +167,25 @@ const design = (DNAarr, aDNAarr) => {
 		var color = `rgb(${c2[0]},${c2[1]},${c2[2]})`;
 		var randThickness = parseInt(DNAarr[19]);
 		// console.log("border");
-		$("header").css("border-bottom", `${randThickness}px solid ${color}`);
+		$("header, #prevDesigns").css("border-bottom", `${randThickness}px solid ${color}`);
 		$("#textWrap").css("border-right", `${randThickness}px solid ${color}`);
 		$("#textWrap").css("border-left", `${randThickness}px solid ${color}`);
 		$("section").css("border-bottom", `${randThickness}px solid ${color}`);
+	} else {
+		$("header, #prevDesigns").css("border-bottom", `none`);
+		$("#textWrap").css("border-right", `none`);
+		$("#textWrap").css("border-left", `none`);
+		$("section").css("border-bottom", `none`);
 	}
 
 	//section bgs
 	const alternateColor = () => {
 		if (parseInt(DNAarr[20]) <= 0) {
-			$("header").css("background-color", `rgb(${c1[0]},${c1[1]},${c1[2]})`);
-			$("header, a").css("color", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
+			$("headerm #prevDesigns").css("background-color", `rgb(${c1[0]},${c1[1]},${c1[2]})`);
+			$("header, #prevDesigns").css("color", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
 		} else {
-			$("header").css("background-color", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
-			$("header, a").css("color", `rgb(${c1[0]},${c1[1]},${c1[2]})`);
+			$("header, #prevDesigns").css("background-color", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
+			$("header, #prevDesigns").css("color", `rgb(${c1[0]},${c1[1]},${c1[2]})`);
 		}
 
 		$("section").each(function(i){
@@ -198,15 +204,15 @@ const design = (DNAarr, aDNAarr) => {
 	if (colorProb<=0) {
 		alternateColor();
 	} else if (colorProb === 1) {
-		$("header").css("background-color", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
-		$("header").css("color", `rgb(${c1[0]},${c1[1]},${c1[2]})`);
+		$("header, #prevDesigns").css("background-color", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
+		$("header, #prevDesigns").css("color", `rgb(${c1[0]},${c1[1]},${c1[2]})`);
 		$("#bg, #prevDesigns").css("background-color", `rgb(${c1[0]},${c1[1]},${c1[2]})`);
-		$("section, #prevDesigns").css("color, a", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
+		$("section").css("color, a", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
 	} else if (colorProb === 2) {
-		$("header, section").css("background-color", `transparent`);
+		$("header, section, #prevDesigns").css("background-color", `transparent`);
 	} else{
-		$("header, #bg").css("background-color", `rgb(${c1[0]},${c1[1]},${c1[2]})`);
-		$("header").css("color", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
+		$("header, #bg, #prevDesigns").css("background-color", `rgb(${c1[0]},${c1[1]},${c1[2]})`);
+		$("header, #prevDesigns").css("color", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
 	}
 
 	indexDNA+=4;
@@ -232,6 +238,7 @@ const design = (DNAarr, aDNAarr) => {
 	setTimeout(function(){
 		headerH = $("header").outerHeight();
 		$("#mainWrap").css("padding-top",`${headerH}px`);
+		$("#prevDesigns").css("margin-top",`${headerH}px`);
 	},1200);
 
 	if (parseInt(DNAarr[30])===0) {
@@ -248,12 +255,13 @@ const design = (DNAarr, aDNAarr) => {
 
 	indexDNA+=3;
 
+	console.log(parseFloat(DNAarr[32]), aDNAarr[32], "h2");
+	console.log(parseFloat(DNAarr[33]), aDNAarr[33], "h2");
+	activateProperty("p", "font-size", parseFloat(DNAarr[31])+"rem", 1, aDNAarr);
+	activateProperty("h2", "font-size", parseFloat(DNAarr[32])+"rem", 1, aDNAarr);
+	activateProperty("h3", "font-size", parseFloat(DNAarr[33])+"rem", 1, aDNAarr);
 
-	activateProperty("p", "font-size", parseInt(DNAarr[31])+"rem", 1, aDNAarr);
-	activateProperty("h2", "font-size", parseInt(DNAarr[32])+"rem", 1, aDNAarr);
-	activateProperty("h3", "font-size", parseInt(DNAarr[33])+"rem", 1, aDNAarr);
-
-	let midSize = (parseInt(DNAarr[31])+parseInt(DNAarr[33]))/2.2;
+	let midSize = (parseFloat(DNAarr[31])+parseFloat(DNAarr[33]))/2.2;
 	if (midSize < DNAarr[31]) {
 		midSize = DNAarr[31];
 	}
@@ -347,6 +355,7 @@ const showLandingOnce = () => {
 
 	if (sessionStorage.seen) {
 		design(activeDNA, activeADNA);
+		tableOfContents();
 	} else {
 		landingMessage();
 		sessionStorage.setItem("seen", true);
@@ -356,15 +365,14 @@ const showLandingOnce = () => {
 const tableOfContents = () => {
 	var count = 0;
 	var sectionCoords = [];
-
 	setTimeout(function(){
 	$("section").each(function(i){
-		var lel = $(this).find("h3").text();
+		var sectionTitle = $(this).find("h3").text();
 
-		if (lel.length >= 1 && i >= 2) {
+		if (sectionTitle.length >= 1 && i >= 2) {
 			count++;
 			sectionCoords.push($(this).offset().top);
-			$("#toc").append(`<h4><span class="smallerNo">0${count}</span> <strong>${lel}</strong></h4>`);
+			$("#toc").append(`<h4><span class="smallerNo">0${count}</span> <strong>${sectionTitle}</strong></h4>`);
 		}
 
 	});
@@ -376,11 +384,8 @@ const tableOfContents = () => {
 			$('html, body').animate({
 	            scrollTop: sectionCoords[i]
 	        }, 1000);
-
-			console.log(i*100);
 		});
 	});
 	},1200);
-
 
 }

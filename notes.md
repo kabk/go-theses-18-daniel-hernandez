@@ -39,14 +39,15 @@ add some kind of explanation
 
 mutations not able to surpass certain limits
 
-
+outline headers
 print
 
 
 
 //issues ---
 	bw bg still not working
-	padding not working
+	0 type size wtf
+
 
 
 
