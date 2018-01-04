@@ -14,12 +14,12 @@ var DNA = void 0;
 var aDNA = void 0;
 
 var generateDNA = function generateDNA() {
-	var arr = [rand(0, fonts.length), // font 0
-	rand(0, fonts.length), // font 1
-	rand(0, weights.length), // font weight 2
-	rand(0, tTransforms.length), // text transform 3
-	rand(0, tDecorations.length), // text decoration 4
-	rand(3, 25), // padding 5
+	var arr = [rand(0, 255), // main colors 22 0
+	rand(0, 255), // main colors 23 1
+	rand(0, 255), // main colors 24 2
+	rand(0, 255), // main colors 25 3
+	rand(0, 255), // main colors 26 4
+	rand(0, 255), // main colors 27 5
 	rand(0, 6), // box shadow length(?) 6
 	rand(0, 10), // box shadow blur(?) 7
 	rand(-10, 15), // border radius 8
@@ -36,12 +36,12 @@ var generateDNA = function generateDNA() {
 	rand(0, 3), // border thickness 19
 	rand(0, 1), // alternate section bg activate 20
 	rand(0, 6), // alternate section bg activate(2) 21
-	rand(0, 255), // main colors 22
-	rand(0, 255), // main colors 23
-	rand(0, 255), // main colors 24
-	rand(0, 255), // main colors 25
-	rand(0, 255), // main colors 26
-	rand(0, 255), // main colors 27
+	rand(0, fonts.length), // font 0 22
+	rand(0, fonts.length), // font 1 23
+	rand(0, weights.length), // font weight 2 24
+	rand(0, tTransforms.length), // text transform 3 25
+	rand(0, tDecorations.length), // text decoration 4 26
+	rand(3, 25), // padding 5 27
 	rand(40, 70), // col width 28
 	rand(0, 1), // float L or R 29
 	rand(0, 3), // big landing 30
@@ -105,8 +105,8 @@ var applyColor = function applyColor() {
 };
 
 var randomColor = function randomColor(DNAarr) {
-	c1 = [DNAarr[22], DNAarr[23], DNAarr[24]];
-	c2 = [DNAarr[25], DNAarr[26], DNAarr[27]];
+	c1 = [DNAarr[0], DNAarr[1], DNAarr[2]];
+	c2 = [DNAarr[3], DNAarr[4], DNAarr[5]];
 	indexDNA += 6;
 
 	// if (colorDiff(c1,c2) >= 140) {
@@ -144,14 +144,10 @@ var design = function design(DNAarr, aDNAarr) {
 
 	// $("#landing").append(`]`);
 
+	/////INDEX DNA ORDER WRONG
+
 	randomColor(DNAarr); // this should be below, as it shifts adna. but it's here because color must be defined before. not so important thoush. still - fix
 
-	activateProperty("body", "font-family", fonts[parseInt(DNAarr[0])], 1, aDNAarr);
-	activateProperty("h2, h3", "font-family", fonts[parseInt(DNAarr[1])], 1, aDNAarr);
-	activateProperty("h2, h3", "font-weight", weights[parseInt(DNAarr[2])], 1, aDNAarr);
-	activateProperty("h2, h3, header", "text-transform", tTransforms[parseInt(DNAarr[3])], 1, aDNAarr);
-	activateProperty("h2, h3", "text-decoration", tDecorations[parseInt(DNAarr[4])], 1, aDNAarr);
-	activateProperty("section, header, .linkedImg, .linkedRef, #prevDesigns", "padding", parseInt(DNAarr[5]) + "px", 1, aDNAarr);
 	activateProperty("section, header, #prevDesigns", "box-shadow", "0px " + DNAarr[6] + "px " + DNAarr[7] + "px rgba(" + c2[0] + "," + c2[1] + "," + c2[2] + "," + DNAarr[34] + ")", 3, aDNAarr); //f, aDNAarrix
 	activateProperty("section, header, #rateBar, #rateBarInner, #prevDesigns", "border-radius", DNAarr[8] + "px", 3, aDNAarr);
 	activateProperty("h2, h3", "text-align", tAligns[DNAarr[9]], 1, aDNAarr);
@@ -217,6 +213,13 @@ var design = function design(DNAarr, aDNAarr) {
 
 	indexDNA += 4;
 
+	activateProperty("body", "font-family", fonts[parseInt(DNAarr[22])], 1, aDNAarr);
+	activateProperty("h2, h3", "font-family", fonts[parseInt(DNAarr[23])], 1, aDNAarr);
+	activateProperty("h2, h3", "font-weight", weights[parseInt(DNAarr[24])], 1, aDNAarr);
+	activateProperty("h2, h3, header", "text-transform", tTransforms[parseInt(DNAarr[25])], 1, aDNAarr);
+	activateProperty("h2, h3", "text-decoration", tDecorations[parseInt(DNAarr[26])], 1, aDNAarr);
+	activateProperty("section, header, .linkedImg, .linkedRef, #prevDesigns", "padding", parseInt(DNAarr[27]) + "px", 1, aDNAarr);
+
 	var colWidth = DNAarr[28];
 
 	$("#textWrap").css("width", colWidth + "%");
@@ -225,9 +228,11 @@ var design = function design(DNAarr, aDNAarr) {
 	if (parseInt(DNAarr[29]) === 0) {
 		$("#textWrap").css("float", "left");
 		$(".linkedImg, .linkedRef").css("left", "auto").css("right", "0");
+		$("#prevDesigns").css("width", 100 - colWidth + "%");
 	} else {
 		$("#textWrap").css("float", "right");
 		$(".linkedImg, .linkedRef").css("right", "auto").css("left", "0");
+		$("#prevDesigns").css("width", colWidth + "%");
 	}
 
 	//big landing
@@ -266,7 +271,7 @@ var design = function design(DNAarr, aDNAarr) {
 	$("h4").css("font-size", midSize + "rem");
 	$(".smallerNo").css("font-size", midSize / 1.4 + "rem");
 
-	if (parseInt(parseInt(DNAarr[0])) === 8) {
+	if (parseInt(parseInt(DNAarr[22])) === 8) {
 		$("p").css("line-height", "130%"); //fortesque correction
 	}
 };

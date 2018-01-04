@@ -31,7 +31,7 @@
 					Please be patient,<br>
 					I’m still learning.
 				</h2><br>
-				<h4>Use cases and implications of machine<br>
+				<h4>Use cases and implications of machine 
 					learning technology in graphic design</h4>
 			</section>
 			<section id="toc"><h3>Contents</h3><br><br></section>

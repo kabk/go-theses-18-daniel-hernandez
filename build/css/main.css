@@ -171,7 +171,6 @@ canvas {
 #prevDesigns {
   position: fixed;
   z-index: 90;
-  min-width: 10%;
   top: 0;
   right: 0;
   display: none; }

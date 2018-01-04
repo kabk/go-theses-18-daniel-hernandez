@@ -5,13 +5,26 @@ var prevDesigns = function prevDesigns() {
 	var $button = $("#prevDesignsBtn");
 	var topDesignIndexes = [];
 	var ratingThresh = 3;
+	var prevDesignsVisible = false;
 
 	for (var i = 0; i < dbRatings.length; i++) {
 		if (dbRatings[i] >= ratingThresh) {
+			// let pad = "";
+			var designNo = i + 1;
+
+			// if (String(designNo).length === 1) {
+			// 	pad += "000";
+			// } else if (String(designNo).length === 2) {
+			// 	pad += "00";
+			// } else if (String(designNo).length === 3) {
+			// 	pad += "0";
+			// }
+
 			// let gen = Math.ceil(i/generationSpecimens);
 			// let sp = i-((gen-1)*generationSpecimens);
+
 			topDesignIndexes.push(i);
-			$prevDesigns.append("<a href=\"#\">#" + (i + 1) + "</a>&nbsp;&nbsp;");
+			$prevDesigns.append("<a href=\"#\">#" + designNo + "</a>&nbsp; ");
 		}
 	}
 
@@ -26,7 +39,8 @@ var prevDesigns = function prevDesigns() {
 	$("#prevDesigns a").each(function (i) {
 		var gen = Math.ceil(topDesignIndexes[i] / generationSpecimens);
 		var sp = topDesignIndexes[i] - (gen - 1) * generationSpecimens + 1;
-		$(this).hover(function () {
+		$(this).click(function (event) {
+			event.preventDefault();
 			$("#designCounter").text(topDesignIndexes[i] + 1);
 			$("#generationCounter").text(Math.ceil(gen));
 			$("#specimenCounter").text(sp);
@@ -43,12 +57,21 @@ var prevDesigns = function prevDesigns() {
 		});
 	});
 
-	$("#prevDesigns").click(function () {
+	$("#prevDesigns").click(function (event) {
+		event.preventDefault();
 		$("#prevDesigns").hide();
+		prevDesignsVisible = false;
 	});
 
-	$("#prevDesignsBtn").click(function () {
-		$("#prevDesigns").show();
+	$("#prevDesignsBtn").click(function (event) {
+		event.preventDefault();
+		if (prevDesignsVisible === false) {
+			$("#prevDesigns").show();
+			prevDesignsVisible = true;
+		} else {
+			$("#prevDesigns").hide();
+			prevDesignsVisible = false;
+		}
 	});
 };
 
