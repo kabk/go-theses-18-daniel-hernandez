@@ -176,4 +176,5 @@ canvas {
   display: none; }
 
 #toc h4 {
-  cursor: pointer; }
+  cursor: pointer;
+  margin: 0; }

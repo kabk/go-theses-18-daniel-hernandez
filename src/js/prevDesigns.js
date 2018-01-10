@@ -2,33 +2,17 @@ const prevDesigns = () => {
 	const $prevDesigns = $("#prevDesigns");
 	const $button = $("#prevDesignsBtn");
 	let topDesignIndexes = [];
-	const ratingThresh = 3;
+	const ratingThresh = 6;
 	let prevDesignsVisible = false;
 
 	for (var i = 0; i < dbRatings.length; i++) {
 		if (dbRatings[i] >= ratingThresh) {
-			// let pad = "";
 			var designNo = i+1;
-
-			// if (String(designNo).length === 1) {
-			// 	pad += "000";
-			// } else if (String(designNo).length === 2) {
-			// 	pad += "00";
-			// } else if (String(designNo).length === 3) {
-			// 	pad += "0";
-			// }
-
-			// let gen = Math.ceil(i/generationSpecimens);
-			// let sp = i-((gen-1)*generationSpecimens);
 
 			topDesignIndexes.push(i);
 			$prevDesigns.append(`<a href="#">#${designNo}</a>&nbsp; `);
 		}
 	}
-
-	// console.log(topDesignIndexes);
-	// console.log(allDNA[topDesignIndexes], allADNA[topDesignIndexes]);
-
 
 	if (topDesignIndexes.length <= 0) {
 		$prevDesigns.text("No designs to show yet. Chech back later.");
@@ -42,16 +26,11 @@ const prevDesigns = () => {
 			$("#designCounter").text(topDesignIndexes[i]+1);
 			$("#generationCounter").text(Math.ceil(gen));
 			$("#specimenCounter").text(sp);
-			// $("*").css("transition", "0s");
 
-			// setTimeout(function(){
-				defaultDesign();
-			// },50);
+			defaultDesign();
 
-			// $("body").css("font-family", "serif");
-			// setTimeout(function(){
-				design(allDNA[topDesignIndexes[i]], allADNA[topDesignIndexes[i]]);
-			// },2200);
+			design(allDNA[topDesignIndexes[i]], allADNA[topDesignIndexes[i]]);
+			
 		});
 	});
 
@@ -122,6 +101,5 @@ const defaultDesign = () => {
 		defADNA.push(1);
 	}
 	design(defDNA,defADNA)
-	// $("body").
 }
 
