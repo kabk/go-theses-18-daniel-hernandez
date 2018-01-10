@@ -69,4 +69,3 @@ less mutation strength
 white “undesigned” button thing, with show prev designs + rate?
 better interface for prev designs, back front arrow + best designs
 
-mutation not fo sho

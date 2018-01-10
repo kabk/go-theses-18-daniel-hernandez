@@ -140,7 +140,7 @@
 
 
 			<?php
-				$generationSpecimens = 30;
+				$generationSpecimens = 40;
 
 				// $servername = "localhost:8889";
 				// $username = "root";
@@ -259,7 +259,7 @@
 				?>
 
 			<script type="text/javascript">
-				var generationSpecimens = 30;
+				var generationSpecimens = 40;
 
 				var dbGeneralCount = parseInt("<?php echo $generalCount; ?>");
 				var dbGen = parseInt("<?php echo $gen; ?>");

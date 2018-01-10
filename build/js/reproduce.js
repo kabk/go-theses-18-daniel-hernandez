@@ -34,8 +34,8 @@ var reproduce = function reproduce() {
 		// calculate number of elite offspring
 		var fitParents = 0;
 		var eliteOffspring = void 0;
-		var maxEliteOffspring = 16;
-		var promiscuity = 1; // how much fit parents will reproduce
+		var maxEliteOffspring = generationSpecimens - generationSpecimens / 4;
+		var promiscuity = 2; // how much fit parents will reproduce
 
 		// if no ratings, still reproduce. otherwise error
 		if (combineArr(activeRatings) <= 1) {
@@ -113,9 +113,11 @@ var reproduce = function reproduce() {
 	}
 
 	for (var h = 0; h < newDNA.length; h++) {
-		// i could add if statement so only sometimes it mutates --- ?
-		for (var i = 0; i < newDNA[h].length; i++) {
-			mutateSingleDNA(newDNA[h], i);
+		if (rand(0, 1) >= 1) {
+			// 1/2 chance of mutation
+			for (var i = 0; i < newDNA[h].length; i++) {
+				mutateSingleDNA(newDNA[h], i);
+			}
 		}
 	}
 
@@ -125,7 +127,7 @@ var reproduce = function reproduce() {
 
 var mutateSingleDNA = function mutateSingleDNA(arr, ind) {
 	var mutationRate = 6; // Mutation probability. Lower numbers = more likely (0 being certain)
-	var mutationStrength = 8; // Lower numbers result in more drastic changes
+	var mutationStrength = 15; // Lower numbers result in more drastic changes
 	var mutationEffective = Math.ceil(arr[ind] / mutationStrength);
 	var mutationEffectiveFl = arr[ind] / mutationStrength;
 
