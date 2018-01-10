@@ -5,6 +5,7 @@ const tDecorations = ["none","underline","none","none","none"];
 const tAligns = ["left", "right", "center", "justify"];
 const paragraphAligns = ["left", "left", "left", "justify"];
 const bw= ["black", "white"];
+const rgbMinMax = [0,255];
 
 let c1 = []; //bg
 let c2 = []; //fg
@@ -13,12 +14,12 @@ let aDNA;
 
 const generateDNA = () => {
 	let arr = [
-		rand(0,255), // main colors 22 0
-		rand(0,255), // main colors 23 1
-		rand(0,255), // main colors 24 2
-		rand(0,255), // main colors 25 3
-		rand(0,255), // main colors 26 4
-		rand(0,255), // main colors 27 5
+		rgbMinMax[rand(0,rgbMinMax.length)], // main colors 22 0
+		rgbMinMax[rand(0,rgbMinMax.length)], // main colors 23 1
+		rgbMinMax[rand(0,rgbMinMax.length)], // main colors 24 2
+		rgbMinMax[rand(0,rgbMinMax.length)], // main colors 25 3
+		rgbMinMax[rand(0,rgbMinMax.length)], // main colors 26 4
+		rgbMinMax[rand(0,rgbMinMax.length)], // main colors 27 5
 		rand(0,6), // box shadow length(?) 6
 		rand(0,10), // box shadow blur(?) 7
 		rand(-10,15), // border radius 8
