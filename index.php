@@ -151,7 +151,7 @@
 
 				$servername = "thesisdb.thesis.danielh.info";
 				$username = "onions";
-				$password = "taste good yo";
+				$password = "****";
 				$dbname = "genetic";
 
 				// activeSp DNAdb
