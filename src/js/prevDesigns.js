@@ -10,7 +10,7 @@ const prevDesigns = () => {
 			var designNo = i+1;
 
 			topDesignIndexes.push(i);
-			$prevDesigns.append(`<a href="#">#${designNo}</a>&nbsp; `);
+			$prevDesigns.append(`<span href="#">#${designNo}</span>&nbsp; `);
 		}
 	}
 
@@ -18,7 +18,7 @@ const prevDesigns = () => {
 		$prevDesigns.text("No designs to show yet. Chech back later.");
 	}
 
-	$("#prevDesigns a").each(function(i){
+	$("#prevDesigns span").each(function(i){
 		let gen = Math.ceil(topDesignIndexes[i]/generationSpecimens);
 		let sp = topDesignIndexes[i]-((gen-1)*generationSpecimens)+1;
 		$(this).click(function(event){

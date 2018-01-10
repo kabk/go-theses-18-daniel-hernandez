@@ -174,7 +174,12 @@ canvas {
   top: 0;
   right: 0;
   display: none; }
+  #prevDesigns span {
+    cursor: pointer; }
 
 #toc h4 {
   cursor: pointer;
   margin: 0; }
+
+#prevDesignsBtn, #redesign {
+  cursor: pointer; }

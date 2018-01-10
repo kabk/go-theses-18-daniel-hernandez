@@ -228,8 +228,11 @@ canvas{
 	// transform: translate(-50%, -50%);
 	// column-count: 3;
 	display: none;
-	// border: 1px dashed white;
 
+	// border: 1px dashed white;
+	span{
+		cursor: pointer;
+	}
 }
 
 #toc{
@@ -237,6 +240,10 @@ canvas{
 		cursor: pointer;
 		margin: 0;
 	}
+}
+
+#prevDesignsBtn, #redesign{
+	cursor: pointer;
 }
 
 // h2, h3 {
