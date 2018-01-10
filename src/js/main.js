@@ -101,7 +101,7 @@ const colorDiff = (v1,v2) => {
 
 const applyColor = () => {
 	$("#bg, #prevDesigns").css("background-color", `rgb(${c1[0]},${c1[1]},${c1[2]})`);
-	$("body, a, #prevDesigns div").css("color", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
+	$("body, a, #prevDesigns").css("color", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
 }
 
 const randomColor = (DNAarr) => {
@@ -156,7 +156,7 @@ const design = (DNAarr, aDNAarr) => {
 	activateProperty("body, #prevDesigns", "background-color", `rgb(${DNAarr[11]},${DNAarr[12]},${DNAarr[13]})`, 1, aDNAarr);
 	activateProperty("#bg", "filter", `blur(${DNAarr[14]}px)`, 10, aDNAarr);
 	activateProperty("#bg", "filter", `grayscale(${DNAarr[15]}%) `, 3, aDNAarr);
-	activateProperty("#textWrap, header", "filter", `grayscale(${DNAarr[16]}%) `, 3, aDNAarr);
+	activateProperty("#textWrap, header, #prevDesigns", "filter", `grayscale(${DNAarr[16]}%) `, 3, aDNAarr);
 	activateProperty("#bg, body, #prevDesigns", "background-color", bw[DNAarr[17]], 4, aDNAarr);
 
 	//BORDER
@@ -203,7 +203,7 @@ const design = (DNAarr, aDNAarr) => {
 	} else if (colorProb === 1) {
 		$("header, #prevDesigns").css("background-color", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
 		$("header, #prevDesigns").css("color", `rgb(${c1[0]},${c1[1]},${c1[2]})`);
-		$("#bg, #prevDesigns").css("background-color", `rgb(${c1[0]},${c1[1]},${c1[2]})`);
+		$("#bg").css("background-color", `rgb(${c1[0]},${c1[1]},${c1[2]})`);
 		$("section").css("color, a", `rgb(${c2[0]},${c2[1]},${c2[2]})`);
 	} else if (colorProb === 2) {
 		$("header, section, #prevDesigns").css("background-color", `transparent`);
