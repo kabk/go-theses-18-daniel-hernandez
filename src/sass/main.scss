@@ -251,3 +251,28 @@ canvas{
 // 	color: rgba(0,0,0,0);
 //    -webkit-text-stroke: 2px black;
 // }
+
+
+
+
+//PRINT
+@media print {
+  *{
+    background-color: white !important;
+    color: black !important;
+    box-shadow: 0 0 white !important;
+    border: 0px solid white !important;
+    filter: grayscale(0%) !important;
+
+  }
+
+  @page {
+    margin: 1.2cm;
+  }
+
+  section{
+    page-break-after: always;
+    max-width: 90%;
+    min-width: 40%;
+  }
+}
