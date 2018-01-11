@@ -1,5 +1,9 @@
 # go-theses-18-daniel-hernandez
 
+[Visit](https://kabk.github.io/go-theses-18-daniel-hernandez/)
+[Visit](https://http://www.thesis.danielh.info/)
+
+
 ```
                                      _
                                 _.-~~.)
