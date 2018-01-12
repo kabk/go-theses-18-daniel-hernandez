@@ -184,6 +184,10 @@ canvas {
 #prevDesignsBtn, #redesign {
   cursor: pointer; }
 
+.filter.active {
+  text-decoration: underline;
+  font-weight: bold; }
+
 @media print {
   * {
     background-color: white !important;

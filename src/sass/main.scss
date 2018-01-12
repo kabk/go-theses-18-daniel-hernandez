@@ -252,6 +252,12 @@ canvas{
 //    -webkit-text-stroke: 2px black;
 // }
 
+.filter{
+	&.active{
+		text-decoration: underline;
+		font-weight: bold;
+	}
+}
 
 
 
