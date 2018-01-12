@@ -1,5 +1,9 @@
 # go-theses-18-daniel-hernandez
 
+[kabk.github.io/go-theses-18-daniel-hernandez/](https://kabk.github.io/go-theses-18-daniel-hernandez/)
+[thesis.danielh.info/](http://www.thesis.danielh.info/)
+
+
 ```
                                      _
                                 _.-~~.)
