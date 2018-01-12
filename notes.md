@@ -13,28 +13,9 @@ If designCounter > specimens per generation
 		crossover
 
 
-///////
-
-
-DNA[gen, spec, dna, dna, etc]
-FIT[key, fit]
-
-
-///////
-
-Add "view previous gens"
 
 
 
-
-
-id paddings : index.php, ajax.js
-
-
-
-
-
-add TOC
 add some kind of explanation
 
 mutations not able to surpass certain limits
@@ -51,21 +32,7 @@ print
 
 
 
-
-if no rate = no push new shet
-if redesign = 0;
-
-
-
-
-
-
-
-bigger generations, morepromiscuity.
-less mutation strength
-
-
-
-white “undesigned” button thing, with show prev designs + rate?
-better interface for prev designs, back front arrow + best designs
+better interface for prev designs, back front arrow + best designs... screenshots?
+color diff
+always some random dna in new gen
 

@@ -23,7 +23,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "UPDATE activeSpTest SET rating = '$rating' WHERE id = '$generalCount'";
+$sql = "UPDATE activeSp SET rating = '$rating' WHERE id = '$generalCount'";
 
 if ($conn->query($sql) === TRUE) {
     // echo "New record created successfully";

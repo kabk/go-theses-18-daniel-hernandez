@@ -107,6 +107,21 @@ const applyColor = () => {
 const randomColor = (DNAarr) => {
 	c1 = [DNAarr[0], DNAarr[1], DNAarr[2]];
 	c2 = [DNAarr[3], DNAarr[4], DNAarr[5]];
+
+	console.log(c1, c2);
+
+		console.log(colorDiff(c1,c2)+" asd");
+
+
+	if (colorDiff(c1,c2) <= 30) {
+		console.log("randcolor");
+		c1 = [rand(0,255), rand(0,255), rand(0,255)];
+	}
+
+	console.log(c1, c2);
+	console.log(colorDiff(c1,c2)+" asd");
+
+
 	indexDNA+=6;
 
 	// if (colorDiff(c1,c2) >= 140) {
@@ -163,7 +178,6 @@ const design = (DNAarr, aDNAarr) => {
 	if (parseInt(DNAarr[18]) <= 0) {
 		var color = `rgb(${c2[0]},${c2[1]},${c2[2]})`;
 		var randThickness = parseInt(DNAarr[19]);
-		// console.log("border");
 		$("header, #prevDesigns").css("border-bottom", `${randThickness}px solid ${color}`);
 		$("#textWrap").css("border-right", `${randThickness}px solid ${color}`);
 		$("#textWrap").css("border-left", `${randThickness}px solid ${color}`);
@@ -261,8 +275,8 @@ const design = (DNAarr, aDNAarr) => {
 
 	indexDNA+=3;
 
-	console.log(parseFloat(DNAarr[32]), aDNAarr[32], "h2");
-	console.log(parseFloat(DNAarr[33]), aDNAarr[33], "h2");
+	// console.log(parseFloat(DNAarr[32]), aDNAarr[32], "h2");
+	// console.log(parseFloat(DNAarr[33]), aDNAarr[33], "h2");
 	activateProperty("p", "font-size", parseFloat(DNAarr[31])+"rem", 1, aDNAarr);
 	activateProperty("h2", "font-size", parseFloat(DNAarr[32])+"rem", 1, aDNAarr);
 	activateProperty("h3", "font-size", parseFloat(DNAarr[33])+"rem", 1, aDNAarr);

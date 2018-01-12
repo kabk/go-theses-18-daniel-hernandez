@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 
 //gen and sp no longer needed. remove from db and leave only ID and rating
 
-$sql = "INSERT INTO activeSpTest (gen, sp)
+$sql = "INSERT INTO activeSp (gen, sp)
 VALUES ('$gen', '$sp')";
 
 if ($conn->query($sql) === TRUE) {

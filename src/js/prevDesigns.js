@@ -5,20 +5,35 @@ const prevDesigns = () => {
 	const ratingThresh = 6;
 	let prevDesignsVisible = false;
 
-	for (var i = 0; i < dbRatings.length; i++) {
-		if (dbRatings[i] >= ratingThresh) {
-			var designNo = i+1;
 
-			topDesignIndexes.push(i);
-			$prevDesigns.append(`<span href="#">#${designNo}</span>&nbsp; `);
+	for (var i = 11 - 1; i >= 0; i--) {
+		if ($.inArray(i.toString(), dbRatings) >= 0) {
+			$prevDesigns.append(`<span id="rating${i}">Rated ${i}:<br></span><br>`);
 		}
 	}
 
-	if (topDesignIndexes.length <= 0) {
-		$prevDesigns.text("No designs to show yet. Chech back later.");
+	for (var i = 0; i < dbRatings.length; i++) {
+		topDesignIndexes.push(i); //error here
+		var rating = dbRatings[i];
+		$("#rating"+rating).append(`<strong>${i}</strong> `);
 	}
 
-	$("#prevDesigns span").each(function(i){
+	// console.log(dbRatings);
+
+	// for (var i = 0; i < dbRatings.length; i++) {
+	// 	if (dbRatings[i] >= ratingThresh) {
+	// 		var designNo = i+1;
+
+	// 		topDesignIndexes.push(i);
+	// 		$prevDesigns.append(`<span href="#">#${designNo}</span>&nbsp; `);
+	// 	}
+	// }
+
+	// if (topDesignIndexes.length <= 0) {
+	// 	$prevDesigns.text("No designs to show yet. Chech back later.");
+	// }
+
+	$("#prevDesigns strong").each(function(i){
 		let gen = Math.ceil(topDesignIndexes[i]/generationSpecimens);
 		let sp = topDesignIndexes[i]-((gen-1)*generationSpecimens)+1;
 		$(this).click(function(event){
