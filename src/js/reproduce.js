@@ -92,23 +92,33 @@ const reproduce = () => {
 	}
 
 	for (var j = offspringNo; j < generationSpecimens; j++) { // generate children from all parents
-		newDNA.push([]);
-		newADNA.push([]);
 
 
-		for (var i = 0; i < activeParentDNA[0].length; i++) { // generate DNA of 1 specimen
+		if (j%2===0) { // half of times push new dna, other half get from unfit parents
+			newDNA.push(generateDNA());
+			newADNA.push(generateADNA());
+		} else {
+			newDNA.push([]);
+			newADNA.push([]);
 
-			var randParent = rand(0,activeParentDNA.length-1); //random parent
 
-			if (isInt(activeParentDNA[randParent][i]) === true) {
-				newDNA[j].push(parseInt(activeParentDNA[randParent][i]));
-			} else {
-				newDNA[j].push(parseFloat(activeParentDNA[randParent][i]));
-			}
+			for (var i = 0; i < activeParentDNA[0].length; i++) { // generate DNA of 1 specimen
 
-			newADNA[j].push(parseInt(activePatentADNA[randParent][i]));
+				var randParent = rand(0,activeParentDNA.length-1); //random parent
 
-		}	
+				if (isInt(activeParentDNA[randParent][i]) === true) {
+					newDNA[j].push(parseInt(activeParentDNA[randParent][i]));
+				} else {
+					newDNA[j].push(parseFloat(activeParentDNA[randParent][i]));
+				}
+
+				newADNA[j].push(parseInt(activePatentADNA[randParent][i]));
+
+			}	
+
+		}
+
+
 
 	}
 

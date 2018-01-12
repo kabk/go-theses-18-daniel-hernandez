@@ -14,12 +14,12 @@ let aDNA;
 
 const generateDNA = () => {
 	let arr = [
-		rgbMinMax[rand(0,rgbMinMax.length)], // main colors 22 0
-		rgbMinMax[rand(0,rgbMinMax.length)], // main colors 23 1
-		rgbMinMax[rand(0,rgbMinMax.length)], // main colors 24 2
-		rgbMinMax[rand(0,rgbMinMax.length)], // main colors 25 3
-		rgbMinMax[rand(0,rgbMinMax.length)], // main colors 26 4
-		rgbMinMax[rand(0,rgbMinMax.length)], // main colors 27 5
+		rgbMinMax[rand(0,rgbMinMax.length-1)], // main colors 22 0
+		rgbMinMax[rand(0,rgbMinMax.length-1)], // main colors 23 1
+		rgbMinMax[rand(0,rgbMinMax.length-1)], // main colors 24 2
+		rgbMinMax[rand(0,rgbMinMax.length-1)], // main colors 25 3
+		rgbMinMax[rand(0,rgbMinMax.length-1)], // main colors 26 4
+		rgbMinMax[rand(0,rgbMinMax.length-1)], // main colors 27 5
 		rand(0,6), // box shadow length(?) 6
 		rand(0,10), // box shadow blur(?) 7
 		rand(-10,15), // border radius 8
@@ -108,19 +108,10 @@ const randomColor = (DNAarr) => {
 	c1 = [DNAarr[0], DNAarr[1], DNAarr[2]];
 	c2 = [DNAarr[3], DNAarr[4], DNAarr[5]];
 
-	console.log(c1, c2);
-
-		console.log(colorDiff(c1,c2)+" asd");
-
-
 	if (colorDiff(c1,c2) <= 30) {
 		console.log("randcolor");
 		c1 = [rand(0,255), rand(0,255), rand(0,255)];
 	}
-
-	console.log(c1, c2);
-	console.log(colorDiff(c1,c2)+" asd");
-
 
 	indexDNA+=6;
 
@@ -130,10 +121,6 @@ const randomColor = (DNAarr) => {
 		// randomColor();
 	// }
 }
-
-// const map = () => {
-
-// }
 
 let indexDNA = 0;
 
