@@ -126,9 +126,10 @@ var randomColor = function randomColor(DNAarr) {
 var indexDNA = 0;
 
 var activateProperty = function activateProperty(target, property, setting, probability, aDNAarr) {
-	// if (parseInt(aDNAarr[indexDNA]) === 1) { // === 1
-	$(target).css(property, setting);
-	// }
+	if (parseInt(aDNAarr[indexDNA]) === 1) {
+		// === 1
+		$(target).css(property, setting);
+	}
 
 	indexDNA++;
 };

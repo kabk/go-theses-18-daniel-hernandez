@@ -125,9 +125,9 @@ const randomColor = (DNAarr) => {
 let indexDNA = 0;
 
 const activateProperty = (target, property, setting, probability, aDNAarr) => {
-	// if (parseInt(aDNAarr[indexDNA]) === 1) { // === 1
+	if (parseInt(aDNAarr[indexDNA]) === 1) { // === 1
 		$(target).css(property, setting);
-	// }
+	}
 
 	indexDNA++;
 }

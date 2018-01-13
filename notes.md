@@ -36,3 +36,6 @@ better interface for prev designs, back front arrow + best designs... screenshot
 color diff
 always some random dna in new gen
 
+prevent notes+img from colliding
+click img zoom
+codetube

@@ -149,7 +149,7 @@ const defaultDesign = () => {
 		0, // padding 5 27
 		100, // col width 28
 		0, // float L or R 29
-		0, // big landing 30
+		1, // big landing 30
 		1.2, // font size p 31
 		1.2, // font size h2 32
 		1.2, // font size h3 33
