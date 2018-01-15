@@ -153,6 +153,11 @@
 				<p>soon</p>
 			</section>
 
+			<section id="references">
+				<h3>References</h3>
+				
+			</section>
+
 <!-- 			<section>
 				<span class="imgLink">image example</span><span class="linkedImg sideContent"><img src="img/galapagos-icc240.jpg" /><span class="imgCaption"><br>Caption blerp, 1923</span></span>
 				<sup class="refLink">1</sup><span class="linkedRef">1. Hijazi, Samer, Rishi Kumar, and Chris Rowen. “Using Convolutional Neural Networks for Image Recognition.” Cadence, 2015.</span>
