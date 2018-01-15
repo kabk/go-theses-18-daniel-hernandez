@@ -417,7 +417,17 @@ const closeImg = () => {
 clickToEnlarge();
 
 
+const numberRefs = () => {
+	$(".refLink").each(function(i){
+		$(this).text(i+1);
+	});
 
+	$(".linkedRef").each(function(i){
+		$(this).prepend((i+1)+". ");
+	});
+}
+
+numberRefs();
 
 
 const avoidCollidingSideContent = () => {

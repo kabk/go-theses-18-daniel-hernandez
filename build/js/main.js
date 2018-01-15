@@ -404,6 +404,18 @@ var closeImg = function closeImg() {
 
 clickToEnlarge();
 
+var numberRefs = function numberRefs() {
+	$(".refLink").each(function (i) {
+		$(this).text(i + 1);
+	});
+
+	$(".linkedRef").each(function (i) {
+		$(this).prepend(i + 1 + ". ");
+	});
+};
+
+numberRefs();
+
 var avoidCollidingSideContent = function avoidCollidingSideContent() {
 	var bottomCoords = [];
 	var topCoords = [];
