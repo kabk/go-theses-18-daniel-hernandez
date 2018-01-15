@@ -423,11 +423,10 @@ const numberRefs = () => {
 	});
 
 	$(".linkedRef").each(function(i){
-		$(this).prepend((i+1)+". ");
+		$(this).prepend((i+1)+". "+references[i]);
 	});
 }
 
-numberRefs();
 
 
 const avoidCollidingSideContent = () => {
@@ -460,3 +459,34 @@ const avoidCollidingSideContent = () => {
 setTimeout(function(){
 	avoidCollidingSideContent();
 },1900);
+
+
+
+
+
+const references = [`S. Venkatachalam, Founding Partner, Centerview Capital Technology. (2017, May 24). 2017 is the year of artificial intelligence. Here's why. Retrieved December 10, 2017, from <a href="https://www.weforum.org/agenda/2017/05/2017-is-the-year-of-artificial-intelligence-here-s-why/">weforum.org</a>`,
+`Sneed, A. (2015, May 19). Moore's Law Keeps Going, Defying Expectations. Retrieved January 03, 2018, from <a href="https://www.scientificamerican.com/article/moore-s-law-keeps-going-defying-expectations/">scientificamerican.com</a>`,
+`Roser, M., & Ritchie, H. (n.d.). Technological Progress. Retrieved January 02, 2018, from <a href="https://ourworldindata.org/technological-progress/">ourworldindata.org</a>`,
+`Cellan-Jones, R. (2014, December 02). Stephen Hawking warns artificial intelligence could end mankind. Retrieved January 01, 2018, from <a href="http://www.bbc.com/news/technology-30290540">bbc.com</a>`,
+`Etherington, D. (2017, September 04). Elon Musk warns that vying for AI superiority could lead to WW3. Retrieved January 02, 2018, from <a href="https://techcrunch.com/2017/09/04/elon-musk-warns-that-vying-for-ai-superiority-could-lead-to-ww3/">techcrunch.com</a>`,
+`Darwin, C. (1859). On the origin of species by means of natural selection, or, the preservation of favoured races in the struggle for life. London: J. Murray.`,
+`Mccall, J. (2005). Genetic algorithms for modelling and optimisation. Journal of Computational and Applied Mathematics, 184(1), 205-222. doi:10.1016/j.cam.2004.07.034`,
+`Imperial College London. (n.d.). Application of Genetic Algorithms. Retrieved December 14, 2017, from <a href="https://www.doc.ic.ac.uk/~nd/surprise_96/journal/vol1/tcw2/article1.html">doc.ic.ac.uk</a>`,
+`Hornby, G., Globus, A., Linden, D., & Lohn, J. (2006). Automated Antenna Design with Evolutionary Algorithms. Space 2006. doi:10.2514/6.2006-7242`,
+`Sims, K. (1997). Galápagos. Retrieved January 09, 2018, from <a href="http://www.karlsims.com/galapagos/">karlsims.com</a>`,
+`Woodford, C. (2017, February 24). How neural networks work - A simple introduction. Retrieved January 08, 2018, from <a href="http://www.explainthatstuff.com/introduction-to-neural-networks.html">explainthatstuff.com</a>`,
+`Google. (2015, November 9). Tensorflow. Retrieved January 10, 2018, from <a href="https://github.com/tensorflow">github.com</a>`,
+`Google. (2017, December 21). Tensorflow/models. Retrieved January 10, 2018, from <a href="https://github.com/tensorflow/models/tree/master/research/inception">github.com</a>`,
+`Agüera y Arcas, B. (2016, July 22). Retrieved January 03, 2018, from <a href="www.youtube.com/watch?v=uSUOdu_5MPc">youtube.com</a>`,
+`Jennings, K. E. (2010, October 02). Developing Creativity: Artificial Barriers in Artificial Intelligence. Minds & Machines, 20(4), 489-501.`,
+`Boden, M. A. (2009, Fall). Computer Models of Creativity. AI Magazine, 30(3). doi:https://doi.org/10.1609/aimag.v30i3.2254`,
+`Goodfellow, Ian J.; Pouget-Abadie, Jean; Mirza, Mehdi; Xu, Bing; Warde-Farley, David; Ozair, Sherjil; Courville, Aaron; Bengio, Yoshua. Generative Adversarial Networks. ARXIV.`,
+`Vincent, J. (2017, October 30). All of these faces are fake celebrities spawned by AI. Retrieved January 02, 2018, from <a href="https://www.theverge.com/2017/10/30/16569402/ai-generate-fake-faces-celebs-nvidia-gan">theverge.com</a>`,
+`Karras, T., Aila, T., Laine, S., & Lehtinen, J. (2017). Progressive growing of  GANs for improved quality, stability, and variation. ILCR. Retrieved from <a href="http://research.nvidia.com/sites/default/files/publications/karras2017gan-paper.pdf">research.nvidia.com</a>`,
+`(2016, June 19). 255BITS/HyperGAN. Retrieved January 03, 2018, from <a href="https://github.com/255BITS/HyperGAN">github.com</a>`,
+`Boden, M. A. (2009, Fall). Computer Models of Creativity. AI Magazine, 30(3). doi:https://doi.org/10.1609/aimag.v30i3.2254`,
+`Goodfellow, I. J. (2017, December 03). Tweet. Retrieved January 01, 2018, from <a href="https://twitter.com/goodfellow_ian/status/937406530743287808">twitter.com</a>`,
+`Radford, A., & Chintala, S. (2015, Nov 22). Newmu/dcgan_code. Retrieved January 10, 2018, from <a href="https://github.com/Newmu/dcgan_code">github.com</a>`,];
+
+
+numberRefs();
