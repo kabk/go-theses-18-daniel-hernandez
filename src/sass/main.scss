@@ -281,6 +281,15 @@ canvas{
 	}
 }
 
+.twoImage{
+	img{
+		width: 50%;
+		float: left;
+		left: 0;
+		padding-right: 5px;
+	}
+}
+
 //PRINT
 @media print {
   *{
@@ -307,6 +316,5 @@ canvas{
   #genInfo{
   	display: none !important;
   }
-
 
 }

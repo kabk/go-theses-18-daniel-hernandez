@@ -205,6 +205,12 @@ canvas {
     transform: translate(-50%, -50%);
     text-align: center; }
 
+.twoImage img {
+  width: 50%;
+  float: left;
+  left: 0;
+  padding-right: 5px; }
+
 @media print {
   * {
     background-color: white !important;
