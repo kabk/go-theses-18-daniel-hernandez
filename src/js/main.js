@@ -395,3 +395,35 @@ const tableOfContents = () => {
 	},1200);
 
 }
+
+
+const avoidCollidingSideContent = () => {
+	let bottomCoords = [];
+	let topCoords = [];
+	$(".sideContent").each(function(i){
+		let $this = $(this);
+		var h = $this.outerHeight();
+		var o = $this.offset().top;
+
+		var bottom = h+o;
+
+		$this.addClass(`sideContent${i}`);
+		bottomCoords.push(bottom);
+		topCoords.push(o);
+	});
+
+	for (var i = 0; i < bottomCoords.length; i++) {
+		var overlap = bottomCoords[i] - topCoords[i+1]
+		if (bottomCoords[i] > topCoords[i+1]) {
+			console.log("OVERLAP"+overlap);
+			$(".sideContent"+(i+1)).css("padding-top", overlap+"px");
+		} else {
+			$(".sideContent"+(i+1)).css("padding-top", "0");
+		}
+
+	}
+}
+
+setTimeout(function(){
+	avoidCollidingSideContent();
+},1900);

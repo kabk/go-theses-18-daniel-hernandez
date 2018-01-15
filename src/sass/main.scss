@@ -118,7 +118,7 @@ canvas{
 .linkedImg{
 	position: absolute;
 	max-height: 80vh;
-	padding-top: 0 !important;
+	// padding-top: 0;
 	text-align: center;
 	img{
 		max-width:100%;
@@ -132,7 +132,7 @@ canvas{
 
 .linkedRef{
 	position: absolute;
-	padding-top: 0 !important;
+	// padding-top: 0;
 }
 
 #bg{
@@ -166,7 +166,10 @@ canvas{
 }
 
 .shiny{
-	background-color: rgba(255, 255, 255, 0.5);
+	text-shadow: 0 0 4px rgba(255, 255, 255, 1);
+	span{
+		text-shadow: 0 0 4px rgba(255, 255, 255, 1);
+	}
 }
 
 #rateBar{
@@ -258,8 +261,6 @@ canvas{
 		font-weight: bold;
 	}
 }
-
-
 
 //PRINT
 @media print {
