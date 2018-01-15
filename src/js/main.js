@@ -223,7 +223,6 @@ const design = (DNAarr, aDNAarr) => {
 	activateProperty("section, header, .linkedImg, .linkedRef, #prevDesigns", "padding", `${parseInt(DNAarr[27])}px`, 1, aDNAarr);
 
 
-
 	let colWidth = DNAarr[28];
 
 	$("#textWrap").css("width", colWidth+"%");
@@ -395,6 +394,30 @@ const tableOfContents = () => {
 	},1200);
 
 }
+
+const clickToEnlarge = () => {
+	$("img").each(function(){
+		let $img = $(this);
+		let src = $img.attr("src");
+		let text = $img.parent().find("span").text();
+		$img.click(function(){
+			console.log($img);
+			$("body").append(`<div class="bigImg"><div><img src="${src}"><br><p>${text}</p></div></div>`);
+			closeImg();
+		});
+	});
+}
+
+const closeImg = () => {
+	$(".bigImg").click(function(){
+		$(".bigImg").remove();
+	});
+}
+
+clickToEnlarge();
+
+
+
 
 
 const avoidCollidingSideContent = () => {

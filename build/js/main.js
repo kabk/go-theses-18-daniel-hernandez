@@ -383,6 +383,27 @@ var tableOfContents = function tableOfContents() {
 	}, 1200);
 };
 
+var clickToEnlarge = function clickToEnlarge() {
+	$("img").each(function () {
+		var $img = $(this);
+		var src = $img.attr("src");
+		var text = $img.parent().find("span").text();
+		$img.click(function () {
+			console.log($img);
+			$("body").append("<div class=\"bigImg\"><div><img src=\"" + src + "\"><br><p>" + text + "</p></div></div>");
+			closeImg();
+		});
+	});
+};
+
+var closeImg = function closeImg() {
+	$(".bigImg").click(function () {
+		$(".bigImg").remove();
+	});
+};
+
+clickToEnlarge();
+
 var avoidCollidingSideContent = function avoidCollidingSideContent() {
 	var bottomCoords = [];
 	var topCoords = [];
