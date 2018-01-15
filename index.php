@@ -145,12 +145,25 @@
 
 			<section>
 				<h3>Colophon</h3>
-				<p> (under construction)
-					Design and development<br>
-					<strong>Daniel Hernández Chacón</strong>
+				<p><strong>
+					Please be patient,<br>
+					I’m still learning.
+				</strong><br>
+				Use cases and implications of<br>machine learning in graphic design
 				</p>
-				<p>Special thanks to</p>
-				<p>soon</p>
+				<p>January 2018</p>	
+				<p>Thesis for the Graphic Design BA of<br>the Royal Academy of Art, The Hague (KABK)</p>
+				<p>Text and web development<br>
+				<strong><a href="http://danielh.info">Daniel Hernández Chacón</a></strong>
+				</p>
+				<p>Special thanks to<br>
+				<strong>Nick Axel</strong><br>
+				<strong>Just van Rossum</strong><br>
+				<strong><a href="https://christoph-knoth.com/">Christoph Knoth</a></strong><br>
+				<strong>Matthias Kreutzer</strong><br>
+				<strong><a href="http://ericschrijver.nl/">Eric Schrijver</a></strong><br>
+				<strong>Hector Hernández Macías</strong><br>
+				</p>
 			</section>
 
 			<section id="references">
